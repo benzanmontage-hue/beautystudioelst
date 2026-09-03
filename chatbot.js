@@ -5,7 +5,7 @@
   const BOOK_URL = 'https://calendar.app.google.com/';
 
   var css = `
-#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#b57f69;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(181,127,105,.4);transition:transform .25s;z-index:999;font-size:26px}
+#seleChatBubble{position:fixed;bottom:24px;right:24px;width:68px;height:68px;border-radius:50%;background:#b57f69;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(181,127,105,.4);transition:transform .25s;z-index:999;font-size:30px}
 #seleChatBubble:hover{transform:scale(1.08)}
 #seleChatWindow{position:fixed;bottom:96px;right:24px;width:min(380px,calc(100vw - 40px));height:560px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(58,44,36,.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transform-origin:bottom right;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .28s;opacity:0;transform:scale(.9) translateY(20px);pointer-events:none;font-family:'Inter',sans-serif}
 #seleChatWindow.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}
