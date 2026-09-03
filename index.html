@@ -169,11 +169,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-
 .social-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all .25s}
 .social-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
-footer{background:#2f241e;color:rgba(255,255,255,.6);padding:40px 0;font-size:.88rem}
-footer .container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+footer{background:#2f241e;color:rgba(255,255,255,.65);padding:56px 0 28px;font-size:.88rem}
+footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+footer h4{color:#fff;font-family:var(--serif);font-size:1.05rem;margin-bottom:16px}
 footer .brand{color:#fff}
-footer a{color:rgba(255,255,255,.6)}
-footer a:hover{color:#fff}
+footer a{display:block;color:rgba(255,255,255,.65);font-size:.88rem;padding:8px 0;margin-bottom:2px;transition:color .3s}
+footer a:hover{color:var(--accent)}
+footer .social-link{display:flex;align-items:center;gap:8px}
+footer .social-link svg{flex-shrink:0;opacity:.85;transition:opacity .3s}
+footer .social-link:hover svg{opacity:1}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 /* MOBILE STICKY BAR */
 .mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:95;background:#2f241e;padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
@@ -196,12 +201,14 @@ footer a:hover{color:#fff}
   .ba-grid{grid-template-columns:1fr 1fr}
   .over .container{flex-direction:column}
   .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:860px){
   .mobile-bar{display:flex}
   .treat-grid{grid-template-columns:1fr}
   .prijs-grid{grid-template-columns:1fr}
   .ba-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
   body{padding-bottom:76px}
 }
 @media(max-width:640px){
@@ -550,13 +557,10 @@ footer a:hover{color:#fff}
       <div class="contact-hours reveal">
         <h3>Openingstijden</h3>
         <div class="ot-status closed" id="otStatus"><span class="dot"></span><span id="otStatusText">…</span></div>
-        <div class="ot-row" data-day="1"><span>Maandag</span><span class="tijd">10:00 – 17:00</span></div>
-        <div class="ot-row" data-day="2"><span>Dinsdag</span><span class="tijd">10:00 – 17:00</span></div>
-        <div class="ot-row" data-day="3"><span>Woensdag</span><span class="tijd">10:00 – 17:00</span></div>
-        <div class="ot-row" data-day="4"><span>Donderdag</span><span class="tijd">12:00 – 21:00</span></div>
-        <div class="ot-row" data-day="5"><span>Vrijdag</span><span class="tijd">10:00 – 17:00</span></div>
-        <div class="ot-row" data-day="6"><span>Zaterdag</span><span class="tijd">10:00 – 17:00</span></div>
-        <div class="ot-row" data-day="0"><span>Zondag</span><span class="tijd">12:00 – 17:00</span></div>
+        <div class="ot-row" data-day="1,2,3"><span>Ma, Di & Wo</span><span class="tijd">10:00–17:00</span></div>
+        <div class="ot-row" data-day="4"><span>Do</span><span class="tijd">12:00–21:00</span></div>
+        <div class="ot-row" data-day="5,6"><span>Vr & Za</span><span class="tijd">10:00–17:00</span></div>
+        <div class="ot-row" data-day="0"><span>Zo</span><span class="tijd">12:00–17:00</span></div>
       </div>
     </div>
   </div>
@@ -564,10 +568,34 @@ footer a:hover{color:#fff}
 
 <footer>
   <div class="container">
-    <span class="brand">Selé <span style="color:var(--accent)">&nbsp;Beauty Studio</span></span>
-    <span>© 2026 Selé Beauty Studio · Elst (Gelderland)</span>
-    <a href="privacy.html">Privacyverklaring</a>
-    <span>Website door <a href="https://github.com/benzanmontage-hue" target="_blank" rel="noopener">b·labs</a></span>
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff">Selé <span style="color:var(--accent)">Beauty Studio</span></div>
+        <p style="margin-top:12px;font-size:.88rem">Natuurlijke schoonheid in Elst — keratine, blowouts en wenkbrauwen.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://www.google.com/maps/search/?api=1&query=Elst+Gelderland" target="_blank" rel="noopener">Elst (Gelderland)</a>
+        <a href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>
+        <a href="privacy.html">Privacyverklaring</a>
+      </div>
+      <div>
+        <h4>Openingstijden</h4>
+        <a>Ma, Di & Wo 10:00–17:00</a>
+        <a>Do 12:00–21:00</a>
+        <a>Vr & Za 10:00–17:00</a>
+        <a>Zo 12:00–17:00</a>
+      </div>
+      <div>
+        <h4>Volg ons</h4>
+        <a href="https://www.instagram.com/beautystudioelst" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg> Instagram</a>
+        <a href="https://www.facebook.com/beautystudioelst" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Selé Beauty Studio · Elst (Gelderland)</span>
+      <span>Website door <a href="https://github.com/benzanmontage-hue" target="_blank" rel="noopener">b·labs</a></span>
+    </div>
   </div>
 </footer>
 
@@ -591,7 +619,7 @@ const hours = {1:['10:00','17:00'],2:['10:00','17:00'],3:['10:00','17:00'],4:['1
 (function(){
   const now = new Date(); const day = now.getDay(); const mins = now.getHours()*60+now.getMinutes();
   const st = document.getElementById('otStatus'); const txt = document.getElementById('otStatusText');
-  document.querySelectorAll('.ot-row').forEach(r => { const d = parseInt(r.dataset.day,10); if(d===day) r.style.fontWeight='600'; });
+  document.querySelectorAll('.ot-row').forEach(r => { const days = r.dataset.day.split(',').map(Number); if(days.includes(day)) r.style.fontWeight='600'; });
   const t = hours[day];
   if (t) { const [o,c] = t.map(x => { const [h,m]=x.split(':').map(Number); return h*60+m; });
     if (mins>=o && mins<c) { st.className='ot-status open'; txt.textContent='Nu open tot '+t[1]; }
