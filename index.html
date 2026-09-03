@@ -637,13 +637,14 @@ const hours = {1:['10:00','17:00'],2:['10:00','17:00'],3:['10:00','17:00'],4:['1
       
     </div>
     <div style="display:flex;gap:10px;align-items:center;">
-      <button id="cookieDecline" style="background:transparent;color:#e8e8ec;border:1px solid #4a5060;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Weigeren</button>
-      <button id="cookieAccept" style="background:#3b82f6;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">Accepteren</button>
+      <button id="cookieDecline" onclick="cookieDone('declined')" style="background:transparent;color:#e8e8ec;border:1px solid #4a5060;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Weigeren</button>
+      <button id="cookieAccept" onclick="cookieDone('accepted')" style="background:#3b82f6;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">Accepteren</button>
     </div>
   </div>
 </div>
 <script>
-(function(){var b=document.getElementById('cookieConsent');if(!b){return;}if(localStorage.getItem('cookie-consent')){b.remove();return;}function done(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}b.remove();}var a=document.getElementById('cookieAccept'),d=document.getElementById('cookieDecline'),i=document.getElementById('cookieInfoLink'),x=document.getElementById('cookieInfo');if(a){a.addEventListener('click',function(){done('accepted');});}if(d){d.addEventListener('click',function(){done('declined');});}if(i&&x){i.addEventListener('click',function(e){e.preventDefault();x.style.display=x.style.display==='none'?'block':'none';}})})();
+function cookieDone(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}var b=document.getElementById('cookieConsent');if(b){b.remove();}}
+(function(){try{if(localStorage.getItem('cookie-consent')){var b=document.getElementById('cookieConsent');if(b){b.remove();}}}catch(e){}})();
 </script>
 
 </body>
