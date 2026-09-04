@@ -41,16 +41,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-
 
 /* HERO */
 .hero{padding:64px 0 56px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;max-width:760px;margin:0 auto;text-align:center}
 .eyebrow{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:18px}
 .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,5.5vw,3.9rem);line-height:1.08;letter-spacing:-1px}
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero p{color:var(--muted);font-size:1.05rem;max-width:470px;margin:20px 0 30px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-img{position:relative;max-width:430px}
-.hero-img img{width:100%;border-radius:22px;aspect-ratio:1/1;object-fit:cover;box-shadow:0 24px 60px rgba(58,44,36,.16)}
-.hero-badge{position:absolute;bottom:-18px;left:-14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 14px 34px rgba(58,44,36,.14);font-size:.82rem;font-weight:600}
-.hero-badge span{display:block;font-size:.7rem;color:var(--muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:470px;margin:20px auto 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 /* SECTION */
 .section{padding:60px 0}
@@ -116,7 +112,6 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
 
 @media(max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:36px}
-  .hero-img{max-width:300px;margin:0 auto}
   .treat-grid,.ba-grid,.usp-grid,.rev-grid{grid-template-columns:1fr}
   .hero{padding:44px 0}
 }
@@ -141,10 +136,6 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
         <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek afspraak</a>
         <a href="#resultaten" class="btn btn-ghost">Bekijk resultaten</a>
       </div>
-    </div>
-    <div class="hero-img">
-      <img src="images/hero-brows.jpg" alt="Gestylde wenkbrauwen bij Selé Beauty Studio">
-      <div class="hero-badge">8 jaar ervaring<span>in de beautybranche</span></div>
     </div>
   </div>
 </section>
@@ -239,7 +230,7 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
       </div>
     </div>
     <div class="rev-cta">
-      <a href="https://www.google.com/maps/place/Beauty+studio+Elst+-+Sel%C3%A9+haar+%26+beauty/@51.9185389,5.8436449,17z/data=!4m8!3m7!1s0x47c7a1dc69e4d5cd:0xd8f837d34225fa3a!8m2!3d51.9185389!4d5.8462198!9m1!1b1!16s%2Fg%2F11nvh9n9kg" target="_blank" rel="noopener" class="btn btn-ghost">Bekijk alle reviews op Google</a>
+      <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" class="btn btn-ghost">Bekijk alle reviews op Google</a>
     </div>
   </div>
 </section>
@@ -270,8 +261,8 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
 
 <footer>
   <div class="container">
-    <p>Selé Beauty Studio · <a href="https://www.google.com/maps/place/Beauty+studio+Elst+-+Sel%C3%A9+haar+%26+beauty/@51.9185389,5.8436449,17z/data=!4m8!3m7!1s0x47c7a1dc69e4d5cd:0xd8f837d34225fa3a!8m2!3d51.9185389!4d5.8462198!9m1!1b1!16s%2Fg%2F11nvh9n9kg" target="_blank" rel="noopener" style="text-decoration:underline">Dorpsstraat 57, 6661 EG Elst (Gelderland)</a></p>
-    <p style="margin-top:4px;color:var(--muted)">Tussen Arnhem en Nijmegen · <a href="https://www.google.com/maps/place/Beauty+studio+Elst+-+Sel%C3%A9+haar+%26+beauty/@51.9185389,5.8436449,17z/data=!4m8!3m7!1s0x47c7a1dc69e4d5cd:0xd8f837d34225fa3a!8m2!3d51.9185389!4d5.8462198!9m1!1b1!16s%2Fg%2F11nvh9n9kg" target="_blank" rel="noopener" style="text-decoration:underline">Route in Google Maps</a></p>
+    <p>Selé Beauty Studio · <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Dorpsstraat 57, 6661 EG Elst (Gelderland)</a></p>
+    <p style="margin-top:4px;color:var(--muted)">Tussen Arnhem en Nijmegen · <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Route in Google Maps</a></p>
     <p style="margin-top:6px"><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a> · <a href="index.html">Terug naar de site</a></p>
   </div>
 </footer>
