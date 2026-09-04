@@ -36,6 +36,7 @@
 .sele-foot input:focus{border-color:#b57f69}
 .sele-foot button{background:#b57f69;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
 .sele-book{display:inline-block;background:#b57f69;color:#fff!important;font-size:.85rem;font-weight:600;padding:11px 22px;border-radius:100px;margin-top:8px;text-decoration:none;letter-spacing:.5px}
+@media(max-width:860px){#seleChatBubble{bottom:84px}}
 `;
 
   var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
