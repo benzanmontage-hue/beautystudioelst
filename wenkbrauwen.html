@@ -47,8 +47,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero p{color:var(--muted);font-size:1.05rem;max-width:470px;margin:20px 0 30px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-img{position:relative}
-.hero-img img{width:100%;border-radius:22px;aspect-ratio:4/5;object-fit:cover;box-shadow:0 24px 60px rgba(58,44,36,.16)}
+.hero-img{position:relative;max-width:430px}
+.hero-img img{width:100%;border-radius:22px;aspect-ratio:1/1;object-fit:cover;box-shadow:0 24px 60px rgba(58,44,36,.16)}
 .hero-badge{position:absolute;bottom:-18px;left:-14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 14px 34px rgba(58,44,36,.14);font-size:.82rem;font-weight:600}
 .hero-badge span{display:block;font-size:.7rem;color:var(--muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}
 
@@ -106,6 +106,7 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
 
 @media(max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-img{max-width:300px;margin:0 auto}
   .treat-grid,.ba-grid,.usp-grid{grid-template-columns:1fr}
   .hero{padding:44px 0}
 }
@@ -132,7 +133,7 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
       </div>
     </div>
     <div class="hero-img">
-      <img src="images/brows.jpg" alt="Mooi gevormde wenkbrauwen bij Selé Beauty Studio">
+      <img src="images/hero-brows.jpg" alt="Gestylde wenkbrauwen bij Selé Beauty Studio">
       <div class="hero-badge">8 jaar ervaring<span>in de beautybranche</span></div>
     </div>
   </div>
@@ -234,7 +235,8 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
 
 <footer>
   <div class="container">
-    <p>Selé Beauty Studio · Elst (Gelderland), tussen Arnhem en Nijmegen</p>
+    <p>Selé Beauty Studio · Dorpsstraat 57, 6661 EG Elst (Gelderland)</p>
+    <p style="margin-top:4px;color:var(--muted)">Tussen Arnhem en Nijmegen</p>
     <p style="margin-top:6px"><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a> · <a href="index.html">Terug naar de site</a></p>
   </div>
 </footer>
