@@ -2,7 +2,7 @@
 (function(){
   if (window.__seleChatLoaded) return; window.__seleChatLoaded = true;
 
-  const BOOK_URL = 'https://calendar.app.google.com/';
+  const BOOK_URL = 'https://selinaco4l.setmore.com/';
 
   var css = `
 #seleChatBubble{position:fixed;bottom:24px;right:24px;width:68px;height:68px;border-radius:50%;background:#b57f69;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(181,127,105,.4);transition:transform .25s;z-index:999;font-size:30px}
