@@ -107,19 +107,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-
 .treat-price{margin-top:18px;font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--accent-dark)}
 .treat-book{margin-top:12px;display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent-dark);border-bottom:2px solid var(--accent);padding-bottom:2px;align-self:flex-start}
 
-/* PRIJSLIJST */
-.prijs-blok{margin-bottom:40px}
-.prijs-blok h4{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin-bottom:14px;text-align:center}
-.prijs-blok h4 span{display:block;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:4px}
-.prijslijst{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.prijs-row{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid var(--line)}
-.prijs-row:last-child{border-bottom:none}
-.prijs-row .naam{font-weight:500;font-size:.96rem}
-.prijs-row .naam small{display:block;color:var(--muted);font-weight:400;font-size:.8rem}
-.prijs-row .dots{flex:1;border-bottom:1px dotted var(--line);margin:0 16px;transform:translateY(-4px)}
-.prijs-row .prijs{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--accent-dark);white-space:nowrap}
-.prijs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1000px;margin:0 auto}
-
 /* BEFORE / AFTER */
 .ba{background:var(--bg-soft)}
 .ba-logo{display:flex;justify-content:center;margin-bottom:30px}
@@ -213,7 +200,6 @@ footer .social-link:hover svg{opacity:1}
 @media(max-width:860px){
   .mobile-bar{display:flex}
   .treat-grid{grid-template-columns:1fr}
-  .prijs-grid{grid-template-columns:1fr}
   .ba-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr}
   body{padding-bottom:76px}
@@ -291,7 +277,6 @@ footer .social-link:hover svg{opacity:1}
     <a href="#top" class="brand"><img src="images/logo.jpg" alt="Selé Beauty Studio logo">Selé <span style="color:var(--accent)">&nbsp;Beauty Studio</span></a>
     <div class="nav-links">
       <a href="#behandelingen">Behandelingen</a>
-      <a href="#prijzen">Prijzen</a>
       <a href="#beforeafter">Resultaten</a>
       <a href="#over">Over mij</a>
       <a href="#faq">FAQ</a>
@@ -302,7 +287,6 @@ footer .social-link:hover svg{opacity:1}
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#behandelingen">Behandelingen</a>
-    <a href="#prijzen">Prijzen</a>
     <a href="#beforeafter">Resultaten</a>
     <a href="#over">Over mij</a>
     <a href="#faq">FAQ</a>
@@ -440,41 +424,6 @@ footer .social-link:hover svg{opacity:1}
       </div>
     </div>
     </div>
-</section>
-
-<section class="section" id="prijzen">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Prijzen</div>
-      <h2>Transparant, zonder verrassingen</h2>
-    </div>
-    <div class="prijs-grid">
-      <div class="prijs-blok reveal">
-        <h4><span>Brow Studio</span>Wenkbrauwen</h4>
-        <div class="prijslijst">
-          <div class="prijs-row"><span class="naam">The Brow Shape<small>± 30 min</small></span><span class="dots"></span><span class="prijs">€20+</span></div>
-          <div class="prijs-row"><span class="naam">Brow Signature<small>henna of hybrid</small></span><span class="dots"></span><span class="prijs">€35–40</span></div>
-          <div class="prijs-row"><span class="naam">Brow Luxe<small>lamination + henna/hybrid</small></span><span class="dots"></span><span class="prijs">€57,50</span></div>
-        </div>
-      </div>
-      <div class="prijs-blok reveal">
-        <h4><span>The Blowout Bar</span>Blowout</h4>
-        <div class="prijslijst">
-          <div class="prijs-row"><span class="naam">The Classic Blowout<small>45 min</small></span><span class="dots"></span><span class="prijs">€40</span></div>
-          <div class="prijs-row"><span class="naam">The Bombshell Blowout<small>60 min</small></span><span class="dots"></span><span class="prijs">€55</span></div>
-          <div class="prijs-row"><span class="naam">The Sleek Blowout<small>45–60 min</small></span><span class="dots"></span><span class="prijs">€45</span></div>
-        </div>
-      </div>
-      <div class="prijs-blok reveal">
-        <h4><span>Keratin &amp; Smoothing</span>Keratine</h4>
-        <div class="prijslijst">
-          <div class="prijs-row"><span class="naam">The Botox Glow<small>± 3–4 maanden</small></span><span class="dots"></span><span class="prijs">vanaf €90</span></div>
-          <div class="prijs-row"><span class="naam">The Marrocare Smooth<small>tot ± 6 maanden</small></span><span class="dots"></span><span class="prijs">vanaf €150</span></div>
-          <div class="prijs-row"><span class="naam">The Permanent Straight<small>permanent</small></span><span class="dots"></span><span class="prijs">vanaf €220</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section class="section ba" id="beforeafter">
