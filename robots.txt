@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://benzanmontage-hue.github.io/beautystudioelst/sitemap.xml
+Sitemap: https://www.beautystudioelst.nl/sitemap.xml
