@@ -115,6 +115,12 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
   .treat-grid,.ba-grid,.usp-grid,.rev-grid{grid-template-columns:1fr}
   .hero{padding:44px 0}
 }
+
+/* SOCIAL ICONS */
+.socials{display:flex;gap:12px;justify-content:center;margin:16px 0 12px}
+.social-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all .25s}
+.social-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.social-btn svg{flex-shrink:0}
 </style>
 </head>
 <body>
@@ -263,7 +269,11 @@ footer{text-align:center;padding:34px 0;color:var(--muted);font-size:.82rem;bord
   <div class="container">
     <p>Selé Beauty Studio · <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Dorpsstraat 57, 6661 EG Elst (Gelderland)</a></p>
     <p style="margin-top:4px;color:var(--muted)">Tussen Arnhem en Nijmegen · <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Route in Google Maps</a></p>
-    <p style="margin-top:6px"><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a> · <a href="index.html">Terug naar de site</a></p>
+    <div class="socials">
+      <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    </div>
+    <p><a href="index.html">Terug naar de site</a></p>
   </div>
 </footer>
 
