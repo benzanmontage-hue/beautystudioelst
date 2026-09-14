@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.beautystudioelst.nl/sitemap.xml
+Sitemap: https://beautystudioelst.nl/sitemap.xml
