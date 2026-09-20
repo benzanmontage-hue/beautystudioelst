@@ -72,9 +72,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-
 .btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(181,127,105,.32)}
 .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
-.hero-visual{flex:.9;display:flex;justify-content:center;align-items:center}
-.hero-img{width:100%;max-width:560px;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(58,44,36,.18)}
-.hero-img img{width:100%;height:auto;display:block;object-fit:cover}
+.hero-visual{flex:.9;display:flex;justify-content:center}
+.hero-ring{width:min(360px,78vw);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 70px rgba(58,44,36,.18);border:10px solid #fff}
+.hero-ring img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:haarSway 7s ease-in-out infinite}
+@keyframes haarSway{
+  0%,100%{transform:scale(1.08) rotate(0deg)}
+  30%{transform:scale(1.13) rotate(.6deg)}
+  50%{transform:scale(1.09) rotate(0deg)}
+  70%{transform:scale(1.04) rotate(-.5deg)}
+}
+@media(prefers-reduced-motion:reduce){.hero-ring img{animation:none;transform:scale(1.05)}}
 
 /* SECTIE */
 .section{padding:92px 0}
@@ -304,7 +311,7 @@ footer .social-link:hover svg{opacity:1}
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-img"><img src="images/hero-brows.jpg" alt="Wenkbrauw resultaten — brow treatments bij Selé Beauty Studio" width="560" height="224"></div>
+      <div class="hero-ring"><img src="images/hero.jpg" alt="Blowout resultaat bij Selé Beauty Studio" width="360" height="360"></div>
     </div>
   </div>
 </header>
@@ -431,14 +438,12 @@ footer .social-link:hover svg{opacity:1}
     </div>
     <div class="ba-logo reveal"><img src="images/logo.jpg" alt="Selé Beauty Studio logo"></div>
     <div class="ba-grid">
-      <div class="ba-item reveal"><img src="images/brows-voor-na.jpg?v=5" alt="Wenkbrauw lamination voor en na — Brow Luxe Selé Beauty Elst" loading="lazy"><div class="ba-cap">Brow lamination — Voor &amp; Na</div></div>
-      <div class="ba-item reveal"><img src="images/brows-voor-na2.jpg?v=5" alt="Wenkbrauwen shapen en verven voor en na — Brow Signature Elst" loading="lazy"><div class="ba-cap">Brow henna — Voor &amp; Na</div></div>
-      <div class="ba-item reveal"><img src="images/brows-voor-na-nieuw.jpg?v=5" alt="Wenkbrauwen voor en na — Brow Shape Selé Beauty Elst" loading="lazy"><div class="ba-cap">Brow shape — Voor &amp; Na</div></div>
-      <div class="ba-item reveal"><img src="images/brows-voor-na-nieuw3.jpg?v=5" alt="Wenkbrauwen voor en na — henna resultaat Elst" loading="lazy"><div class="ba-cap">Henna resultaat</div></div>
       <div class="ba-item reveal"><img src="images/blowout-result1.jpg" alt="Blowout resultaat — volume en glans" loading="lazy"><div class="ba-cap">Volume &amp; glans</div></div>
       <div class="ba-item reveal"><img src="images/blowout-result2.jpg" alt="Blowout resultaat — gladde finish" loading="lazy"><div class="ba-cap">Gladde finish</div></div>
       <div class="ba-item reveal"><img src="images/blowout-result3.jpg" alt="Blowout resultaat — glanzend" loading="lazy"><div class="ba-cap">Glanzend resultaat</div></div>
       <div class="ba-item reveal"><img src="images/blowout-result4.jpg" alt="Blowout resultaat — steil en verzorgd" loading="lazy"><div class="ba-cap">Steil &amp; verzorgd</div></div>
+      <div class="ba-item reveal"><img src="images/brows-voor-na.jpg?v=4" alt="Wenkbrauw lamination voor en na — Brow Luxe Selé Beauty Elst" loading="lazy"><div class="ba-cap">Wenkbrauwen — Voor &amp; Na</div></div>
+      <div class="ba-item reveal"><img src="images/brows-voor-na2.jpg?v=4" alt="Wenkbrauwen shapen en verven voor en na — Brow Signature Elst" loading="lazy"><div class="ba-cap">Wenkbrauwen — Voor &amp; Na</div></div>
     </div>
     <div class="reveal" style="text-align:center;margin-top:36px"><a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek jouw behandeling</a></div>
   </div>
