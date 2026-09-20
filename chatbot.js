@@ -2,7 +2,7 @@
 (function(){
   if (window.__seleChatLoaded) return; window.__seleChatLoaded = true;
 
-  const BOOK_URL = 'https://selinaco4l.setmore.com/';
+  const BOOK_URL = 'https://beautystudioelst.setmore.com/';
 
   var css = `
 #seleChatBubble{position:fixed;bottom:24px;right:24px;width:68px;height:68px;border-radius:50%;background:#b57f69;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(181,127,105,.4);transition:transform .25s;z-index:999;font-size:30px}
@@ -50,10 +50,10 @@
 
   var KB = [
     {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! 👋 Welkom bij Selé Beauty Studio. Ik kan je alles vertellen over onze behandelingen, prijzen en openingstijden. Waar kan ik je mee helpen?'},
-    {k:['prijs','prijzen','kosten','tarief','tarieven','duur','hoe duur','euro','€'], r:'Dit zijn onze prijzen:<table class="pl"><tr><td>Botox Glow (keratine)</td><td>vanaf €90</td></tr><tr><td>Marrocare Smooth</td><td>vanaf €150</td></tr><tr><td>Permanent Straight</td><td>vanaf €220</td></tr><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Brow Shape</td><td>€20+</td></tr><tr><td>Brow Signature</td><td>€35–40</td></tr><tr><td>Brow Luxe</td><td>€57,50</td></tr></table>'},
+    {k:['prijs','prijzen','kosten','tarief','tarieven','duur','hoe duur','euro','€'], r:'Dit zijn onze prijzen:<table class="pl"><tr><td>Botox Glow (keratine)</td><td>vanaf €90</td></tr><tr><td>Marrocare Smooth</td><td>vanaf €150</td></tr><tr><td>Permanent Straight</td><td>vanaf €220</td></tr><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr></table>'},
     {k:['keratine','smoothing','botox','marrocare','permanent','steil'], r:'💇‍♀️ <b>Keratine:</b><br>• <b>Botox Glow (vanaf €90)</b> — zacht & pluisvrij, ±3–4 maanden<br>• <b>Marrocare Smooth (vanaf €150)</b> — tot 80% rechter, ±6 maanden<br>• <b>Permanent Straight (vanaf €220)</b> — permanent steil'},
     {k:['blowout','fohn','föhn','volume','krullen'], r:'💨 <b>Blowouts:</b><br>• <b>Classic (€40, 45 min)</b> — volumineus, everyday glam<br>• <b>Bombshell (€55, 60 min)</b> — max volume, "big hair"<br>• <b>Sleek (€45)</b> — strak & gepolijst'},
-    {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','henna','lamination'], r:'👁️ <b>Wenkbrauwen:</b><br>• <b>Brow Shape (€20+)</b> — epileren & trimmen<br>• <b>Brow Signature (€35–40)</b> — shaping + henna/hybrid<br>• <b>Brow Luxe (€57,50)</b> — lamination + hybrid tint of henna + shaping'},
+    {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','henna','lamination'], r:'👁️ <b>Wenkbrauwen:</b><br>• <b>Brow Shape (€20)</b> — epileren & trimmen<br>• <b>Brow Signature (€40)</b> — shaping + henna/hybrid<br>• <b>Brow Luxe (€57)</b> — lamination + hybrid tint of henna + shaping'},
     {k:['open','openingstijden','tijd','tijden','wanneer','uren','gesloten','vandaag'], r:'🕐 <b>Openingstijden:</b><br>Ma–Wo & Vr: 10:00–17:00 · Do: 12:00–21:00 · Za: 10:00–17:00 · Zo: 12:00–17:00'},
     {k:['waar','adres','locatie','zitten','bereiken','parkeren','elst','route'], r:'📍 Selé Beauty Studio zit in <b>Elst (Gelderland)</b>, tussen Arnhem en Nijmegen.'},
     {k:['boek','boeken','afspraak','reserveren','plan','planning'], r:'📅 Je kunt direct online boeken:<br><a href="'+BOOK_URL+'" target="_blank" rel="noopener" class="sele-book">📅 Boek een afspraak</a>'},
