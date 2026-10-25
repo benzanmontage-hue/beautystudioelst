@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC"></script>
+<!-- Google tag (gtag.js) — laadt alleen na cookie-toestemming (AVG) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H3ML3FDPHC');
+  window.loadGA = function(){
+    var s=document.createElement('script');
+    s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','G-H3ML3FDPHC');
+  };
+  (function(){ try{ if(localStorage.getItem('cookie-consent')==='accepted'){ window.loadGA(); } }catch(e){} })();
 </script>
 
 <meta charset="UTF-8">
@@ -32,9 +36,9 @@
 <meta name="twitter:description" content="Keratine & smoothing, blowouts en wenkbrauwen in Elst (Gelderland).">
 <meta name="twitter:image" content="https://beautystudioelst.nl/images/logo.jpg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='50%' fill='%23b57f69'/><text x='32' y='44' font-size='34' font-family='serif' font-style='italic' fill='%23fff' text-anchor='middle'>S</text></svg>">
 
 <style>
@@ -575,6 +579,9 @@ footer .social-link:hover svg{opacity:1}
         <h4>Contact</h4>
         <a href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>
         <a href="privacy.html">Privacyverklaring</a>
+        <a href="algemene-voorwaarden.html">Algemene voorwaarden</a>
+        <a href="cookiebeleid.html">Cookieverklaring</a>
+        <a href="disclaimer.html">Disclaimer</a>
       </div>
       <div>
         <h4>Openingstijden</h4>
@@ -617,8 +624,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 <div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1f2430;color:#e8e8ec;padding:16px 22px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:14px;box-shadow:0 -4px 24px rgba(0,0,0,.3);">
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
     <div style="flex:1;min-width:260px;line-height:1.55;">
-      We gebruiken cookies voor een optimale werking van de site.
-      <a href="privacy.html" style="color:#8ab4ff;text-decoration:underline;">Meer info</a>
+      We gebruiken cookies voor statistieken en een optimale werking van de site.
+      <a href="cookiebeleid.html" style="color:#8ab4ff;text-decoration:underline;">Meer info</a>
       
     </div>
     <div style="display:flex;gap:10px;align-items:center;">
@@ -628,7 +635,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </div>
 </div>
 <script>
-function cookieDone(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}var b=document.getElementById('cookieConsent');if(b){b.remove();}}
+function cookieDone(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}var b=document.getElementById('cookieConsent');if(b){b.remove();}if(v==='accepted'){try{window.loadGA();}catch(e){}}}
 (function(){try{if(localStorage.getItem('cookie-consent')){var b=document.getElementById('cookieConsent');if(b){b.remove();}}}catch(e){}})();
 </script>
 
