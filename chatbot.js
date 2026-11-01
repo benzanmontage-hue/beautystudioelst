@@ -5,7 +5,7 @@
   const BOOK_URL = 'https://beautystudioelst.setmore.com/';
 
   var css = `
-#seleChatBubble{position:fixed;bottom:24px;right:24px;width:68px;height:68px;border-radius:50%;background:#b57f69;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(181,127,105,.4);transition:transform .25s;z-index:999;font-size:30px}
+#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#3a2c24;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(58,44,36,.28);transition:transform .25s;z-index:90}
 #seleChatBubble:hover{transform:scale(1.08)}
 #seleChatWindow{position:fixed;bottom:96px;right:24px;width:min(380px,calc(100vw - 40px));height:560px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(58,44,36,.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transform-origin:bottom right;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .28s;opacity:0;transform:scale(.9) translateY(20px);pointer-events:none;font-family:'Inter',sans-serif}
 #seleChatWindow.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}
@@ -36,12 +36,13 @@
 .sele-foot input:focus{border-color:#b57f69}
 .sele-foot button{background:#b57f69;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
 .sele-book{display:inline-block;background:#b57f69;color:#fff!important;font-size:.85rem;font-weight:600;padding:11px 22px;border-radius:100px;margin-top:8px;text-decoration:none;letter-spacing:.5px}
-@media(max-width:860px){#seleChatBubble{bottom:84px}}
+#seleChatBubble:focus-visible{outline:3px solid #b57f69;outline-offset:3px}
+@media(max-width:860px){#seleChatBubble{bottom:calc(86px + env(safe-area-inset-bottom));right:14px;width:50px;height:50px}#seleChatBubble svg{width:22px;height:22px}#seleChatWindow{bottom:calc(146px + env(safe-area-inset-bottom));right:14px}}
 `;
 
   var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
 
-  var html = '<button id="seleChatBubble" aria-label="Chat">💬</button>' +
+  var html = '<button id="seleChatBubble" aria-label="Stel een vraag via de chat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/></svg></button>' +
   '<div id="seleChatWindow"><div class="sele-head"><div class="avatar">S</div><div class="meta"><b>Selé Assistant</b><span><span class="dot"></span> Online · antwoordt direct</span></div><button class="close" id="seleChatClose">×</button></div>' +
   '<div class="sele-body" id="seleChatBody"></div><div class="sele-quick" id="seleQuick"></div>' +
   '<div class="sele-foot"><input type="text" id="seleChatInput" placeholder="Stel je vraag…"><button id="seleChatSend" aria-label="Verstuur">➤</button></div></div>';

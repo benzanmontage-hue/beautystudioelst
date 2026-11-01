@@ -3,12 +3,15 @@
 <head>
 <!-- Google tag (gtag.js) — laadt alleen na cookie-toestemming (AVG) -->
 <script>
+  document.documentElement.classList.add('js');
   window.loadGA = function(){
+    if (window.__gaLoaded) return; window.__gaLoaded = true;
     var s=document.createElement('script');
     s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC';
     document.head.appendChild(s);
     window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;
     gtag('js', new Date());
     gtag('config','G-H3ML3FDPHC');
   };
@@ -16,215 +19,319 @@
 </script>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wenkbrauwen & Blowout in Elst | Selé Beauty Studio</title>
 <meta name="description" content="Wenkbrauwen & blowouts in Elst — brow lamination, henna, brow shape en professionele blowouts bij Selé Beauty Studio. Ook keratine & smoothing. Boek online.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://beautystudioelst.nl/">
-<meta name="theme-color" content="#b57f69">
+<meta name="theme-color" content="#faf5ee">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wenkbrauwen, Blowout & Keratine in Elst | Selé Beauty Studio">
 <meta property="og:description" content="Wenkbrauwen & blowouts in Elst — brow lamination, henna, brow shape en professionele blowouts bij Selé Beauty Studio. Ook keratine & smoothing. Boek online.">
 <meta property="og:url" content="https://beautystudioelst.nl/">
-<meta property="og:image" content="https://beautystudioelst.nl/images/logo.jpg">
+<meta property="og:image" content="https://beautystudioelst.nl/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blowout en wenkbrauwen voor en na bij Selé Beauty Studio in Elst">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:site_name" content="Selé Beauty Studio">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wenkbrauwen, Blowout & Keratine in Elst | Selé Beauty Studio">
 <meta name="twitter:description" content="Wenkbrauwen & blowouts in Elst — brow lamination, henna, brow shape en professionele blowouts. Ook keratine & smoothing.">
-<meta name="twitter:image" content="https://beautystudioelst.nl/images/logo.jpg">
+<meta name="twitter:image" content="https://beautystudioelst.nl/images/og-image.jpg">
 
-
-
+<link rel="preload" href="fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-blowout-960.webp" imagesrcset="img/hero-blowout-480.webp 480w, img/hero-blowout-960.webp 960w" imagesizes="(max-width: 860px) 70vw, 480px">
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='50%' fill='%23b57f69'/><text x='32' y='44' font-size='34' font-family='serif' font-style='italic' fill='%23fff' text-anchor='middle'>S</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='50%' fill='%239a6751'/><text x='32' y='44' font-size='34' font-family='serif' font-style='italic' fill='%23fff' text-anchor='middle'>S</text></svg>">
 
 <style>
 :root{
-  --bg:#faf5ee; --bg-soft:#f3eae0; --card:#fffdfa;
-  --ink:#3a2c24; --muted:#8d7b6f;
-  --accent:#b57f69; --accent-dark:#9a6751;
-  --line:rgba(58,44,36,.09);
-  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+  --bg:#faf5ee; --bg-soft:#f3eae0; --bg-deep:#ead9c9; --card:#fffdfa;
+  --ink:#3a2c24; --muted:#6f5f54;
+  --brand:#b57f69; --accent:#9a6751; --accent-ink:#8a5a45; --accent-dark:#7d503d;
+  --night:#2f241e; --night-ink:#efe4d9; --night-muted:#c9b3a3;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(18px,4vw,40px); --max:1200px;
+  --sec:clamp(80px,11vw,150px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:200}
+.skip:focus{left:12px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);max-width:34em}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(250,245,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.25rem}
-.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--accent)}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{font-size:.76rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.72;transition:.25s}
-.nav-links a:hover{opacity:1;color:var(--accent-dark)}
-.nav-cta{background:var(--accent);color:#fff!important;padding:11px 20px;border-radius:100px;opacity:1!important;transition:background .25s!important}
-.nav-cta:hover{background:var(--accent-dark)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:13px}
-.hamburger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
-.mobile-menu{display:none;flex-direction:column;gap:2px;padding:14px 24px 20px;background:var(--bg-soft);border-bottom:1px solid var(--line)}
-.mobile-menu a{padding:12px 0;font-size:.85rem;font-weight:600;letter-spacing:1.3px;text-transform:uppercase;border-bottom:1px solid var(--line)}
-.mobile-menu a:last-child{border:none}
+/* knoppen */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 30px;border-radius:100px;font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer;border:0;transition:background .25s,color .25s,transform .25s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-quiet{background:var(--card);color:var(--ink)}
+.btn-quiet:hover{background:#fff;color:var(--accent-ink)}
+.btn-light{background:var(--night-ink);color:var(--night)}
+.btn-light:hover{background:#fff}
+.link{font-weight:600;color:var(--accent-ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:rgba(154,103,81,.35);transition:text-decoration-color .2s}
+.link:hover{text-decoration-color:var(--accent)}
 
-/* HERO */
-.hero{display:flex;align-items:center;min-height:86vh;padding:60px 0}
-.hero .container{display:flex;align-items:center;gap:56px}
-.hero-content{flex:1.1}
-.eyebrow{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:20px}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.5rem,6vw,4.4rem);line-height:1.08;letter-spacing:-1px}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero p{color:var(--muted);font-size:1.04rem;max-width:490px;margin:22px 0 32px}
-.hero-actions{display:flex;gap:15px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 30px;border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:all .3s cubic-bezier(.22,1,.36,1)}
-.btn-accent{background:var(--accent);color:#fff;border:none}
-.btn-accent:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(181,127,105,.32)}
-.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
-.hero-visual{flex:.9;display:flex;justify-content:center}
-.hero-ring{width:min(360px,78vw);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 70px rgba(58,44,36,.18);border:10px solid #fff}
-.hero-ring img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:haarSway 7s ease-in-out infinite}
-@keyframes haarSway{
-  0%,100%{transform:scale(1.08) rotate(0deg)}
-  30%{transform:scale(1.13) rotate(.6deg)}
-  50%{transform:scale(1.09) rotate(0deg)}
-  70%{transform:scale(1.04) rotate(-.5deg)}
-}
-@media(prefers-reduced-motion:reduce){.hero-ring img{animation:none;transform:scale(1.05)}}
+/* promo + nav */
+.promo{background:var(--accent);color:#fff;text-align:center;padding:10px var(--gutter);font-size:.92rem}
+.promo strong{font-weight:700}
+.nav{position:sticky;top:0;z-index:100;background:var(--bg);transition:background .3s}
+.nav.scrolled{background:rgba(250,245,238,.97)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;outline:2px solid var(--bg-deep)}
+.brand span{color:var(--accent-ink);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a:not(.btn){font-size:.98rem;font-weight:500;text-decoration:none;color:var(--ink);opacity:.82;transition:opacity .2s,color .2s}
+.nav-links a:not(.btn):hover{opacity:1;color:var(--accent-ink)}
+.nav-links .btn{min-height:46px;padding:0 24px;font-size:.95rem}
+.burger{display:none;width:48px;height:48px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;border-radius:50%}
+.burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:transform .25s,background .25s}
+.burger span::before,.burger span::after{content:'';position:absolute;left:0}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none;background:var(--bg-soft);padding:8px var(--gutter) 24px}
+.mmenu.open{display:block}
+.mmenu a{display:block;padding:14px 0;font-family:var(--serif);font-size:1.5rem;text-decoration:none}
+.mmenu .btn{margin-top:12px;width:100%;font-family:var(--sans);font-size:1rem}
 
-/* SECTIE */
-.section{padding:92px 0}
-.section-head{text-align:center;max-width:620px;margin:0 auto 54px}
-.label{font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px}
-.section-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.7rem);letter-spacing:-.5px}
-.section-head p{color:var(--muted);margin-top:14px}
+/* hero */
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(70px,9vw,120px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.2vw,4.5rem);line-height:1;letter-spacing:-.035em}
+.hero .lead{margin:28px 0 36px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:12px 40px;margin-top:52px}
+.facts dt{font-size:.88rem;color:var(--muted)}
+.facts dd{font-family:var(--serif);font-size:1.35rem;font-weight:600;line-height:1.25}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.status.is-open i{background:#2e7d32}
+.status.is-closed i{background:#c9822b}
+.hero-media{position:relative;padding-bottom:48px}
+.hero-photo{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:3/4;max-width:480px;margin-left:auto;background:var(--bg-soft)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.04) translateY(0)}to{transform:scale(1.1) translateY(-2%)}}
+.hero-ba{position:absolute;left:0;bottom:0;width:min(58%,330px);background:var(--card);border-radius:20px;padding:10px;box-shadow:0 18px 50px rgba(58,44,36,.16)}
+.hero-ba img{border-radius:12px;aspect-ratio:1.83/1;object-fit:cover;width:100%}
+.hero-ba p{font-size:.86rem;padding:10px 6px 4px;color:var(--muted)}
+.hero-ba strong{color:var(--ink)}
 
-/* BEHANDELINGEN — categorie */
-.cat{margin-bottom:64px}
+/* behandelingen */
+.menu-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(50px,7vw,90px)}
+.menu-head .lead{justify-self:end}
+.cat{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,90px);align-items:start;margin-bottom:clamp(80px,10vw,130px)}
 .cat:last-child{margin-bottom:0}
-.cat-head{text-align:center;margin-bottom:30px}
-.cat-head .cat-en{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1rem}
-.cat-head h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem)}
-.treat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.treat-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
-.treat-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(58,44,36,.12)}
-.treat-en{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:.95rem;margin-bottom:4px}
-.treat-title{font-family:var(--serif);font-weight:600;font-size:1.28rem;margin-bottom:6px}
-.treat-meta{font-size:.8rem;color:var(--muted);font-weight:500;margin-bottom:14px}
-.treat-desc{color:var(--muted);font-size:.9rem;flex:1}
-.treat-result{margin-top:14px;font-size:.84rem;color:var(--ink);background:var(--bg-soft);padding:10px 14px;border-radius:10px}
-.treat-price{margin-top:18px;font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--accent-dark)}
-.treat-book{margin-top:12px;display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent-dark);border-bottom:2px solid var(--accent);padding-bottom:2px;align-self:flex-start}
+.cat.flip{grid-template-columns:7fr 5fr}
+.cat.flip .cat-media{order:2}
+.cat-media{position:sticky;top:110px}
+.cat-media img{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--bg-soft)}
+.cat h3{font-size:clamp(2rem,3.6vw,2.8rem);margin-bottom:10px}
+.cat-intro{color:var(--muted);margin-bottom:28px;max-width:32em}
+.items{list-style:none;display:grid;gap:10px}
+.item{background:var(--card);border-radius:20px;padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:6px 24px;transition:background .25s}
+.item:hover{background:#fff}
+.item-name{font-family:var(--serif);font-size:1.4rem;font-weight:600;line-height:1.2;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.badge{font-family:var(--sans);font-size:.78rem;font-weight:600;background:var(--bg-deep);color:var(--accent-ink);padding:3px 10px;border-radius:100px;letter-spacing:0}
+.item-price{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--accent-ink);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.item-price small{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--muted);display:block;line-height:1.2}
+.item-meta{grid-column:1/-1;font-size:.92rem;font-weight:600;color:var(--accent-ink)}
+.item-desc{grid-column:1/-1;color:var(--muted);font-size:.98rem}
+.item-book{grid-column:1/-1;justify-self:start;margin-top:8px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:100px;background:var(--bg-soft);color:var(--ink);font-weight:600;font-size:.94rem;text-decoration:none;transition:background .2s,color .2s}
+.item-book:hover{background:var(--accent);color:#fff}
+.cat-more{margin-top:24px}
+.newbie{margin-top:clamp(60px,8vw,100px);background:var(--bg-soft);border-radius:28px;padding:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.newbie p{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25;max-width:22em}
+.newbie strong{color:var(--accent-ink)}
 
-/* BEFORE / AFTER */
-.ba{background:var(--bg-soft)}
-.ba-logo{display:flex;justify-content:center;margin-bottom:30px}
-.ba-logo img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 12px 30px rgba(58,44,36,.15)}
-.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.ba-item{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line);text-align:center}
-.ba-item img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.ba-item .ba-cap{padding:14px;font-size:.85rem;font-weight:500;color:var(--muted)}
-.ba-pair{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-.ba-half{position:relative}
-.ba-half img{width:100%;height:300px;object-fit:cover}
-.ba-tag{position:absolute;top:12px;left:12px;background:rgba(58,44,36,.86);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 13px;border-radius:100px}
-.ba-tag.na{background:var(--accent)}
-.ba-pair .ba-cap{padding:14px;text-align:center;font-size:.85rem;font-weight:500;color:var(--muted);border-top:1px solid var(--line)}
+/* resultaten */
+.results{background:var(--bg-soft);padding:var(--sec) 0}
+.results-head{max-width:720px;margin-bottom:clamp(44px,6vw,70px)}
+.results-head .lead{margin-top:18px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,32px)}
+.ba{margin:0}
+.ba-frame{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-deep);--pos:50%;touch-action:pan-y;user-select:none}
+.ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-frame .after{clip-path:inset(0 0 0 var(--pos))}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:var(--pos);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.22);pointer-events:none}
+.ba-tag{position:absolute;top:16px;font-size:.84rem;font-weight:600;padding:6px 14px;border-radius:100px;pointer-events:none}
+.ba-tag.voor{left:16px;background:rgba(47,36,30,.82);color:#fff}
+.ba-tag.na{right:16px;background:#fff;color:var(--ink)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;-webkit-appearance:none;appearance:none}
+.ba-range:focus-visible + .ba-knob{outline:3px solid var(--accent);outline-offset:3px}
+.ba figcaption{padding:16px 4px 0;font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.ba figcaption span{display:block;font-family:var(--sans);font-size:.92rem;font-weight:400;color:var(--muted)}
+.brows-title{margin:clamp(64px,8vw,100px) 0 26px;font-size:clamp(1.7rem,3vw,2.3rem)}
+.brow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,24px)}
+.brow-grid img{border-radius:18px;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bg-deep)}
+.results-foot{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
 
-/* OVER */
-.over .container{display:flex;align-items:center;gap:56px}
-.over-img{flex:1;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(58,44,36,.14)}
-.over-img img{width:100%;height:100%;object-fit:cover}
-.over-text{flex:1.1}
-.over-text .cat-en{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1rem;margin-bottom:6px}
-.over-text h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:20px}
-.over-text p{color:var(--muted);margin-bottom:15px}
+/* over selina */
+.about{background:var(--night);color:var(--night-ink);padding:var(--sec) 0}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:center}
+.about-photo img{border-radius:28px;aspect-ratio:4/5;object-fit:cover;width:100%;object-position:50% 30%}
+.about h2{font-size:clamp(2.4rem,5vw,3.8rem);margin-bottom:28px}
+.about p{color:var(--night-muted);margin-bottom:18px;max-width:34em}
+.about .big{font-family:var(--serif);font-size:clamp(1.3rem,2.1vw,1.6rem);line-height:1.4;color:var(--night-ink)}
+.about-stats{display:flex;gap:44px;margin:34px 0 38px}
+.about-stats b{display:block;font-family:var(--serif);font-size:2.8rem;line-height:1;color:#d4a48e}
+.about-stats span{font-size:.92rem;color:var(--night-muted)}
 
-/* FAQ */
-.faq{max-width:720px;margin:0 auto}
-.faq-item{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:var(--card);overflow:hidden}
-.faq-item summary{cursor:pointer;padding:20px 24px;font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-size:1.4rem;color:var(--accent)}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item p{padding:0 24px 20px;color:var(--muted);font-size:.92rem}
+/* reviews */
+.reviews{padding:var(--sec) 0 0}
+.reviews-box{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;background:var(--bg-soft);border-radius:32px;padding:clamp(32px,6vw,72px)}
+.reviews-box h2{font-size:clamp(2rem,4vw,3rem)}
+.reviews-box p{color:var(--muted);margin-top:16px;max-width:30em}
+.reviews-actions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
 
-/* CTA */
-.cta{background:linear-gradient(rgba(58,44,36,.8),rgba(58,44,36,.86)),url('images/over.jpg') center/cover no-repeat;color:#fff;text-align:center}
-.cta h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.9rem)}
-.cta p{color:rgba(255,255,255,.82);margin:16px auto 32px;max-width:440px}
-.cta .btn-accent{background:#fff;color:var(--ink)}
-.cta .btn-accent:hover{background:var(--accent);color:#fff}
+/* faq */
+.faq{padding:var(--sec) 0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,100px);align-items:start}
+.faq-side{position:sticky;top:110px}
+.faq-side p{color:var(--muted);margin:20px 0 26px;max-width:24em}
+.qa{background:var(--card);border-radius:18px;margin-bottom:10px;transition:background .2s}
+.qa[open]{background:#fff}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-weight:600;font-size:1.04rem}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:'';flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--bg-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a5a45' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .25s}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa p{padding:0 26px 24px;color:var(--muted);max-width:40em}
 
-/* CONTACT / FOOTER */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.contact-info h3,.contact-hours h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;margin-bottom:18px}
-.contact-row{display:flex;align-items:flex-start;gap:13px;margin-bottom:15px;color:var(--muted)}
-.contact-row a{color:var(--ink);font-weight:500}
-.contact-row a:hover{color:var(--accent-dark)}
-.ot-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.ot-row .tijd{color:var(--muted)}
-.ot-status{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;margin-bottom:14px;padding:8px 15px;border-radius:100px;background:var(--bg-soft)}
-.ot-status .dot{width:9px;height:9px;border-radius:50%}
-.ot-status.open{color:#2e7d32}.ot-status.open .dot{background:#2e7d32}
-.ot-status.closed{color:#c0392b}.ot-status.closed .dot{background:#c0392b}
-.socials{display:flex;gap:12px;margin-top:22px;justify-content:center}
-.social-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all .25s}
-.social-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+/* blog */
+.reads{padding:0 0 var(--sec)}
+.reads h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:34px}
+.read-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,32px)}
+.read{text-decoration:none;display:block}
+.read img{border-radius:20px;aspect-ratio:4/3;object-fit:cover;width:100%;margin-bottom:18px;background:var(--bg-soft);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.read:hover img{transform:scale(1.02)}
+.read h3{font-size:1.45rem;margin-bottom:6px}
+.read p{color:var(--muted);font-size:.98rem}
 
-footer{background:#2f241e;color:rgba(255,255,255,.65);padding:56px 0 28px;font-size:.88rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
-footer h4{color:#fff;font-family:var(--serif);font-size:1.05rem;margin-bottom:16px}
-footer .brand{color:#fff}
-footer a{display:block;color:rgba(255,255,255,.65);font-size:.88rem;padding:8px 0;margin-bottom:2px;transition:color .3s}
-footer a:hover{color:var(--accent)}
-footer .social-link{display:flex;align-items:center;gap:8px}
-footer .social-link svg{flex-shrink:0;opacity:.85;transition:opacity .3s}
-footer .social-link:hover svg{opacity:1}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* contact */
+.contact{background:var(--bg-soft);padding:var(--sec) 0}
+.contact h2{font-size:clamp(2.4rem,5.4vw,4.2rem);max-width:12em;margin-bottom:clamp(40px,6vw,70px)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px)}
+.contact h3{font-size:1.5rem;margin-bottom:18px}
+.addr{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.8rem);line-height:1.3;margin-bottom:18px}
+.contact-lines{display:grid;gap:10px;margin-bottom:28px}
+.contact-lines a{font-weight:500}
+.map{margin-top:8px;border-radius:20px;overflow:hidden;background:var(--bg-deep);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:20px}
+.map p{font-size:.9rem;color:var(--muted);max-width:26em}
+.map iframe{width:100%;height:100%;border:0}
+.map.loaded{padding:0}
+.hours{list-style:none;background:var(--card);border-radius:20px;padding:10px 24px}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;font-variant-numeric:tabular-nums}
+.hours li + li{border-top:1px solid rgba(58,44,36,.07)}
+.hours li span:last-child{color:var(--muted)}
+.hours li.today{font-weight:700}
+.hours li.today span:last-child{color:var(--ink)}
+.hours-status{margin-bottom:18px;font-weight:600}
+.contact-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.socials{display:flex;gap:10px;margin-top:6px}
+.social{width:48px;height:48px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s,color .2s}
+.social:hover{background:var(--accent);color:#fff}
 
-/* MOBILE STICKY BAR */
-.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:95;background:#2f241e;padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
-.mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 10px;border-radius:12px;font-size:.9rem;font-weight:600}
-.mobile-bar .bar-book{background:var(--accent);color:#fff}
-.mobile-bar .bar-ig{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+/* footer */
+footer{background:var(--night);color:var(--night-muted);padding:72px 0 calc(32px + env(safe-area-inset-bottom));font-size:.95rem}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:56px}
+footer .brand{color:var(--night-ink)}
+footer .brand span{color:#d4a48e}
+footer h4{font-family:var(--serif);color:var(--night-ink);font-size:1.15rem;font-weight:600;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:4px}
+footer ul a{text-decoration:none;display:inline-block;padding:5px 0;transition:color .2s}
+footer ul a:hover{color:#fff}
+.foot-tag{margin-top:16px;max-width:24em}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.85rem;padding-top:26px;border-top:1px solid rgba(255,255,255,.1)}
+.foot-bottom a{text-decoration:none}
+.foot-bottom a:hover{color:#fff}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
+/* mobiele balk */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;background:var(--night);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:100px;font-weight:600;font-size:.98rem;text-decoration:none}
+.mbar .book{background:var(--accent);color:#fff;flex:1.4}
+.mbar .ig{background:rgba(255,255,255,.1);color:#fff}
 
-@media(max-width:1024px){
+/* cookie */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin-left:auto;background:var(--night);color:var(--night-ink);border-radius:22px;padding:22px 24px;box-shadow:0 20px 60px rgba(0,0,0,.3);font-size:.95rem}
+.cookie p{color:var(--night-muted);margin-bottom:16px}
+.cookie a{color:var(--night-ink)}
+.cookie-btns{display:flex;gap:10px}
+.cookie-btns button{flex:1;min-height:46px;border-radius:100px;border:0;cursor:pointer;font-weight:600;font-size:.95rem}
+.cookie .no{background:rgba(255,255,255,.12);color:#fff}
+.cookie .yes{background:var(--night-ink);color:var(--night)}
+
+/* reveal (alleen met JS, zodat content zonder script zichtbaar blijft) */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-photo img{animation:none;transform:scale(1.04)}
+  .js .reveal{opacity:1;transform:none;transition:none}
+}
+
+@media (max-width:1024px){
   .nav-links{display:none}
-  .hamburger{display:flex}
-  .mobile-menu.open{display:flex}
-  .hero .container{flex-direction:column-reverse;text-align:center;gap:40px}
-  .hero p{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .treat-grid{grid-template-columns:1fr 1fr}
-  .ba-grid{grid-template-columns:1fr 1fr}
-  .over .container{flex-direction:column}
-  .contact-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
+  .burger{display:flex}
+  .hero-grid,.about-grid,.faq-grid,.contact-grid,.reviews-box{grid-template-columns:1fr}
+  .hero-media{max-width:520px;width:100%;margin:0 auto}
+  .hero-photo{margin:0 auto 0 18%}
+  .menu-head{grid-template-columns:1fr}
+  .menu-head .lead{justify-self:start}
+  .cat,.cat.flip{grid-template-columns:1fr}
+  .cat.flip .cat-media{order:0}
+  .cat-media{position:static}
+  .cat-media img{aspect-ratio:16/10;object-position:50% 35%}
+  .faq-side{position:static}
+  .about-photo{max-width:480px}
+  .read-grid{grid-template-columns:1fr 1fr 1fr}
 }
-@media(max-width:860px){
-  .mobile-bar{display:flex}
-  .treat-grid{grid-template-columns:1fr}
-  .ba-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr}
-  body{padding-bottom:76px}
-  #cookieConsent{bottom:76px !important}
+@media (max-width:860px){
+  .mbar{display:flex}
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+  .cookie{bottom:calc(84px + env(safe-area-inset-bottom))}
+  .read-grid{grid-template-columns:1fr;gap:28px}
+  .read{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}
+  .read img{margin:0;aspect-ratio:1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid > div:first-child{grid-column:1/-1}
 }
-@media(max-width:640px){
-  .section{padding:60px 0}
-  .section-head{margin-bottom:40px}
-  .hero{min-height:auto;padding:56px 0 60px}
-  .ba-grid{grid-template-columns:1fr 1fr}
-  .ba-item img{aspect-ratio:4/3}
+@media (max-width:640px){
+  body{font-size:16px}
+  .promo{font-size:.84rem}
+  .nav-inner{height:66px}
+  .brand{font-size:1.12rem}
+  .brand img{width:36px;height:36px}
+  .hero{padding-top:28px}
+  .hero .lead{margin:20px 0 28px}
+  .hero-actions .btn{width:100%}
+  .facts{grid-template-columns:1fr 1fr;gap:18px 24px;margin-top:38px}
+  .facts div:last-child{grid-column:1/-1}
+  .hero-media{margin-top:12px}
+  .hero-photo{margin-left:auto;margin-right:0;width:78%}
+  .hero-ba{width:62%}
+  .item{padding:20px;grid-template-columns:1fr auto}
+  .item-name{font-size:1.25rem}
+  .ba-pair{grid-template-columns:1fr}
+  .brow-grid{grid-template-columns:1fr}
+  .about-stats{gap:30px}
+  .qa summary{padding:20px}
+  .qa p{padding:0 20px 22px}
+  .contact-cta .btn{width:100%}
+  .cookie-btns{flex-direction:row}
 }
 </style>
 
@@ -237,11 +344,15 @@ footer .social-link:hover svg{opacity:1}
   "description": "Selé Beauty Studio in Elst (Gelderland). Wenkbrauwen (brow lamination, henna, brow shape), blowouts en keratine & smoothing treatments.",
   "url": "https://beautystudioelst.nl/",
   "email": "info@beautystudioelst.nl",
-  "image": "https://beautystudioelst.nl/images/logo.jpg",
+  "image": ["https://beautystudioelst.nl/images/og-image.jpg", "https://beautystudioelst.nl/images/logo.jpg"],
+  "logo": "https://beautystudioelst.nl/images/logo.jpg",
   "priceRange": "€€",
-  "address": {"@type": "PostalAddress", "streetAddress": "Dorpstraat 57", "postalCode": "6661 EG", "addressLocality": "Elst", "addressRegion": "Gelderland", "addressCountry": "NL"},
+  "address": {"@type": "PostalAddress", "streetAddress": "Dorpsstraat 57", "postalCode": "6661 EG", "addressLocality": "Elst", "addressRegion": "Gelderland", "addressCountry": "NL"},
   "geo": {"@type": "GeoCoordinates", "latitude": 51.9190, "longitude": 5.8430},
+  "hasMap": "https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7",
   "areaServed": ["Elst", "Arnhem", "Nijmegen", "Overbetuwe", "Gelderland"],
+  "paymentAccepted": "Pin, contant, Tikkie",
+  "currenciesAccepted": "EUR",
   "sameAs": ["https://www.instagram.com/sele.beautystudio", "https://www.facebook.com/profile.php?id=61592986087496"],
   "openingHoursSpecification": [
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Friday","Saturday"], "opens": "10:00", "closes": "17:00"},
@@ -286,361 +397,459 @@ footer .social-link:hover svg{opacity:1}
 <link rel="ai-catalog" href="https://beautystudioelst.nl/ai-catalog.json">
 </head>
 <body>
+<a class="skip" href="#main">Naar de inhoud</a>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="#top" class="brand"><img src="images/logo.jpg" alt="Selé Beauty Studio logo">Selé <span style="color:var(--accent)">&nbsp;Beauty Studio</span></a>
+<div class="promo">Nieuwe klant? <strong>20% korting</strong> op je eerste behandeling met code <strong>WELKOM20</strong></div>
+
+<nav class="nav" id="nav" aria-label="Hoofdmenu">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><img src="images/logo.jpg" alt="" width="42" height="42">Selé <span>Beauty Studio</span></a>
     <div class="nav-links">
-      <a href="#behandelingen">Behandelingen</a>
-      <a href="#beforeafter">Resultaten</a>
-      <a href="#over">Over mij</a>
-      <a href="#faq">FAQ</a>
+      <a href="#behandelingen">Prijzen</a>
+      <a href="#resultaten">Resultaten</a>
+      <a href="#over">Over Selina</a>
+      <a href="#vragen">Vragen</a>
       <a href="#contact">Contact</a>
-      <a href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8?g_st=ac" target="_blank" rel="noopener"><span style="color:#fbbc04">★</span> Reviews</a>
-      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="nav-cta">Boek afspraak</a>
+      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_nav">Boek afspraak</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="mmenu"><span></span></button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#behandelingen">Behandelingen</a>
-    <a href="#beforeafter">Resultaten</a>
-    <a href="#over">Over mij</a>
-    <a href="#faq">FAQ</a>
+  <div class="mmenu" id="mmenu">
+    <a href="#behandelingen">Prijzen</a>
+    <a href="#resultaten">Resultaten</a>
+    <a href="#over">Over Selina</a>
+    <a href="#vragen">Vragen</a>
     <a href="#contact">Contact</a>
-    <a href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8?g_st=ac" target="_blank" rel="noopener"><span style="color:#fbbc04">★</span> Reviews op Google</a>
-    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener">Boek afspraak →</a>
+    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_menu">Boek afspraak</a>
   </div>
 </nav>
 
-<div style="background:var(--accent);color:#fff;text-align:center;padding:11px 16px;font-size:.84rem;font-weight:600;letter-spacing:.2px">Nieuwe klant? <strong>20% korting</strong> op je eerste behandeling — code <strong>WELKOM20</strong></div>
+<main id="main">
 
 <header class="hero" id="top">
-  <div class="container">
-    <div class="hero-content">
-      <span class="eyebrow">Elst · Gelderland</span>
-      <h1>Wenkbrauwen, <em>blowout</em> &amp; keratine in Elst</h1>
-      <p>Mooi van nature — bij Selé Beauty Studio draait alles om jouw natuurlijke schoonheid. Met zorg en aandacht voor detail zorgen we voor een resultaat waar jij blij van wordt.</p>
-      <div class="hero-actions">
-        <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek een afspraak</a>
-        <a href="#behandelingen" class="btn btn-ghost">Bekijk behandelingen</a>
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="reveal">Wenkbrauwen &amp;<br> blowouts in Elst</h1>
+      <p class="lead reveal">Brow lamination, henna en shaping, blowouts vol volume en glans, en keratine voor pluisvrij haar. Persoonlijk behandeld door Selina, aan de Dorpsstraat in Elst.</p>
+      <div class="hero-actions reveal">
+        <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_hero">Boek online</a>
+        <a href="#behandelingen" class="link">Bekijk prijzen</a>
       </div>
+      <dl class="facts reveal">
+        <div><dt>Wenkbrauwen</dt><dd>vanaf €20</dd></div>
+        <div><dt>Blowouts</dt><dd>vanaf €40</dd></div>
+        <div><dt>Studio</dt><dd><span class="status" data-status><i></i><span>Ma–za 10–17</span></span></dd></div>
+      </dl>
     </div>
-    <div class="hero-visual">
-      <div class="hero-ring"><img src="images/hero.jpg" alt="Blowout resultaat bij Selé Beauty Studio" width="360" height="360"></div>
+    <div class="hero-media reveal">
+      <div class="hero-photo">
+        <img src="img/hero-blowout-960.webp" srcset="img/hero-blowout-480.webp 480w, img/hero-blowout-960.webp 960w" sizes="(max-width: 860px) 70vw, 480px" width="960" height="1280" alt="Lang donker haar met zachte golven na een blowout bij Selé Beauty Studio" fetchpriority="high">
+      </div>
+      <figure class="hero-ba">
+        <img src="img/brows-voor-na-1-720.webp" width="720" height="394" alt="Wenkbrauwen voor en na een behandeling bij Selé Beauty Studio">
+        <p><strong>Voor &amp; na</strong> · wenkbrauwen in model gebracht en getint</p>
+      </figure>
     </div>
   </div>
 </header>
 
-<section class="section" id="behandelingen">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Behandelingen</div>
-      <h2>Kwalitatieve behandelingen voor stralende brows en prachtig haar</h2>
-    </div>
+<section class="wrap" id="behandelingen" aria-labelledby="menu-title">
+  <div class="menu-head">
+    <h2 id="menu-title" class="reveal">Behandelingen &amp; prijzen</h2>
+    <p class="lead reveal">Kies je behandeling en boek direct een tijd die jou uitkomt. Je betaalt in de studio met pin, contant of Tikkie.</p>
+  </div>
 
-    <!-- WENKBRAUWEN -->
-    <div class="cat reveal">
-      <div class="cat-head">
-        <div class="cat-en">Brow Studio</div>
-        <h3>Wenkbrauwen</h3>
-      </div>
-      <div class="treat-grid">
-        <div class="treat-card">
-          <div class="treat-en">Clean. Defined. You.</div>
-          <div class="treat-title">The Brow Shape</div>
-          <div class="treat-meta">± 30 min</div>
-          <div class="treat-desc">Een verzorgende wenkbrauwbehandeling waarbij we de wenkbrauwen professioneel in model brengen door te epileren en/of te trimmen.</div>
-          <div class="treat-price">€20</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=52b6b04f-be4a-40cd-aedd-1e224f8f5322&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Henna of Hybrid + shaping</div>
-          <div class="treat-title">Brow Signature</div>
-          <div class="treat-meta">€40</div>
-          <div class="treat-desc">De perfecte brow treatment voor mooi gevormde en gedefinieerde wenkbrauwen. We shapen de brows zorgvuldig en werken af met jouw keuze uit henna of hybrid tint.</div>
-          <div class="treat-price">€40</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=40558410-c4f9-4529-8769-45262bc68c9d&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Lamination + hybrid tint of henna + shaping</div>
-          <div class="treat-title">Brow Luxe</div>
-          <div class="treat-meta">The ultimate transformation</div>
-          <div class="treat-desc">The ultimate brow transformation. Je wenkbrauwen worden gelift en fluffy gestyled, zorgvuldig geshaped en afgewerkt met een hybrid tint of henna voor extra definitie.</div>
-          <div class="treat-price">€57</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=d016c82e-eadd-4e0d-a531-82f232fcc666&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-      </div>
+  <!-- WENKBRAUWEN -->
+  <div class="cat">
+    <div class="cat-media reveal">
+      <img src="img/brows-detail-960.webp" srcset="img/brows-detail-480.webp 480w, img/brows-detail-960.webp 960w" sizes="(max-width: 1024px) 92vw, 440px" width="960" height="1280" alt="Close-up van verzorgde, gevulde wenkbrauwen na een brow behandeling" loading="lazy">
     </div>
+    <div>
+      <h3 class="reveal">Wenkbrauwen</h3>
+      <p class="cat-intro reveal">Van een nette shape tot gelifte, fluffy brows met lamination. Altijd in een vorm die bij jouw gezicht past.</p>
+      <ul class="items">
+        <li class="item reveal">
+          <div class="item-name">The Brow Shape</div>
+          <div class="item-price">€20</div>
+          <div class="item-meta">± 30 min · Clean. Defined. You.</div>
+          <p class="item-desc">Je wenkbrauwen worden professioneel in model gebracht door te epileren en/of te trimmen.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=52b6b04f-be4a-40cd-aedd-1e224f8f5322&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_brow_shape">Boek Brow Shape</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">Brow Signature</div>
+          <div class="item-price">€40</div>
+          <div class="item-meta">± 40 min · Shaping + henna of hybrid tint</div>
+          <p class="item-desc">Voor mooi gevormde, gedefinieerde wenkbrauwen. We shapen zorgvuldig en werken af met jouw keuze uit henna of hybrid tint.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=40558410-c4f9-4529-8769-45262bc68c9d&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_brow_signature">Boek Brow Signature</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">Brow Luxe <span class="badge">Lamination</span></div>
+          <div class="item-price">€57</div>
+          <div class="item-meta">± 60 min · Lamination + tint of henna + shaping</div>
+          <p class="item-desc">De ultieme brow transformation. Je wenkbrauwen worden gelift en fluffy gestyled, zorgvuldig geshaped en afgewerkt met hybrid tint of henna.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=d016c82e-eadd-4e0d-a531-82f232fcc666&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_brow_luxe">Boek Brow Luxe</a>
+        </li>
+      </ul>
+      <p class="cat-more reveal"><a class="link" href="wenkbrauwen.html">Alles over wenkbrauwen in Elst</a></p>
+    </div>
+  </div>
 
-    <!-- BLOWOUT -->
-    <div class="cat reveal">
-      <div class="cat-head">
-        <div class="cat-en">The Blowout Bar</div>
-        <h3>Blowout</h3>
-      </div>
-      <div class="treat-grid">
-        <div class="treat-card">
-          <div class="treat-en">Effortless everyday glam</div>
-          <div class="treat-title">The Classic Blowout</div>
-          <div class="treat-meta">45 min</div>
-          <div class="treat-desc">Een zachte, volumineuze föhnstyling met een gladde, verzorgde finish. Perfect voor een effortless everyday glam look.</div>
-          <div class="treat-price">€40</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=d1e00468-b239-4710-903f-becd1a4707f9&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Big hair energy</div>
-          <div class="treat-title">The Bombshell Blowout</div>
-          <div class="treat-meta">60 min</div>
-          <div class="treat-desc">Onze signature blowout: maximaal volume, bouncy lengtes en een glamoureuze finish. Denk aan die volle, luchtige "big hair" look.</div>
-          <div class="treat-price">€55</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=f518e852-91f2-4add-841f-ac429c59aa6f&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Polished perfection</div>
-          <div class="treat-title">The Sleek Blowout</div>
-          <div class="treat-meta">45–60 min</div>
-          <div class="treat-desc">Een strakke, gladde blowout met veel glans en een perfect gepolijste finish.</div>
-          <div class="treat-price">€45</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=2be70c9a-f2e8-4747-95f3-b47b1baee0a5&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-      </div>
+  <!-- BLOWOUT -->
+  <div class="cat flip">
+    <div class="cat-media reveal">
+      <img src="img/blowout-golven-960.webp" srcset="img/blowout-golven-480.webp 480w, img/blowout-golven-960.webp 960w" sizes="(max-width: 1024px) 92vw, 440px" width="960" height="1280" alt="Blowout met volle, losse golven op lang bruin haar" loading="lazy">
     </div>
+    <div>
+      <h3 class="reveal">Blowouts</h3>
+      <p class="cat-intro reveal">Föhnstyling voor een feest, een fotoshoot of gewoon omdat het kan. Van zacht en natuurlijk tot groot volume.</p>
+      <ul class="items">
+        <li class="item reveal">
+          <div class="item-name">The Classic Blowout</div>
+          <div class="item-price">€40</div>
+          <div class="item-meta">45 min · Effortless everyday glam</div>
+          <p class="item-desc">Een zachte, volumineuze föhnstyling met een gladde, verzorgde finish.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=d1e00468-b239-4710-903f-becd1a4707f9&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_blowout_classic">Boek Classic</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">The Bombshell Blowout <span class="badge">Signature</span></div>
+          <div class="item-price">€55</div>
+          <div class="item-meta">60 min · Big hair energy</div>
+          <p class="item-desc">Onze signature blowout: maximaal volume, bouncy lengtes en een glamoureuze finish. Die volle, luchtige "big hair" look.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=f518e852-91f2-4add-841f-ac429c59aa6f&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_blowout_bombshell">Boek Bombshell</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">The Sleek Blowout</div>
+          <div class="item-price">€45</div>
+          <div class="item-meta">45–60 min · Polished perfection</div>
+          <p class="item-desc">Een strakke, gladde blowout met veel glans en een perfect gepolijste finish.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=2be70c9a-f2e8-4747-95f3-b47b1baee0a5&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_blowout_sleek">Boek Sleek</a>
+        </li>
+      </ul>
+      <p class="cat-more reveal"><a class="link" href="blog/blowouts.html">Welke blowout past bij jou?</a></p>
+    </div>
+  </div>
 
-    <!-- KERATINE -->
-    <div class="cat reveal">
-      <div class="cat-head">
-        <div class="cat-en">Keratin &amp; Smoothing Treatments</div>
-        <h3>Keratine</h3>
-      </div>
-      <div class="treat-grid">
-        <div class="treat-card">
-          <div class="treat-en">Smooth. Soft. Manageable.</div>
-          <div class="treat-title">The Keratin Glow</div>
-          <div class="treat-meta">± 3–4 maanden</div>
-          <div class="treat-desc">Een intensieve smoothing treatment die het haar diep verzorgt en pluis zichtbaar vermindert. Het haar wordt heerlijk zacht, gladder en veel makkelijker handelbaar, zonder het natuurlijke karakter volledig te veranderen.</div>
-          <div class="treat-result">Resultaat: pluisvrijer, zacht en makkelijk te stylen haar.</div>
-          <div class="treat-price">vanaf €90</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=b4802b78-2105-48f5-9dd6-12ca87c0dd61&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Sleeker. Smoother. Effortless.</div>
-          <div class="treat-title">The Marrocare Smooth</div>
-          <div class="treat-meta">Tot ± 6 maanden</div>
-          <div class="treat-desc">Voor wie een gladder en rechter resultaat wil. Deze treatment maakt het haar tot ongeveer 80% rechter, vermindert pluis en maakt het veel makkelijker te stylen met warmte.</div>
-          <div class="treat-result">Resultaat: tot ± 80% rechter, pluisvrijer en makkelijker stijl te maken.</div>
-          <div class="treat-price">vanaf €150</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=79ee2d8e-959b-48ab-af1e-ac7f767c6fe2&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-        <div class="treat-card">
-          <div class="treat-en">Straight. Sleek. Long-lasting.</div>
-          <div class="treat-title">The Permanent Straight</div>
-          <div class="treat-meta">100% permanent stijl</div>
-          <div class="treat-desc">De meest krachtige straightening treatment voor wie écht steil haar wil. Het behandelde haar blijft permanent stijl. Alleen de nieuwe uitgroei behoudt de natuurlijke structuur.</div>
-          <div class="treat-result">Onderhoud: gemiddeld iedere ± 6 maanden alleen de uitgroei.</div>
-          <div class="treat-price">vanaf €220</div>
-          <a href="https://beautystudioelst.setmore.com/book?step=time-slot&products=c6fa63ae-5847-44c8-93de-bf006894ae6e&type=service&staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&staffSelected=true" target="_blank" rel="noopener" class="treat-book">Boek →</a>
-        </div>
-      </div>
+  <!-- KERATINE -->
+  <div class="cat">
+    <div class="cat-media reveal">
+      <img src="img/keratine-glans-960.webp" srcset="img/keratine-glans-480.webp 480w, img/keratine-glans-960.webp 960w" sizes="(max-width: 1024px) 92vw, 440px" width="960" height="1280" alt="Glad, glanzend donker haar na een smoothing treatment" loading="lazy">
     </div>
+    <div>
+      <h3 class="reveal">Keratine &amp; smoothing</h3>
+      <p class="cat-intro reveal">Minder pluis, meer glans en haar dat je in een paar minuten stylet. Klanten komen hiervoor uit heel Nederland.</p>
+      <ul class="items">
+        <li class="item reveal">
+          <div class="item-name">The Keratin Glow</div>
+          <div class="item-price"><small>vanaf</small>€90</div>
+          <div class="item-meta">Houdt ± 3–4 maanden · Smooth. Soft. Manageable.</div>
+          <p class="item-desc">Een intensieve smoothing treatment die het haar diep verzorgt en pluis zichtbaar vermindert. Zacht, gladder en makkelijk handelbaar, zonder je natuurlijke karakter volledig te veranderen.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=b4802b78-2105-48f5-9dd6-12ca87c0dd61&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_keratin_glow">Boek Keratin Glow</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">The Marrocare Smooth</div>
+          <div class="item-price"><small>vanaf</small>€150</div>
+          <div class="item-meta">Houdt tot ± 6 maanden · Tot ± 80% rechter</div>
+          <p class="item-desc">Voor wie een gladder en rechter resultaat wil. Vermindert pluis en maakt je haar veel makkelijker te stylen met warmte.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=79ee2d8e-959b-48ab-af1e-ac7f767c6fe2&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_marrocare">Boek Marrocare Smooth</a>
+        </li>
+        <li class="item reveal">
+          <div class="item-name">The Permanent Straight</div>
+          <div class="item-price"><small>vanaf</small>€220</div>
+          <div class="item-meta">Blijvend steil · uitgroei ± elke 6 maanden bijwerken</div>
+          <p class="item-desc">De krachtigste straightening treatment voor wie écht steil haar wil. Het behandelde haar blijft permanent stijl; alleen nieuwe uitgroei behoudt je natuurlijke structuur.</p>
+          <a class="item-book" href="https://beautystudioelst.setmore.com/book?step=time-slot&amp;products=c6fa63ae-5847-44c8-93de-bf006894ae6e&amp;type=service&amp;staff=8caea77c-a383-4349-ae0f-3c1c7f7f9317&amp;staffSelected=true" target="_blank" rel="noopener" data-track="book_permanent_straight">Boek Permanent Straight</a>
+        </li>
+      </ul>
+      <p class="cat-more reveal"><a class="link" href="blog/keratine.html">Alles over keratine</a></p>
     </div>
-</section>
+  </div>
 
-<section class="section ba" id="beforeafter">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Resultaten</div>
-      <h2>Onze resultaten</h2>
-    </div>
-    <div class="ba-logo reveal"><img src="images/logo.jpg" alt="Selé Beauty Studio logo"></div>
-    <div class="ba-grid">
-      <div class="ba-item reveal"><img src="images/blowout-result1.jpg" alt="Blowout resultaat — volume en glans" loading="lazy"><div class="ba-cap">Volume &amp; glans</div></div>
-      <div class="ba-item reveal"><img src="images/blowout-result2.jpg" alt="Blowout resultaat — gladde finish" loading="lazy"><div class="ba-cap">Gladde finish</div></div>
-      <div class="ba-item reveal"><img src="images/blowout-result3.jpg" alt="Blowout resultaat — glanzend" loading="lazy"><div class="ba-cap">Glanzend resultaat</div></div>
-      <div class="ba-item reveal"><img src="images/blowout-result4.jpg" alt="Blowout resultaat — steil en verzorgd" loading="lazy"><div class="ba-cap">Steil &amp; verzorgd</div></div>
-      <div class="ba-item reveal"><img src="images/brows-voor-na.jpg?v=4" alt="Wenkbrauw lamination voor en na — Brow Luxe Selé Beauty Elst" loading="lazy"><div class="ba-cap">Wenkbrauwen — Voor &amp; Na</div></div>
-      <div class="ba-item reveal"><img src="images/brows-voor-na2.jpg?v=4" alt="Wenkbrauwen shapen en verven voor en na — Brow Signature Elst" loading="lazy"><div class="ba-cap">Wenkbrauwen — Voor &amp; Na</div></div>
-    </div>
-    <div class="reveal" style="text-align:center;margin-top:36px"><a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek jouw behandeling</a></div>
+  <div class="newbie reveal">
+    <p>Eerste keer bij Selé? Je krijgt <strong>20% korting</strong> op je eerste behandeling met code WELKOM20.</p>
+    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_newbie">Boek je eerste afspraak</a>
   </div>
 </section>
 
-<section class="section over" id="over">
-  <div class="container">
-    <div class="over-img reveal"><img src="images/selina.jpg" alt="Selina — eigenaresse Selé Beauty Studio" loading="lazy"></div>
-    <div class="over-text reveal">
-      <div class="cat-en">Meet the face behind the beauty</div>
-      <h2>Hi, ik ben Selina</h2>
-      <p>27 jaar en inmiddels al 8 jaar werkzaam in de beautybranche. Mijn liefde voor beauty begon al op jonge leeftijd — wat begon met tutorials kijken en alles zelf uitproberen, groeide uit tot een echte passie.</p>
-      <p>Beauty is voor mij zoveel meer dan alleen uiterlijke verzorging. Of het nu gaat om perfect gevormde brows, een prachtige blowout of een behandeling die je haar weer laat stralen — het moment waarop een klant in de spiegel kijkt en écht blij is, is waar ik het voor doe.</p>
-      <p>Wanneer je bij mij in de stoel zit, draait het om jou. Persoonlijke aandacht, kwaliteit en oog voor detail — ik neem graag de tijd om te kijken naar wat bij jou past. Bij Selé Beauty wil ik een plek creëren waar beauty, persoonlijke aandacht en kwaliteit samenkomen. ♡</p>
-      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent" style="margin-top:8px">Boek een afspraak bij Selina</a>
+<section class="results" id="resultaten" aria-labelledby="res-title" style="margin-top:var(--sec)">
+  <div class="wrap">
+    <div class="results-head">
+      <h2 id="res-title" class="reveal">Zie het verschil zelf</h2>
+      <p class="lead reveal">Sleep over de foto om voor en na te vergelijken. Alle foto's zijn gemaakt in de studio in Elst.</p>
     </div>
-  </div>
-</section>
 
-<section class="section" id="reviews">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Reviews</div>
-      <h2>Wat klanten over ons zeggen</h2>
-      <p>Benieuwd wat klanten van Selé Beauty Studio vinden?</p>
+    <div class="ba-pair">
+      <figure class="ba reveal">
+        <div class="ba-frame" data-ba>
+          <img src="img/keratine-voor-960.webp" srcset="img/keratine-voor-480.webp 480w, img/keratine-voor-960.webp 960w" sizes="(max-width: 640px) 92vw, 560px" width="960" height="1280" alt="Voor: krullend, droog aanvoelend haar" loading="lazy">
+          <img class="after" src="img/keratine-na-960.webp" srcset="img/keratine-na-480.webp 480w, img/keratine-na-960.webp 960w" sizes="(max-width: 640px) 92vw, 560px" width="960" height="1280" alt="Na: glad en glanzend haar" loading="lazy">
+          <span class="ba-tag voor">Voor</span><span class="ba-tag na">Na</span>
+          <span class="ba-line"></span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Vergelijk voor en na: van krul naar glad">
+          <span class="ba-knob" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        </div>
+        <figcaption>Van krul naar glad<span>Keratine &amp; smoothing</span></figcaption>
+      </figure>
+      <figure class="ba reveal">
+        <div class="ba-frame" data-ba>
+          <img src="img/glad-voor-960.webp" srcset="img/glad-voor-480.webp 480w, img/glad-voor-960.webp 960w" sizes="(max-width: 640px) 92vw, 560px" width="960" height="1280" alt="Voor: pluizig, onrustig haar" loading="lazy">
+          <img class="after" src="img/glad-na-960.webp" srcset="img/glad-na-480.webp 480w, img/glad-na-960.webp 960w" sizes="(max-width: 640px) 92vw, 560px" width="960" height="1280" alt="Na: steil, glad en glanzend haar" loading="lazy">
+          <span class="ba-tag voor">Voor</span><span class="ba-tag na">Na</span>
+          <span class="ba-line"></span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Vergelijk voor en na: van pluis naar glans">
+          <span class="ba-knob" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        </div>
+        <figcaption>Van pluis naar glans<span>Glad, steil en verzorgd</span></figcaption>
+      </figure>
     </div>
-    <div class="reveal" style="text-align:center;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8?g_st=ac" target="_blank" rel="noopener" class="btn btn-ghost">Bekijk reviews op Google</a>
-      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek een afspraak</a>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="faq">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Goed om te weten</div>
-      <h2>Meest gestelde vragen</h2>
+    <h3 class="brows-title reveal">Wenkbrauwen, voor &amp; na</h3>
+    <div class="brow-grid">
+      <img class="reveal" src="img/brows-voor-na-3-720.webp" srcset="img/brows-voor-na-3-720.webp 720w, img/brows-voor-na-3-1440.webp 1428w" sizes="(max-width: 640px) 92vw, 570px" width="1428" height="760" alt="Wenkbrauwen voor en na: dunne brows worden voller en strak gedefinieerd" loading="lazy">
+      <img class="reveal" src="img/brows-voor-na-4-720.webp" srcset="img/brows-voor-na-4-720.webp 720w, img/brows-voor-na-4-1440.webp 1280w" sizes="(max-width: 640px) 92vw, 570px" width="1280" height="960" alt="Wenkbrauw lamination voor en na — Brow Luxe bij Selé Beauty Studio Elst" loading="lazy">
+      <img class="reveal" src="img/brows-voor-na-2-720.webp" srcset="img/brows-voor-na-2-720.webp 720w, img/brows-voor-na-2-1440.webp 1440w" sizes="(max-width: 640px) 92vw, 1160px" width="1440" height="633" alt="Wenkbrauwen voor en na shapen en tinten" loading="lazy" style="object-position:70% 100%">
+      <img class="reveal" src="img/brows-voor-na-5-720.webp" srcset="img/brows-voor-na-5-720.webp 720w, img/brows-voor-na-5-1440.webp 1280w" sizes="(max-width: 640px) 92vw, 570px" width="1280" height="960" alt="Wenkbrauwen shapen en verven voor en na — Brow Signature Elst" loading="lazy">
     </div>
-    <div class="faq reveal">
-      <details class="faq-item"><summary>Waar zit Selé Beauty Studio?</summary><p>Selé Beauty Studio zit aan de Dorpstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen.</p></details>
-      <details class="faq-item"><summary>Hoelang houdt een keratine behandeling?</summary><p>Dat hangt af van de behandeling: de Keratin Glow ± 3–4 maanden, de Marrocare Smooth tot ± 6 maanden, en de Permanent Straight is blijvend (alleen uitgroei bijwerken).</p></details>
-      <details class="faq-item"><summary>Welke blowout past bij mij?</summary><p>De Classic is voor een natuurlijke, volumineuze look (45 min). De Bombshell is onze signature met maximaal volume (60 min). De Sleek is strak en gepolijst met veel glans (45–60 min).</p></details>
-      <details class="faq-item"><summary>Wat is het verschil tussen Brow Signature en Brow Luxe?</summary><p>Brow Signature is shaping + henna of hybrid tint (€40). Brow Luxe is een lamination + hybrid tint of henna + shaping — voor gelifte, fluffy en vollere brows (€57).</p></details>
-      <details class="faq-item"><summary>Hoe maak ik een afspraak?</summary><p>Je boekt eenvoudig online via de "Boek afspraak"-knop, of via Instagram en e-mail.</p></details>
-      <details class="faq-item"><summary>Doen jullie ook behandelingen voor klanten van buiten Elst?</summary><p>Ja! Voor onze keratine behandelingen reizen klanten vanuit heel Nederland. We zitten centraal in Elst (Gelderland), tussen Arnhem en Nijmegen, goed bereikbaar.</p></details>
-      <details class="faq-item"><summary>Hoe verzorg ik mijn haar na een keratine behandeling?</summary><p>Was je haar de eerste 48 uur niet en vermijd hitte. Gebruik daarna het liefst sulfaatvrije producten — zo blijft het resultaat langer mooi.</p></details>
-      <details class="faq-item"><summary>Kan ik mijn afspraak verplaatsen of annuleren?</summary><p>Ja, via de link in je bevestigingsmail (graag minimaal 24 uur van tevoren).</p></details>
-      <details class="faq-item"><summary>Welke betaalmethoden accepteren jullie?</summary><p>We accepteren pin, contant en betaalverzoek (Tikkie).</p></details>
+    <div class="results-foot reveal">
+      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_results">Boek jouw behandeling</a>
+      <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" class="link">Meer resultaten op Instagram</a>
     </div>
   </div>
 </section>
 
-<section class="section" id="blog">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Blog</div>
-      <h2>Lees meer over onze behandelingen</h2>
+<section class="about" id="over" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="img/selina-960.webp" srcset="img/selina-480.webp 480w, img/selina-960.webp 960w" sizes="(max-width: 1024px) 92vw, 500px" width="960" height="1195" alt="Selina, eigenaresse van Selé Beauty Studio" loading="lazy">
     </div>
-    <div class="treat-grid">
-      <a href="blog/wenkbrauwen.html" class="treat-card reveal">
-        <div class="treat-en">Brow Studio</div>
-        <div class="treat-title">Alles over wenkbrauwen</div>
-        <div class="treat-desc">Van nette shape tot fluffy lamination.</div>
-        <span class="treat-book">Lees meer →</span>
+    <div>
+      <h2 id="about-title" class="reveal">Hi, ik ben Selina</h2>
+      <p class="big reveal">Het moment waarop een klant in de spiegel kijkt en écht blij is — daar doe ik het voor.</p>
+      <div class="about-stats reveal">
+        <div><b>8 jaar</b><span>in de beautybranche</span></div>
+        <div><b>1 op 1</b><span>persoonlijke aandacht</span></div>
+      </div>
+      <p class="reveal">Mijn liefde voor beauty begon al jong: tutorials kijken en alles zelf uitproberen. Dat groeide uit tot een echte passie, en inmiddels werk ik al acht jaar in de branche.</p>
+      <p class="reveal">Wanneer je bij mij in de stoel zit, draait het om jou. Ik neem de tijd om te kijken wat bij je past, of het nu gaat om perfect gevormde brows, een blowout of een behandeling die je haar weer laat stralen.</p>
+      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-light reveal" style="margin-top:14px" data-track="book_about">Boek een afspraak bij Selina</a>
+    </div>
+  </div>
+</section>
+
+<section class="reviews wrap" id="reviews" aria-labelledby="rev-title">
+  <div class="reviews-box reveal">
+    <div>
+      <h2 id="rev-title">Wat klanten zeggen</h2>
+      <p>Lees de ervaringen van klanten op Google. Ben je al bij Selé geweest? Met een review help je anderen kiezen.</p>
+    </div>
+    <div class="reviews-actions">
+      <a href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8" target="_blank" rel="noopener" class="btn btn-primary" data-track="reviews_read">Lees reviews op Google</a>
+      <a href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8" target="_blank" rel="noopener" class="btn btn-quiet" data-track="reviews_write">Schrijf een review</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="vragen" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <h2 id="faq-title" class="reveal">Goed om te weten</h2>
+      <p class="reveal">Staat je vraag er niet bij? Stuur een DM op Instagram of mail naar <a class="link" href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>.</p>
+      <a href="faq.html" class="link reveal">Alle vragen bekijken</a>
+    </div>
+    <div class="reveal">
+      <details class="qa"><summary>Waar zit Selé Beauty Studio?</summary><p>Aan de Dorpsstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen.</p></details>
+      <details class="qa"><summary>Hoelang houdt een keratine behandeling?</summary><p>Dat hangt af van de behandeling: de Keratin Glow ± 3–4 maanden, de Marrocare Smooth tot ± 6 maanden, en de Permanent Straight is blijvend (alleen uitgroei bijwerken).</p></details>
+      <details class="qa"><summary>Welke blowout past bij mij?</summary><p>De Classic is voor een natuurlijke, volumineuze look (45 min). De Bombshell is onze signature met maximaal volume (60 min). De Sleek is strak en gepolijst met veel glans (45–60 min).</p></details>
+      <details class="qa"><summary>Wat is het verschil tussen Brow Signature en Brow Luxe?</summary><p>Brow Signature is shaping + henna of hybrid tint (€40, ± 40 min). Brow Luxe is lamination + hybrid tint of henna + shaping, voor gelifte, fluffy en vollere brows (€57, ± 1 uur).</p></details>
+      <details class="qa"><summary>Hoe maak ik een afspraak?</summary><p>Je boekt eenvoudig online via de knop "Boek afspraak", of via Instagram en e-mail.</p></details>
+      <details class="qa"><summary>Doen jullie ook behandelingen voor klanten van buiten Elst?</summary><p>Ja! Voor onze keratine behandelingen reizen klanten vanuit heel Nederland. We zitten centraal in Elst, tussen Arnhem en Nijmegen, en zijn goed bereikbaar.</p></details>
+      <details class="qa"><summary>Hoe verzorg ik mijn haar na een keratine behandeling?</summary><p>Was je haar de eerste 48 uur niet en vermijd hitte. Gebruik daarna het liefst sulfaatvrije producten, zo blijft het resultaat langer mooi.</p></details>
+      <details class="qa"><summary>Kan ik mijn afspraak verplaatsen of annuleren?</summary><p>Ja, via de link in je bevestigingsmail (graag minimaal 24 uur van tevoren).</p></details>
+      <details class="qa"><summary>Welke betaalmethoden accepteren jullie?</summary><p>Pin, contant en betaalverzoek (Tikkie).</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="reads" aria-labelledby="reads-title">
+  <div class="wrap">
+    <h2 id="reads-title" class="reveal">Lees meer over je behandeling</h2>
+    <div class="read-grid">
+      <a href="blog/wenkbrauwen.html" class="read reveal">
+        <img src="img/brows-voor-na-1-720.webp" width="720" height="394" alt="" loading="lazy">
+        <div><h3>Alles over wenkbrauwen</h3><p>Van nette shape tot fluffy lamination.</p></div>
       </a>
-      <a href="blog/blowouts.html" class="treat-card reveal">
-        <div class="treat-en">The Blowout Bar</div>
-        <div class="treat-title">Alles over blowouts</div>
-        <div class="treat-desc">Volume, glans en glamour in één behandeling.</div>
-        <span class="treat-book">Lees meer →</span>
+      <a href="blog/blowouts.html" class="read reveal">
+        <img src="img/blowout-volume-480.webp" width="480" height="633" alt="" loading="lazy" style="object-position:50% 25%">
+        <div><h3>Alles over blowouts</h3><p>Volume, glans en glamour in één behandeling.</p></div>
       </a>
-      <a href="blog/keratine.html" class="treat-card reveal">
-        <div class="treat-en">Keratin &amp; Smoothing</div>
-        <div class="treat-title">Alles over keratine</div>
-        <div class="treat-desc">Pluisvrij, zacht en makkelijk stylbaar haar — tot 6 maanden.</div>
-        <span class="treat-book">Lees meer →</span>
+      <a href="blog/keratine.html" class="read reveal">
+        <img src="img/keratine-na-480.webp" width="480" height="640" alt="" loading="lazy" style="object-position:50% 30%">
+        <div><h3>Alles over keratine</h3><p>Pluisvrij, zacht en makkelijk stylbaar haar, tot 6 maanden.</p></div>
       </a>
     </div>
   </div>
 </section>
 
-<section class="cta section">
-  <div class="container">
-    <h2>Ready to glow?</h2>
-    <p>Plan jouw afspraak vandaag nog en geniet van een moment helemaal voor jou.</p>
-    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-accent">Boek een afspraak</a>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="label">Contact</div>
-      <h2>Kom langs of maak een afspraak</h2>
-    </div>
-    <div class="contact-grid" style="grid-template-columns:1fr;max-width:520px;margin:0 auto;text-align:center">
-      <div class="contact-info reveal">
-        <h3>Selé Beauty Studio</h3>
-        <div class="contact-row">📍 <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Dorpsstraat 57, 6661 EG Elst (Gelderland)</a>
-        <iframe src="https://www.google.com/maps?q=Dorpsstraat%2057%2C%206661%20EG%20Elst&output=embed" width="100%" height="140" style="border:0;border-radius:8px;margin-top:10px;max-width:240px;" loading="lazy" title="Locatie Selé Beauty Studio" referrerpolicy="no-referrer-when-downgrade"></iframe> — nabij Arnhem &amp; Nijmegen · <a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7?g_st=ac" target="_blank" rel="noopener" style="text-decoration:underline">Route in Google Maps</a></div>
-        <div class="contact-row">📧 <a href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a></div>
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 id="contact-title" class="reveal">Kom langs in Elst, tussen Arnhem en Nijmegen</h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="addr">Selé Beauty Studio<br>Dorpsstraat 57<br>6661 EG Elst (Gld)</p>
+        <div class="contact-lines">
+          <a class="link" href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7" target="_blank" rel="noopener">Route plannen in Google Maps</a>
+          <a class="link" href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>
+        </div>
         <div class="socials">
-          <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" aria-label="Instagram" class="social"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener" aria-label="Facebook" class="social"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+        <div class="map" id="map">
+          <p>De kaart wordt geladen via Google Maps. Daarbij deelt je browser gegevens met Google.</p>
+          <button type="button" class="btn btn-quiet" id="mapBtn">Kaart tonen</button>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>Openingstijden</h3>
+        <p class="hours-status"><span class="status" data-status><i></i><span>Bekijk de tijden hieronder</span></span></p>
+        <ul class="hours" id="hours">
+          <li data-day="1"><span>Maandag</span><span>10:00 – 17:00</span></li>
+          <li data-day="2"><span>Dinsdag</span><span>10:00 – 17:00</span></li>
+          <li data-day="3"><span>Woensdag</span><span>10:00 – 17:00</span></li>
+          <li data-day="4"><span>Donderdag</span><span>12:00 – 21:00</span></li>
+          <li data-day="5"><span>Vrijdag</span><span>10:00 – 17:00</span></li>
+          <li data-day="6"><span>Zaterdag</span><span>10:00 – 17:00</span></li>
+          <li data-day="0"><span>Zondag</span><span>12:00 – 17:00</span></li>
+        </ul>
+        <div class="contact-cta">
+          <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_contact">Boek online</a>
+          <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" class="btn btn-quiet">Stuur een DM</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
-  <div class="container">
-    <div class="footer-grid">
+  <div class="wrap">
+    <div class="foot-grid">
       <div>
-        <div class="brand" style="color:#fff">Selé <span style="color:var(--accent)">Beauty Studio</span></div>
-        <p style="margin-top:12px;font-size:.88rem">Natuurlijke schoonheid in Elst — wenkbrauwen, blowouts en keratine.</p>
+        <div class="brand">Selé <span>Beauty Studio</span></div>
+        <p class="foot-tag">Wenkbrauwen, blowouts en keratine aan de Dorpsstraat 57 in Elst.</p>
       </div>
       <div>
-        <h4>Contact</h4>
-        <a href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacyverklaring</a>
-        <a href="algemene-voorwaarden.html">Algemene voorwaarden</a>
-        <a href="cookiebeleid.html">Cookieverklaring</a>
-        <a href="disclaimer.html">Disclaimer</a>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#behandelingen">Prijzen</a></li>
+          <li><a href="wenkbrauwen.html">Wenkbrauwen</a></li>
+          <li><a href="faq.html">Veelgestelde vragen</a></li>
+          <li><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Openingstijden</h4>
-        <a>Ma, Di & Wo 10:00–17:00</a>
-        <a>Do 12:00–21:00</a>
-        <a>Vr & Za 10:00–17:00</a>
-        <a>Zo 12:00–17:00</a>
-      </div>
-      <div>
-        <h4>Volg ons</h4>
-        <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg> Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+        <h4>Juridisch</h4>
+        <ul>
+          <li><a href="privacy.html">Privacyverklaring</a></li>
+          <li><a href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+          <li><a href="cookiebeleid.html">Cookieverklaring</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><button type="button" id="cookieReset" style="background:none;border:0;color:inherit;cursor:pointer;padding:5px 0">Cookie-instellingen</button></li>
+        </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Selé Beauty Studio · Elst (Gelderland)</span>
+      <span>© <span id="year">2026</span> Selé Beauty Studio · Elst (Gelderland)</span>
       <span>Website door <a href="https://github.com/benzanmontage-hue" target="_blank" rel="noopener">b·labs</a></span>
     </div>
   </div>
 </footer>
 
-<div class="mobile-bar">
-  <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" class="bar-ig">Instagram</a>
-  <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="bar-book">📅 Boek afspraak</a>
+<div class="mbar">
+  <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener" class="ig">Instagram</a>
+  <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="book" data-track="book_mobilebar">Boek afspraak</a>
 </div>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-<script src="chatbot.js" defer></script>
-<!-- Cookie consent (EU) -->
-<div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1f2430;color:#e8e8ec;padding:16px 22px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:14px;box-shadow:0 -4px 24px rgba(0,0,0,.3);">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
-    <div style="flex:1;min-width:260px;line-height:1.55;">
-      We gebruiken cookies voor statistieken en een optimale werking van de site.
-      <a href="cookiebeleid.html" style="color:#8ab4ff;text-decoration:underline;">Meer info</a>
-      
-    </div>
-    <div style="display:flex;gap:10px;align-items:center;">
-      <button id="cookieDecline" onclick="cookieDone('declined')" style="background:transparent;color:#e8e8ec;border:1px solid #4a5060;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Weigeren</button>
-      <button id="cookieAccept" onclick="cookieDone('accepted')" style="background:#3b82f6;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">Accepteren</button>
-    </div>
+<!-- Cookie consent (AVG) -->
+<div class="cookie" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie-toestemming" hidden>
+  <p>We gebruiken analytische cookies om te zien hoe de site gebruikt wordt. Alleen als jij dat goed vindt. <a href="cookiebeleid.html">Meer info</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="no" data-consent="declined">Weigeren</button>
+    <button type="button" class="yes" data-consent="accepted">Accepteren</button>
   </div>
 </div>
-<script>
-function cookieDone(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}var b=document.getElementById('cookieConsent');if(b){b.remove();}if(v==='accepted'){try{window.loadGA();}catch(e){}}}
-(function(){try{if(localStorage.getItem('cookie-consent')){var b=document.getElementById('cookieConsent');if(b){b.remove();}}}catch(e){}})();
-</script>
 
+<script>
+(function(){
+  // menu
+  var burger=document.getElementById('burger'), menu=document.getElementById('mmenu');
+  function setMenu(open){ menu.classList.toggle('open',open); burger.setAttribute('aria-expanded',open); burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen'); }
+  burger.addEventListener('click',function(){ setMenu(!menu.classList.contains('open')); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
+
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){ nav.classList.toggle('scrolled',scrollY>10); },{passive:true});
+
+  // reveal
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el,i){ var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0; el.style.transitionDelay=Math.min(sib,4)*70+'ms'; io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // openingstijden + live status (tijdzone Amsterdam)
+  var H={0:[12,17],1:[10,17],2:[10,17],3:[10,17],4:[12,21],5:[10,17],6:[10,17]};
+  try{
+    var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    var get=function(t){ return (parts.find(function(p){return p.type===t;})||{}).value; };
+    var day=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
+    var now=parseInt(get('hour'),10)%24 + parseInt(get('minute'),10)/60;
+    var h=H[day], open=now>=h[0] && now<h[1], text;
+    if(open){ text='Nu open tot '+h[1]+':00'; }
+    else if(now<h[0]){ text='Vandaag open om '+h[0]+':00'; }
+    else { text='Morgen open om '+H[(day+1)%7][0]+':00'; }
+    document.querySelectorAll('[data-status]').forEach(function(s){ s.classList.add(open?'is-open':'is-closed'); s.lastElementChild.textContent=text; });
+    var li=document.querySelector('#hours [data-day="'+day+'"]'); if(li){ li.classList.add('today'); li.firstElementChild.textContent+=' (vandaag)'; }
+  }catch(e){}
+
+  // voor/na schuifregelaar
+  document.querySelectorAll('[data-ba]').forEach(function(f){
+    var r=f.querySelector('.ba-range');
+    r.addEventListener('input',function(){ f.style.setProperty('--pos',r.value+'%'); });
+  });
+
+  // kaart pas laden na klik (AVG + snelheid)
+  var mb=document.getElementById('mapBtn');
+  mb.addEventListener('click',function(){
+    var m=document.getElementById('map');
+    m.innerHTML='<iframe src="https://www.google.com/maps?q=Dorpsstraat%2057%2C%206661%20EG%20Elst&output=embed" title="Kaart: Selé Beauty Studio, Dorpsstraat 57 Elst" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
+    m.classList.add('loaded');
+  });
+
+  // boekklikken meten (alleen als GA is toegestaan)
+  document.querySelectorAll('[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){ if(window.gtag){ gtag('event','boek_klik',{plek:a.getAttribute('data-track')}); } });
+  });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // cookies
+  var cc=document.getElementById('cookieConsent');
+  function showCookie(){ cc.hidden=false; }
+  try{ if(!localStorage.getItem('cookie-consent')) showCookie(); }catch(e){ showCookie(); }
+  cc.querySelectorAll('[data-consent]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.getAttribute('data-consent');
+      try{ localStorage.setItem('cookie-consent',v); }catch(e){}
+      cc.hidden=true;
+      if(v==='accepted') window.loadGA();
+    });
+  });
+  document.getElementById('cookieReset').addEventListener('click',function(){ try{ localStorage.removeItem('cookie-consent'); }catch(e){} showCookie(); });
+})();
+</script>
+<script src="chatbot.js" defer></script>
 </body>
 </html>
