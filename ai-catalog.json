@@ -11,7 +11,7 @@
       "displayName": "Selé Beauty Studio — website",
       "type": "application/agent-card+json",
       "url": "https://beautystudioelst.nl/",
-      "description": "Schoonheidssalon in Elst (Gelderland) voor keratine- en smoothing behandelingen, blowouts en wenkbrauwen (brows). Klanten reizen vanuit heel Nederland.",
+      "description": "Schoonheidssalon in Elst (Gelderland) gespecialiseerd in wenkbrauwen (brow lamination, henna, brow shape) en blowouts. Ook keratine- en smoothing behandelingen.",
       "tags": [
         "selebeautystudio",
         "website",
@@ -19,10 +19,10 @@
         "nederland"
       ],
       "representativeQueries": [
-        "keratine behandeling elst",
-        "blowout elst",
         "wenkbrauwen elst",
-        "keratine nederland"
+        "blowout elst",
+        "brow lamination elst",
+        "keratine behandeling elst"
       ],
       "version": "1.0.0",
       "updatedAt": "2026-10-25T00:00:00Z"

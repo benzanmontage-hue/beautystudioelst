@@ -50,7 +50,7 @@
 
   var KB = [
     {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! 👋 Welkom bij Selé Beauty Studio. Ik kan je alles vertellen over onze behandelingen, prijzen en openingstijden. Waar kan ik je mee helpen?'},
-    {k:['prijs','prijzen','kosten','tarief','tarieven','duur','hoe duur','euro','€'], r:'Dit zijn onze prijzen:<table class="pl"><tr><td>Keratin Glow (keratine)</td><td>vanaf €90</td></tr><tr><td>Marrocare Smooth</td><td>vanaf €150</td></tr><tr><td>Permanent Straight</td><td>vanaf €220</td></tr><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr></table>'},
+    {k:['prijs','prijzen','kosten','tarief','tarieven','duur','hoe duur','euro','€'], r:'Dit zijn onze prijzen:<table class="pl"><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Keratin Glow (keratine)</td><td>vanaf €90</td></tr><tr><td>Marrocare Smooth</td><td>vanaf €150</td></tr><tr><td>Permanent Straight</td><td>vanaf €220</td></tr></table>'},
     {k:['keratine','smoothing','keratin glow','marrocare','permanent','steil'], r:'💇‍♀️ <b>Keratine:</b><br>• <b>Keratin Glow (vanaf €90)</b> — zacht & pluisvrij, ±3–4 maanden<br>• <b>Marrocare Smooth (vanaf €150)</b> — tot 80% rechter, ±6 maanden<br>• <b>Permanent Straight (vanaf €220)</b> — permanent steil'},
     {k:['blowout','fohn','föhn','volume','krullen'], r:'💨 <b>Blowouts:</b><br>• <b>Classic (€40, 45 min)</b> — volumineus, everyday glam<br>• <b>Bombshell (€55, 60 min)</b> — max volume, "big hair"<br>• <b>Sleek (€45)</b> — strak & gepolijst'},
     {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','henna','lamination'], r:'👁️ <b>Wenkbrauwen:</b><br>• <b>Brow Shape (€20)</b> — epileren & trimmen<br>• <b>Brow Signature (€40)</b> — shaping + henna/hybrid<br>• <b>Brow Luxe (€57)</b> — lamination + hybrid tint of henna + shaping'},
@@ -61,7 +61,7 @@
     {k:['contact','telefoon','email','mail','instagram'], r:'📧 info@beautystudioelst.nl<br>📸 Instagram: @sele.beautystudio'},
     {k:['dank','bedankt','top','super','perfect','oke','goed'], r:'Graag gedaan! 💕 Nog iets anders?'}
   ];
-  var QUICK = ['💶 Prijzen','💇‍♀️ Keratine','💨 Blowout','👁️ Wenkbrauwen','🕐 Openingstijden','📅 Afspraak boeken'];
+  var QUICK = ['👁️ Wenkbrauwen', '💨 Blowout', '💇‍♀️ Keratine', '💶 Prijzen', '🕐 Openingstijden', '📅 Afspraak boeken'];
 
   var body = document.getElementById('seleChatBody');
   var input = document.getElementById('seleChatInput');
