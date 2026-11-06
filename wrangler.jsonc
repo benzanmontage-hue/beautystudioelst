@@ -1,0 +1,11 @@
+{
+  // Selé Beauty Studio: statische website (Cloudflare Workers static assets)
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "beautystudioelst",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

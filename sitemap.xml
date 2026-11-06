@@ -7,7 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://beautystudioelst.nl/wenkbrauwen.html</loc>
+    <loc>https://beautystudioelst.nl/wenkbrauwen</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -31,7 +31,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://beautystudioelst.nl/blog/wenkbrauwen.html</loc>
+    <loc>https://beautystudioelst.nl/blog/wenkbrauwen</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -85,27 +85,21 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://beautystudioelst.nl/blog/blowouts.html</loc>
+    <loc>https://beautystudioelst.nl/blog/blowouts</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://beautystudioelst.nl/blog/keratine.html</loc>
+    <loc>https://beautystudioelst.nl/blog/keratine</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://beautystudioelst.nl/faq.html</loc>
+    <loc>https://beautystudioelst.nl/faq</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://beautystudioelst.nl/privacy.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
   </url>
 </urlset>

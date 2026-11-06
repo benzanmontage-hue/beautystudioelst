@@ -1,58 +1,267 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+<!-- Google Analytics laadt alleen na cookie-toestemming (AVG) -->
+<script>
+  document.documentElement.classList.add('js');
+  window.loadGA = function(){
+    if (window.__gaLoaded) return; window.__gaLoaded = true;
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js', new Date()); gtag('config','G-H3ML3FDPHC');
+  };
+  (function(){ try{ if(localStorage.getItem('cookie-consent')==='accepted'){ window.loadGA(); } }catch(e){} })();
+</script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Veelgestelde vragen | Selé Beauty Studio</title>
-<meta name="description" content="Veelgestelde vragen over Selé Beauty Studio. Afspraken, prijzen, locatie en openingstijden.">
-<link rel="canonical" href="https://beautystudioelst.nl/faq.html">
-<meta property="og:title" content="Veelgestelde vragen | Selé Beauty Studio">
-<meta property="og:url" content="https://beautystudioelst.nl/faq.html">
+<meta name="description" content="Antwoorden op veelgestelde vragen over wenkbrauwen, brow lamination, henna, afspraken, betalen, blowouts en keratine bij Selé Beauty Studio in Elst.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://beautystudioelst.nl/faq">
+<meta name="theme-color" content="#faf5ee">
 <meta property="og:type" content="website">
+<meta property="og:title" content="Veelgestelde vragen">
+<meta property="og:description" content="Antwoorden op veelgestelde vragen over wenkbrauwen, brow lamination, henna, afspraken, betalen, blowouts en keratine bij Selé Beauty Studio in Elst.">
+<meta property="og:url" content="https://beautystudioelst.nl/faq">
+<meta property="og:image" content="https://beautystudioelst.nl/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Selé Beauty Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Veelgestelde vragen">
+<meta name="twitter:description" content="Antwoorden op veelgestelde vragen over wenkbrauwen, brow lamination, henna, afspraken, betalen, blowouts en keratine bij Selé Beauty Studio in Elst.">
+<meta name="twitter:image" content="https://beautystudioelst.nl/images/og-image.jpg">
+<link rel="preload" href="fonts/montserrat.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Welke brow-behandeling past bij mij?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Wil je vooral een nette basis, kies dan Brow Shape. Wil je meer kleur en definitie, dan past Brow Signature. Voor gelifte, fluffy en vollere brows kies je Brow Luxe. Twijfel je? Stuur een DM op Instagram, Selina denkt met je mee."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Wat is het verschil tussen Brow Signature en Brow Luxe?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Brow Signature is shaping plus henna of hybrid tint (€40, ± 40 min). Brow Luxe is lamination plus hybrid tint of henna plus shaping, voor gelifte, fluffy en vollere brows (€57, ± 1 uur)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe lang blijven mijn brows mooi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Henna of hybrid tint blijft ± 2–4 weken mooi. Een lamination houdt ± 6–8 weken, afhankelijk van je haar en hoe je je brows verzorgt."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Doet een brow lamination pijn?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Je ligt even rustig terwijl je brows gelift en in vorm gebracht worden. Heb je een gevoelige huid of allergieën? Meld het vooraf, dan kijkt Selina wat verstandig is."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Moet ik iets voorbereiden?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kom bij voorkeur zonder make-up op je wenkbrauwen, dan kunnen we direct beginnen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe maak ik een afspraak?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Je boekt online via de knop \"Boek afspraak\", of via Instagram en e-mail."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kan ik mijn afspraak verplaatsen of annuleren?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja, via de link in je bevestigingsmail. Graag minimaal 24 uur van tevoren."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Welke betaalmethoden accepteren jullie?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pin, contant en betaalverzoek (Tikkie)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Waar zit Selé Beauty Studio?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Aan de Dorpsstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Welke blowout past bij mij?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De Classic is voor een natuurlijke, volumineuze look (45 min). De Bombshell is onze signature met maximaal volume (60 min). De Sleek is strak en gepolijst met veel glans (45–60 min)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe lang houdt een keratinebehandeling?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De Keratin Glow ± 3–4 maanden, de Marrocare Smooth tot ± 6 maanden, en de Permanent Straight is blijvend (alleen uitgroei bijwerken)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe verzorg ik mijn haar na een keratinebehandeling?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Was je haar de eerste 48 uur niet en vermijd hitte. Gebruik daarna het liefst sulfaatvrije producten, zo blijft het resultaat langer mooi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Komen er ook klanten van buiten Elst?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Selé zit centraal in Elst, tussen Arnhem en Nijmegen, en is goed bereikbaar vanuit de hele regio. Op de regiopagina’s zie je de reistijd vanuit jouw plaats."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 <link rel="ai-catalog" href="https://beautystudioelst.nl/ai-catalog.json">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Waar zit Selé Beauty Studio?", "acceptedAnswer": {"@type": "Answer", "text": "Selé Beauty Studio zit aan de Dorpsstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen."}}, {"@type": "Question", "name": "Hoelang houdt een keratine behandeling?", "acceptedAnswer": {"@type": "Answer", "text": "Keratin Glow ± 3–4 maanden, Marrocare Smooth tot ± 6 maanden, en Permanent Straight is blijvend (alleen uitgroei bijwerken)."}}, {"@type": "Question", "name": "Welke blowout past bij mij?", "acceptedAnswer": {"@type": "Answer", "text": "Classic is voor een natuurlijke, volumineuze look (45 min). Bombshell is onze signature met maximaal volume (60 min). Sleek is strak en gepolijst (45–60 min)."}}, {"@type": "Question", "name": "Wat is het verschil tussen Brow Signature en Brow Luxe?", "acceptedAnswer": {"@type": "Answer", "text": "Brow Signature is shaping + henna of hybrid tint (€40). Brow Luxe is lamination + hybrid tint of henna + shaping (€57)."}}, {"@type": "Question", "name": "Hoe maak ik een afspraak?", "acceptedAnswer": {"@type": "Answer", "text": "Boek online via de Boek afspraak-knop, of via Instagram en e-mail."}}, {"@type": "Question", "name": "Doen jullie ook behandelingen voor klanten van buiten Elst?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, voor onze keratine behandelingen reizen klanten vanuit heel Nederland. We zitten centraal in Elst, goed bereikbaar."}}]}</script>
-<style>
-body{font-family:'Segoe UI',system-ui,Arial,sans-serif;color:#14110d;background:#faf8f4;margin:0;padding:0;line-height:1.6}
-.page{max-width:760px;margin:0 auto;background:#fff;padding:48px 36px}
-.logo{font-size:1.4rem;font-weight:800;color:#b57f69;margin-bottom:8px}
-h1{font-size:1.6rem;color:#b57f69;margin:16px 0 4px}
-.meta{font-size:.8rem;color:#999;margin-bottom:28px}
-details{border-bottom:1px solid #eee;padding:14px 0}
-summary{cursor:pointer;font-weight:600;color:#333;font-size:1.02rem}
-details p{margin:10px 0 0;color:#555;font-size:.94rem}
-.back{display:inline-block;margin-top:32px;color:#b57f69;text-decoration:none;font-weight:600}
-</style>
 </head>
 <body>
-<div class="page">
-  <div class="logo">Selé Beauty Studio</div>
-  <h1>Veelgestelde vragen</h1>
-  <div class="meta">FAQ — Selé Beauty Studio</div>
-  <details>
-    <summary>Waar zit Selé Beauty Studio?</summary>
-    <p>Selé Beauty Studio zit aan de Dorpsstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen.</p>
-  </details>
-  <details>
-    <summary>Hoelang houdt een keratine behandeling?</summary>
-    <p>Keratin Glow ± 3–4 maanden, Marrocare Smooth tot ± 6 maanden, en Permanent Straight is blijvend (alleen uitgroei bijwerken).</p>
-  </details>
-  <details>
-    <summary>Welke blowout past bij mij?</summary>
-    <p>Classic is voor een natuurlijke, volumineuze look (45 min). Bombshell is onze signature met maximaal volume (60 min). Sleek is strak en gepolijst (45–60 min).</p>
-  </details>
-  <details>
-    <summary>Wat is het verschil tussen Brow Signature en Brow Luxe?</summary>
-    <p>Brow Signature is shaping + henna of hybrid tint (€40). Brow Luxe is lamination + hybrid tint of henna + shaping (€57).</p>
-  </details>
-  <details>
-    <summary>Hoe maak ik een afspraak?</summary>
-    <p>Boek online via de Boek afspraak-knop, of via Instagram en e-mail.</p>
-  </details>
-  <details>
-    <summary>Doen jullie ook behandelingen voor klanten van buiten Elst?</summary>
-    <p>Ja, voor onze keratine behandelingen reizen klanten vanuit heel Nederland. We zitten centraal in Elst, goed bereikbaar.</p>
-  </details>
-  <a href="index.html" class="back">← Terug naar de website</a>
+<a class="skip" href="#main">Naar de inhoud</a>
+<nav class="nav" aria-label="Hoofdmenu">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand logo" aria-label="Selé Beauty Studio, naar de homepage"><img src="images/mark-light.webp" alt="Selé Beauty Studio" width="240" height="140"></a>
+    <div class="nav-links">
+      <a href="wenkbrauwen.html">Wenkbrauwen</a>
+      <a href="wenkbrauwen.html#kies">Prijzen</a>
+      <a href="index.html#resultaten">Resultaten</a>
+      <a href="index.html#selina">Over Selina</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_nav">Afspraak maken</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+  </div>
+  <div class="mmenu" id="mmenu">
+    <a href="wenkbrauwen.html">Wenkbrauwen</a>
+    <a href="wenkbrauwen.html#kies">Prijzen</a>
+    <a href="index.html#resultaten">Resultaten</a>
+    <a href="index.html#selina">Over Selina</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_menu">Afspraak maken</a>
+  </div>
+</nav>
+
+<main id="main" class="article">
+  <div class="wrap">
+    <p class="crumbs"><a href="index.html">Home</a> / Veelgestelde vragen</p>
+    <h1>Veelgestelde vragen</h1>
+    <p class="lead">Alles over brows, afspraken en betalen bij Selé Beauty Studio, op één plek.</p>
+    <div class="prose">
+      <h2>Wenkbrauwen</h2>
+      <details class="qa"><summary>Welke brow-behandeling past bij mij?</summary><p>Wil je vooral een nette basis, kies dan Brow Shape. Wil je meer kleur en definitie, dan past Brow Signature. Voor gelifte, fluffy en vollere brows kies je Brow Luxe. Twijfel je? Stuur een DM op Instagram, Selina denkt met je mee.</p></details>
+      <details class="qa"><summary>Wat is het verschil tussen Brow Signature en Brow Luxe?</summary><p>Brow Signature is shaping plus henna of hybrid tint (€40, ± 40 min). Brow Luxe is lamination plus hybrid tint of henna plus shaping, voor gelifte, fluffy en vollere brows (€57, ± 1 uur).</p></details>
+      <details class="qa"><summary>Hoe lang blijven mijn brows mooi?</summary><p>Henna of hybrid tint blijft ± 2–4 weken mooi. Een lamination houdt ± 6–8 weken, afhankelijk van je haar en hoe je je brows verzorgt.</p></details>
+      <details class="qa"><summary>Doet een brow lamination pijn?</summary><p>Je ligt even rustig terwijl je brows gelift en in vorm gebracht worden. Heb je een gevoelige huid of allergieën? Meld het vooraf, dan kijkt Selina wat verstandig is.</p></details>
+      <details class="qa"><summary>Moet ik iets voorbereiden?</summary><p>Kom bij voorkeur zonder make-up op je wenkbrauwen, dan kunnen we direct beginnen.</p></details>
+      <h2>Afspraak &amp; betalen</h2>
+      <details class="qa"><summary>Hoe maak ik een afspraak?</summary><p>Je boekt online via de knop "Boek afspraak", of via Instagram en e-mail.</p></details>
+      <details class="qa"><summary>Kan ik mijn afspraak verplaatsen of annuleren?</summary><p>Ja, via de link in je bevestigingsmail. Graag minimaal 24 uur van tevoren.</p></details>
+      <details class="qa"><summary>Welke betaalmethoden accepteren jullie?</summary><p>Pin, contant en betaalverzoek (Tikkie).</p></details>
+      <details class="qa"><summary>Waar zit Selé Beauty Studio?</summary><p>Aan de Dorpsstraat 57 in Elst (Gelderland), tussen Arnhem en Nijmegen.</p></details>
+      <h2>Blowouts &amp; keratine</h2>
+      <details class="qa"><summary>Welke blowout past bij mij?</summary><p>De Classic is voor een natuurlijke, volumineuze look (45 min). De Bombshell is onze signature met maximaal volume (60 min). De Sleek is strak en gepolijst met veel glans (45–60 min).</p></details>
+      <details class="qa"><summary>Hoe lang houdt een keratinebehandeling?</summary><p>De Keratin Glow ± 3–4 maanden, de Marrocare Smooth tot ± 6 maanden, en de Permanent Straight is blijvend (alleen uitgroei bijwerken).</p></details>
+      <details class="qa"><summary>Hoe verzorg ik mijn haar na een keratinebehandeling?</summary><p>Was je haar de eerste 48 uur niet en vermijd hitte. Gebruik daarna het liefst sulfaatvrije producten, zo blijft het resultaat langer mooi.</p></details>
+      <h2>Bereikbaarheid</h2>
+      <details class="qa"><summary>Komen er ook klanten van buiten Elst?</summary><p>Ja. Selé zit centraal in Elst, tussen Arnhem en Nijmegen, en is goed bereikbaar vanuit de hele regio. Op de regiopagina’s zie je de reistijd vanuit jouw plaats.</p></details>
+      <p class="chips" style="margin-top:14px"><a href="wenkbrauwen-arnhem/">Wenkbrauwen Arnhem</a><a href="wenkbrauwen-nijmegen/">Wenkbrauwen Nijmegen</a><a href="wenkbrauwen-bemmel/">Wenkbrauwen Bemmel</a><a href="wenkbrauwen-huissen/">Wenkbrauwen Huissen</a><a href="wenkbrauwen-driel/">Wenkbrauwen Driel</a><a href="wenkbrauwen-zetten/">Wenkbrauwen Zetten</a><a href="wenkbrauwen-lent/">Wenkbrauwen Lent</a><a href="wenkbrauwen-wageningen/">Wenkbrauwen Wageningen</a></p>
+      <p class="note">Staat je vraag er niet bij? Stuur een DM op <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a> of mail naar <a href="mailto:info@beautystudioelst.nl">info@beautystudioelst.nl</a>.</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Selé <span>Beauty Studio</span></div>
+        <p class="foot-tag">Wenkbrauwen in Elst, aan de Dorpsstraat 57. Ook voor blowouts en keratine.</p>
+      </div>
+      <div>
+        <h2 class="fh">Studio</h2>
+        <ul>
+          <li><a href="wenkbrauwen.html">Wenkbrauwen</a></li>
+          <li><a href="blog/wenkbrauwen.html">Henna, hybrid tint of lamination?</a></li>
+          <li><a href="blog/blowouts.html">Blowouts</a></li>
+          <li><a href="blog/keratine.html">Keratine</a></li>
+          <li><a href="faq.html">Veelgestelde vragen</a></li>
+          <li><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="fh">Juridisch</h2>
+        <ul>
+          <li><a href="privacy.html">Privacyverklaring</a></li>
+          <li><a href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+          <li><a href="cookiebeleid.html">Cookieverklaring</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><button type="button" id="cookieReset">Cookie-instellingen</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> Selé Beauty Studio · Elst (Gelderland)</span>
+      <span>Website door <a href="https://github.com/benzanmontage-hue" target="_blank" rel="noopener">b·labs</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a href="index.html#prijzen" class="alt">Prijzen</a>
+  <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="book" data-track="book_mobilebar">Afspraak maken</a>
 </div>
+
+<div class="cookie" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie-toestemming" hidden>
+  <p>We gebruiken analytische cookies om te zien hoe de site gebruikt wordt. Alleen als jij dat goed vindt. <a href="cookiebeleid.html">Meer info</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="no" data-consent="declined">Weigeren</button>
+    <button type="button" class="yes" data-consent="accepted">Accepteren</button>
+  </div>
+</div>
+
+<script src="js/site.js" defer></script>
+<script src="chatbot.js" defer></script>
 </body>
 </html>
