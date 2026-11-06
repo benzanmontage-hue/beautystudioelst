@@ -307,6 +307,8 @@
 <link rel="ai-catalog" href="https://beautystudioelst.nl/ai-catalog.json">
 </head>
 <body>
+<div id="scrollProgress"></div>
+<button id="backTop" aria-label="Terug naar boven"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="spark" viewBox="0 0 20 20"><path d="M10 0c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10C5.4 9.4 9.4 5.4 10 0Z" fill="currentColor"/></symbol>
   <symbol id="curve" viewBox="0 0 400 300"><path d="M-20 290C60 220 40 130 120 90S300 60 330-20" fill="none" stroke="currentColor" stroke-width="1"/><path d="M-20 260C70 200 60 120 140 80S290 40 300-20" fill="none" stroke="currentColor" stroke-width=".8"/></symbol>
@@ -727,9 +729,33 @@
   <div class="cookie-btns"><button type="button" class="no" data-consent="declined">Weigeren</button><button type="button" class="yes" data-consent="accepted">Accepteren</button></div>
 </div>
 
+<script src="js/lenis.min.js"></script>
 <script>
 (function(){
   var $=function(s,c){return (c||document).querySelector(s);}, $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s));};
+  // 2026 scroll: Lenis smooth + voortgang + terug-naar-boven
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.Lenis && !reduced) {
+    window.__lenis = new Lenis({
+      duration: 1.1,
+      easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); },
+      smoothWheel: true,
+      anchors: { offset: -100 },
+      autoRaf: true
+    });
+  }
+  var prog = $('#scrollProgress'), back = $('#backTop');
+  function onScroll(){
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight, y = h.scrollTop;
+    if (prog) prog.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    if (back) back.classList.toggle('show', y > 700);
+  }
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  if (back) back.addEventListener('click', function(){
+    if (window.__lenis) window.__lenis.scrollTo(0, { duration: 1.2 });
+    else scrollTo({ top: 0, behavior: 'smooth' });
+  });
   // menu
   var nav=$('#nav'), mb=$('#menuBtn');
   function setMenu(o){nav.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.textContent=o?'Sluit':'Menu';document.documentElement.classList.toggle('menu-open',o);}

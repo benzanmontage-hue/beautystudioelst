@@ -14,7 +14,14 @@
 @view-transition{navigation:auto}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:100px;scroll-padding-bottom:90px}
+html{scroll-padding-top:100px;scroll-padding-bottom:90px}
+/* 2026 scroll: voortgangsbalk + terug-naar-boven */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--bronze));transform-origin:0 50%;transform:scaleX(0);z-index:9999;pointer-events:none;will-change:transform}
+#backTop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--pill);color:var(--pill-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(43,34,29,.28);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s,transform .3s,visibility .3s;z-index:9998}
+#backTop.show{opacity:1;visibility:visible;transform:none}
+#backTop:hover{background:var(--dark)}
+#backTop svg{width:20px;height:20px}
+@media(max-width:640px){#backTop{right:16px;bottom:16px;width:44px;height:44px}}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
