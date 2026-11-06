@@ -11,7 +11,7 @@
       "displayName": "Selé Beauty Studio — website",
       "type": "application/agent-card+json",
       "url": "https://beautystudioelst.nl/",
-      "description": "Schoonheidssalon in Elst (Gelderland) gespecialiseerd in wenkbrauwen (brow lamination, henna, brow shape) en blowouts. Ook keratine- en smoothing behandelingen.",
+      "description": "Wenkbrauwstudio in Elst (Gelderland), tussen Arnhem en Nijmegen: brow shape, henna, hybrid tint en brow lamination. Ook blowouts en keratine- en smoothing-behandelingen.",
       "tags": [
         "selebeautystudio",
         "website",
@@ -20,12 +20,16 @@
       ],
       "representativeQueries": [
         "wenkbrauwen elst",
-        "blowout elst",
+        "wenkbrauwen laten doen elst",
         "brow lamination elst",
+        "brow lamination arnhem",
+        "henna brows nijmegen",
+        "wenkbrauwen verven overbetuwe",
+        "blowout elst",
         "keratine behandeling elst"
       ],
       "version": "1.0.0",
-      "updatedAt": "2026-10-25T00:00:00Z"
+      "updatedAt": "2026-11-06T00:00:00Z"
     }
   ]
 }
