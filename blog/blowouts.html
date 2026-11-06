@@ -1,97 +1,185 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC"></script>
+<!-- Google Analytics laadt alleen na cookie-toestemming (AVG) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H3ML3FDPHC');
+  document.documentElement.classList.add('js');
+  window.loadGA = function(){
+    if (window.__gaLoaded) return; window.__gaLoaded = true;
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag; gtag('js', new Date()); gtag('config','G-H3ML3FDPHC');
+  };
+  (function(){ try{ if(localStorage.getItem('cookie-consent')==='accepted'){ window.loadGA(); } }catch(e){} })();
 </script>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blowout in Elst — Classic, Bombshell & Sleek | Selé Beauty</title>
-<meta name="description" content="Blowout in Elst? Selé Beauty Studio biedt de Classic Blowout (€40), Bombshell Blowout (€55) en Sleek Blowout (€45). Volumineus, glamoureus of strak — jij kiest de look.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Blowout in Elst: Classic, Sleek of Bombshell? | Selé Beauty Studio</title>
+<meta name="description" content="Welke blowout past bij jou? De Classic (€40), Sleek (€45) of Bombshell (€55) bij Selé Beauty Studio in Elst. Volumineus, strak of glamoureus.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://beautystudioelst.nl/blog/blowouts.html">
+<meta name="theme-color" content="#faf5ee">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blowout in Elst — Classic, Bombshell & Sleek">
-<meta property="og:description" content="De Classic, Bombshell en Sleek blowout bij Selé Beauty Studio in Elst (Gelderland).">
-<meta property="og:image" content="https://beautystudioelst.nl/images/blowout.jpg">
-
-
-<link rel="stylesheet" href="../fonts/fonts.css">
-<style>
-:root{--bg:#faf5ee;--ink:#3a2c24;--muted:#8d7b6f;--accent:#b57f69;--accent-dark:#9a6751;--line:rgba(58,44,36,.09);--serif:'Playfair Display',Georgia,serif;--sans:'Inter',sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.container{max-width:760px;margin:0 auto;padding:0 22px}
-nav{padding:18px 0;border-bottom:1px solid var(--line)}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.brand{font-family:var(--serif);font-weight:600;font-size:1.2rem}
-.brand span{color:var(--accent)}
-nav a.back{font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent-dark)}
-article{padding:52px 0 40px}
-.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:14px}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,2.8rem);line-height:1.15;margin-bottom:18px}
-.lead{color:var(--muted);font-size:1.1rem;margin-bottom:30px}
-article img{border-radius:16px;margin:26px 0;width:100%}
-h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;margin:32px 0 12px}
-p{color:var(--muted);margin-bottom:14px}
-.cta{background:var(--ink);color:#fff;text-align:center;padding:44px 0;border-radius:18px;margin:36px 0}
-.cta h2{color:#fff;margin-top:0}
-.cta a{display:inline-block;background:var(--accent);color:#fff;padding:13px 28px;border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-top:16px}
-footer{padding:28px 0;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);text-align:center}
-footer a{color:var(--accent-dark)}
-</style>
+<meta property="og:title" content="Blowout in Elst: welke past bij jou?">
+<meta property="og:description" content="Welke blowout past bij jou? De Classic (€40), Sleek (€45) of Bombshell (€55) bij Selé Beauty Studio in Elst. Volumineus, strak of glamoureus.">
 <meta property="og:url" content="https://beautystudioelst.nl/blog/blowouts.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Selé Beauty Studio","url":"https://beautystudioelst.nl/blog/blowouts.html"}</script>
+<meta property="og:image" content="https://beautystudioelst.nl/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Selé Beauty Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blowout in Elst: welke past bij jou?">
+<meta name="twitter:description" content="Welke blowout past bij jou? De Classic (€40), Sleek (€45) of Bombshell (€55) bij Selé Beauty Studio in Elst. Volumineus, strak of glamoureus.">
+<meta name="twitter:image" content="https://beautystudioelst.nl/images/og-image.jpg">
+<link rel="preload" href="../fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='50%' fill='%239a6751'/><text x='32' y='44' font-size='34' font-family='serif' font-style='italic' fill='%23fff' text-anchor='middle'>S</text></svg>">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Welke blowout past bij jou?",
+   "description": "Welke blowout past bij jou? De Classic (€40), Sleek (€45) of Bombshell (€55) bij Selé Beauty Studio in Elst. Volumineus, strak of glamoureus.",
+   "url": "https://beautystudioelst.nl/blog/blowouts.html",
+   "image": "https://beautystudioelst.nl/img/hero-blowout-960.webp",
+   "inLanguage": "nl-NL",
+   "author": {
+    "@type": "Person",
+    "name": "Selina"
+   },
+   "publisher": {
+    "@id": "https://beautystudioelst.nl/#business"
+   },
+   "about": "Blowouts"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://beautystudioelst.nl/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blowouts",
+     "item": "https://beautystudioelst.nl/blog/blowouts.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="ai-catalog" href="https://beautystudioelst.nl/ai-catalog.json">
 </head>
 <body>
-<nav><div class="container"><a href="../index.html" class="brand">Selé <span>Beauty Studio</span></a><a href="../index.html" class="back">← Terug</a></div></nav>
-<article>
-  <div class="container">
-    <div class="eyebrow">The Blowout Bar</div>
-    <h1>Blowout in Elst: volume, glans en glamour in één behandeling</h1>
-    <p class="lead">Een blowout is dé manier om je haar direct een verzorgde, volle en glamoureuze look te geven — perfect voor een speciale gelegenheid, een avond uit, of gewoon om je goed te voelen.</p>
-    <img src="../images/blowout.jpg" alt="Blowout resultaat — volumineus haar" loading="lazy">
-    <h2>Onze drie blowouts</h2>
-    <p><strong>The Classic Blowout (€40, 45 min)</strong> — een zachte, volumineuze föhnstyling met een gladde, verzorgde finish. Perfect voor een effortless everyday glam look.</p>
-    <p><strong>The Bombshell Blowout (€55, 60 min)</strong> — onze signature blowout: maximaal volume, bouncy lengtes en een glamoureuze finish. Denk aan die volle, luchtige "big hair" look.</p>
-    <p><strong>The Sleek Blowout (€45, 45–60 min)</strong> — een strakke, gladde blowout met veel glans en een perfect gepolijste finish.</p>
-    <h2>Wanneer kies je een blowout?</h2>
-    <p>Een blowout is ideaal vóór een bruiloft, feest of fotoshoot — maar ook gewoon als je een dag wilt stralen zonder dat je uren aan je haar hoeft te werken. Het resultaat houdt je look meerdere dagen in vorm.</p>
-    <h2>Blowout vs. keratine</h2>
-    <p>Een blowout is een stylingbehandeling (tijdelijk, tot je haar weer wast). Een keratine- of smoothing-behandeling verandert de structuur van je haar voor maanden. Wil je een blijvend effect? Kies dan voor keratine. Wil je een snelle glam-look? Dan is de blowout perfect.</p>
-    <div class="cta">
+<a class="skip" href="#main">Naar de inhoud</a>
+<div class="promo">Nieuwe klant? <strong>20% korting</strong> op je eerste behandeling met code <strong>WELKOM20</strong></div>
+<nav class="nav" aria-label="Hoofdmenu">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="brand"><img src="../images/logo.jpg" alt="" width="42" height="42">Selé <span>Beauty Studio</span></a>
+    <div class="nav-links">
+      <a href="../wenkbrauwen.html">Wenkbrauwen</a>
+      <a href="../wenkbrauwen.html#kies">Prijzen</a>
+      <a href="../index.html#resultaten">Resultaten</a>
+      <a href="../index.html#over">Over Selina</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_nav">Boek afspraak</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+  </div>
+  <div class="mmenu" id="mmenu">
+    <a href="../wenkbrauwen.html">Wenkbrauwen</a>
+    <a href="../wenkbrauwen.html#kies">Prijzen</a>
+    <a href="../index.html#resultaten">Resultaten</a>
+    <a href="../index.html#over">Over Selina</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="btn btn-primary" data-track="book_menu">Boek afspraak</a>
+  </div>
+</nav>
+
+<main id="main" class="article">
+  <div class="wrap">
+    <p class="crumbs"><a href="../index.html">Home</a> / Blowouts</p>
+    <h1>Welke blowout past bij jou?</h1>
+    <p class="lead">Een blowout geeft je haar direct een verzorgde, volle look. Perfect voor een speciale gelegenheid, een avond uit, of gewoon om je goed te voelen.</p>
+    <div class="article-img"><img src="../img/hero-blowout-960.webp" srcset="../img/hero-blowout-480.webp 480w, ../img/hero-blowout-960.webp 960w" sizes="(max-width: 860px) 92vw, 760px" width="960" height="1280" alt="Lang donker haar met zachte golven na een blowout" fetchpriority="high"></div>
+    <div class="prose">
+      <h2>Onze drie blowouts</h2>
+      <p><strong>The Classic Blowout</strong> (€40, 45 min): een zachte, volumineuze föhnstyling met een gladde, verzorgde finish. Effortless everyday glam.</p>
+      <p><strong>The Sleek Blowout</strong> (€45, 45–60 min): strak en glad, met veel glans en een gepolijste finish.</p>
+      <p><strong>The Bombshell Blowout</strong> (€55, 60 min): onze signature blowout met maximaal volume, bouncy lengtes en een glamoureuze finish. Die volle, luchtige "big hair" look.</p>
+      <h2>Wanneer kies je een blowout?</h2>
+      <p>Een blowout is ideaal vóór een bruiloft, feest of fotoshoot, maar ook gewoon als je een dag wilt stralen zonder uren aan je haar te werken. Het resultaat houdt je look meerdere dagen in vorm.</p>
+      <h2>Blowout of keratine?</h2>
+      <p>Een blowout is styling: tijdelijk, tot je je haar weer wast. Een <a href="keratine.html">keratine- of smoothing-behandeling</a> verandert de structuur van je haar voor maanden. Wil je een blijvend effect, kies dan keratine. Wil je een snelle glam-look, dan is een blowout perfect.</p>
+      <p class="note">Kom je ook voor je brows? Bekijk de <a href="../wenkbrauwen.html">wenkbrauwbehandelingen</a>.</p>
+    </div>
+    <div class="article-cta">
       <h2>Klaar voor jouw blowout?</h2>
-      <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener">Boek je blowout</a>
+      <a class="btn btn-light" href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" data-track="blog_blowouts">Boek je blowout</a>
     </div>
   </div>
-</article>
-<footer><div class="container">© 2026 Selé Beauty Studio · Elst (Gelderland) · <a href="../index.html">Home</a></div></footer>
-<!-- Cookie consent (EU) -->
-<div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1f2430;color:#e8e8ec;padding:16px 22px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:14px;box-shadow:0 -4px 24px rgba(0,0,0,.3);">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
-    <div style="flex:1;min-width:260px;line-height:1.55;">
-      We gebruiken cookies voor een optimale werking van de site.
-      <a href="../privacy.html" style="color:#8ab4ff;text-decoration:underline;">Meer info</a>
-      
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Selé <span>Beauty Studio</span></div>
+        <p class="foot-tag">Wenkbrauwen in Elst, aan de Dorpsstraat 57. Ook voor blowouts en keratine.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="../wenkbrauwen.html">Wenkbrauwen</a></li>
+          <li><a href="../blog/wenkbrauwen.html">Henna, tint of lamination?</a></li>
+          <li><a href="../blog/blowouts.html">Blowouts</a></li>
+          <li><a href="../blog/keratine.html">Keratine</a></li>
+          <li><a href="../faq.html">Veelgestelde vragen</a></li>
+          <li><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Juridisch</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacyverklaring</a></li>
+          <li><a href="../algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+          <li><a href="../cookiebeleid.html">Cookieverklaring</a></li>
+          <li><a href="../disclaimer.html">Disclaimer</a></li>
+          <li><button type="button" id="cookieReset">Cookie-instellingen</button></li>
+        </ul>
+      </div>
     </div>
-    <div style="display:flex;gap:10px;align-items:center;">
-      <button id="cookieDecline" onclick="cookieDone('declined')" style="background:transparent;color:#e8e8ec;border:1px solid #4a5060;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;">Weigeren</button>
-      <button id="cookieAccept" onclick="cookieDone('accepted')" style="background:#3b82f6;color:#fff;border:none;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">Accepteren</button>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> Selé Beauty Studio · Elst (Gelderland)</span>
+      <span>Website door <a href="https://github.com/benzanmontage-hue" target="_blank" rel="noopener">b·labs</a></span>
     </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a href="../wenkbrauwen.html#kies" class="alt">Prijzen</a>
+  <a href="https://beautystudioelst.setmore.com/" target="_blank" rel="noopener" class="book" data-track="book_mobilebar">Boek afspraak</a>
+</div>
+
+<div class="cookie" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie-toestemming" hidden>
+  <p>We gebruiken analytische cookies om te zien hoe de site gebruikt wordt. Alleen als jij dat goed vindt. <a href="../cookiebeleid.html">Meer info</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="no" data-consent="declined">Weigeren</button>
+    <button type="button" class="yes" data-consent="accepted">Accepteren</button>
   </div>
 </div>
-<script>
-function cookieDone(v){try{localStorage.setItem('cookie-consent',v);}catch(e){}var b=document.getElementById('cookieConsent');if(b){b.remove();}}
-(function(){try{if(localStorage.getItem('cookie-consent')){var b=document.getElementById('cookieConsent');if(b){b.remove();}}}catch(e){}})();
-</script>
 
+<script src="../js/site.js" defer></script>
+<script src="../chatbot.js" defer></script>
 </body>
 </html>

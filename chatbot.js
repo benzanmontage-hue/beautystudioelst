@@ -43,34 +43,44 @@
   var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
 
   var html = '<button id="seleChatBubble" aria-label="Stel een vraag via de chat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/></svg></button>' +
-  '<div id="seleChatWindow"><div class="sele-head"><div class="avatar">S</div><div class="meta"><b>Selé Assistant</b><span><span class="dot"></span> Online · antwoordt direct</span></div><button class="close" id="seleChatClose">×</button></div>' +
+  '<div id="seleChatWindow"><div class="sele-head"><div class="avatar">S</div><div class="meta"><b>Selé Assistant</b><span><span class="dot"></span> Antwoordt direct op veelgestelde vragen</span></div><button class="close" id="seleChatClose" aria-label="Chat sluiten">×</button></div>' +
   '<div class="sele-body" id="seleChatBody"></div><div class="sele-quick" id="seleQuick"></div>' +
-  '<div class="sele-foot"><input type="text" id="seleChatInput" placeholder="Stel je vraag…"><button id="seleChatSend" aria-label="Verstuur">➤</button></div></div>';
+  '<div class="sele-foot"><input type="text" id="seleChatInput" placeholder="Stel je vraag…"><button id="seleChatSend" aria-label="Verstuur"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>';
 
   document.body.insertAdjacentHTML('beforeend', html);
 
+  var BROWS = '/wenkbrauwen.html';
   var KB = [
-    {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! 👋 Welkom bij Selé Beauty Studio. Ik kan je alles vertellen over onze behandelingen, prijzen en openingstijden. Waar kan ik je mee helpen?'},
-    {k:['prijs','prijzen','kosten','tarief','tarieven','duur','hoe duur','euro','€'], r:'Dit zijn onze prijzen:<table class="pl"><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Keratin Glow (keratine)</td><td>vanaf €90</td></tr><tr><td>Marrocare Smooth</td><td>vanaf €150</td></tr><tr><td>Permanent Straight</td><td>vanaf €220</td></tr></table>'},
-    {k:['keratine','smoothing','keratin glow','marrocare','permanent','steil'], r:'💇‍♀️ <b>Keratine:</b><br>• <b>Keratin Glow (vanaf €90)</b> — zacht & pluisvrij, ±3–4 maanden<br>• <b>Marrocare Smooth (vanaf €150)</b> — tot 80% rechter, ±6 maanden<br>• <b>Permanent Straight (vanaf €220)</b> — permanent steil'},
-    {k:['blowout','fohn','föhn','volume','krullen'], r:'💨 <b>Blowouts:</b><br>• <b>Classic (€40, 45 min)</b> — volumineus, everyday glam<br>• <b>Bombshell (€55, 60 min)</b> — max volume, "big hair"<br>• <b>Sleek (€45)</b> — strak & gepolijst'},
-    {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','henna','lamination'], r:'👁️ <b>Wenkbrauwen:</b><br>• <b>Brow Shape (€20)</b> — epileren & trimmen<br>• <b>Brow Signature (€40)</b> — shaping + henna/hybrid<br>• <b>Brow Luxe (€57)</b> — lamination + hybrid tint of henna + shaping'},
-    {k:['open','openingstijden','tijd','tijden','wanneer','uren','gesloten','vandaag'], r:'🕐 <b>Openingstijden:</b><br>Ma–Wo & Vr: 10:00–17:00 · Do: 12:00–21:00 · Za: 10:00–17:00 · Zo: 12:00–17:00'},
-    {k:['waar','adres','locatie','zitten','bereiken','parkeren','elst','route'], r:'📍 Selé Beauty Studio zit in <b>Elst (Gelderland)</b>, tussen Arnhem en Nijmegen.'},
-    {k:['boek','boeken','afspraak','reserveren','plan','planning'], r:'📅 Je kunt direct online boeken:<br><a href="'+BOOK_URL+'" target="_blank" rel="noopener" class="sele-book">📅 Boek een afspraak</a>'},
-    {k:['hoelang','houdbaar','blijven','hoe lang'], r:'⏱️ Blowout: 45–60 min · Keratin Glow: ±3–4 mnd · Marrocare: ±6 mnd · Permanent: blijvend.'},
-    {k:['contact','telefoon','email','mail','instagram'], r:'📧 info@beautystudioelst.nl<br>📸 Instagram: @sele.beautystudio'},
-    {k:['dank','bedankt','top','super','perfect','oke','goed'], r:'Graag gedaan! 💕 Nog iets anders?'}
+    {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! Welkom bij Selé Beauty Studio. Ik help je graag met je brows: welke behandeling past, hoe lang het blijft en hoe je je voorbereidt. Ook voor blowouts en keratine kun je hier terecht.'},
+    {k:['welke brow','welke past','past bij mij','kiezen','twijfel','advies'], r:'<b>Welke brows passen bij jou?</b><br>• Vooral een nette basis: <b>Brow Shape</b> (€20)<br>• Meer kleur en definitie: <b>Brow Signature</b> (€40)<br>• Gelift, fluffy en voller: <b>Brow Luxe</b> (€57)<br>Twijfel je nog? Stuur een DM op Instagram, Selina denkt met je mee.<br><a href="'+BROWS+'#kies" class="sele-book">Vergelijk de behandelingen</a>'},
+    {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','shape','shapen'], r:'<b>Wenkbrauwen</b><br>• <b>Brow Shape</b> (€20, ± 30 min): epileren en/of trimmen<br>• <b>Brow Signature</b> (€40, ± 40 min): shaping + henna of hybrid tint<br>• <b>Brow Luxe</b> (€57, ± 60 min): lamination + hybrid tint of henna + shaping<br><a href="'+BROWS+'" class="sele-book">Alles over wenkbrauwen</a>'},
+    {k:['henna','hybrid','tint','verven','kleur','verschil'], r:'<b>Henna of hybrid tint</b> geven je wenkbrauwen allebei kleur en definitie. Je kiest zelf welke je wilt; twijfel je, dan denkt Selina met je mee. De kleur blijft ± 2–4 weken mooi. Je krijgt het in de <b>Brow Signature</b> (€40) en de <b>Brow Luxe</b> (€57).'},
+    {k:['lamination','lift','fluffy','laminatie'], r:'Bij een <b>brow lamination</b> worden je wenkbrauwharen gelift en in model gestyled, voor gelifte, fluffy en vollere brows. Houdt ± 6–8 weken. Zit in de <b>Brow Luxe</b> (€57, ± 60 min), samen met kleur en shaping.'},
+    {k:['pijn','pijnlijk','doet het pijn'], r:'Een lamination doet geen pijn: je ligt even lekker terwijl je brows gelift en in vorm gebracht worden.'},
+    {k:['voorbereiden','voorbereiding','make-up','makeup','nazorg','verzorgen'], r:'<b>Voor je afspraak:</b> kom bij voorkeur zonder make-up op je wenkbrauwen.<br><b>Daarna:</b> kleur blijft ± 2–4 weken mooi, een lamination ± 6–8 weken. Vraag Selina gerust hoe je je brows het beste verzorgt.'},
+    {k:['hoelang','houdbaar','blijven','hoe lang','weken','maanden'], r:'<b>Hoe lang blijft het mooi?</b><br>• Henna of hybrid tint: ± 2–4 weken<br>• Brow lamination: ± 6–8 weken<br>• Keratin Glow: ± 3–4 maanden · Marrocare: tot ± 6 maanden · Permanent Straight: blijvend<br>• Blowout: tot je je haar weer wast'},
+    {k:['prijs','prijzen','kosten','tarief','tarieven','hoe duur','euro','€'], r:'<b>Wenkbrauwen</b><table class="pl"><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr></table><br><b>Ook in de studio</b><table class="pl"><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Keratin Glow</td><td>v.a. €90</td></tr><tr><td>Marrocare Smooth</td><td>v.a. €150</td></tr><tr><td>Permanent Straight</td><td>v.a. €220</td></tr></table>Nieuwe klant? 20% korting met code <b>WELKOM20</b>.'},
+    {k:['keratine','smoothing','keratin glow','marrocare','permanent','steil','pluis'], r:'<b>Keratine & smoothing</b><br>• <b>Keratin Glow</b> (v.a. €90): zacht en pluisvrij, ± 3–4 maanden<br>• <b>Marrocare Smooth</b> (v.a. €150): tot ± 80% rechter, tot ± 6 maanden<br>• <b>Permanent Straight</b> (v.a. €220): blijvend steil'},
+    {k:['blowout','fohn','föhn','volume','krullen','haar'], r:'<b>Blowouts</b><br>• <b>Classic</b> (€40, 45 min): volumineus, everyday glam<br>• <b>Sleek</b> (€45, 45–60 min): strak en gepolijst<br>• <b>Bombshell</b> (€55, 60 min): maximaal volume, "big hair"'},
+    {k:['open','openingstijden','tijd','tijden','wanneer','uren','gesloten','vandaag'], r:'<b>Openingstijden</b><br>Ma, di, wo, vr en za: 10:00–17:00<br>Do: 12:00–21:00<br>Zo: 12:00–17:00'},
+    {k:['waar','adres','locatie','zitten','bereiken','parkeren','elst','route'], r:'Selé Beauty Studio zit aan de <b>Dorpsstraat 57, 6661 EG Elst</b> (Gelderland), tussen Arnhem en Nijmegen.<br><a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7" target="_blank" rel="noopener" class="sele-book">Route plannen</a>'},
+    {k:['boek','boeken','afspraak','reserveren','plan','planning'], r:'Je boekt direct online. Eerste keer? Met code <b>WELKOM20</b> krijg je 20% korting.<br><a href="'+BOOK_URL+'" target="_blank" rel="noopener" class="sele-book">Boek een afspraak</a>'},
+    {k:['betalen','pin','contant','tikkie','betaal'], r:'Je betaalt in de studio met pin, contant of een betaalverzoek (Tikkie).'},
+    {k:['annuleren','verplaatsen','afzeggen'], r:'Verplaatsen of annuleren kan via de link in je bevestigingsmail, graag minimaal 24 uur van tevoren.'},
+    {k:['korting','welkom20','code','actie'], r:'Nieuwe klant? Je krijgt <b>20% korting</b> op je eerste behandeling met code <b>WELKOM20</b>.'},
+    {k:['contact','telefoon','email','mail','instagram','dm'], r:'E-mail: info@beautystudioelst.nl<br>Instagram: <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">@sele.beautystudio</a>'},
+    {k:['dank','bedankt','top','super','perfect','oke','goed'], r:'Graag gedaan! Nog iets anders?'}
   ];
-  var QUICK = ['👁️ Wenkbrauwen', '💨 Blowout', '💇‍♀️ Keratine', '💶 Prijzen', '🕐 Openingstijden', '📅 Afspraak boeken'];
+  var QUICK = ['Welke brow past bij mij?', 'Henna of hybrid tint?', 'Hoe lang blijft het mooi?', 'Voorbereiden', 'Prijzen', 'Afspraak boeken', 'Blowout & keratine'];
+  var QMAP = {'Blowout & keratine':'blowout keratine','Voorbereiden':'voorbereiden'};
 
   var body = document.getElementById('seleChatBody');
   var input = document.getElementById('seleChatInput');
 
-  function answer(t){ t=t.toLowerCase(); var best=null,bs=0; for(var i=0;i<KB.length;i++){var s=0;for(var j=0;j<KB[i].k.length;j++){if(t.indexOf(KB[i].k[j])>=0)s+=KB[i].k[j].length;}if(s>bs){bs=s;best=KB[i];}} return best?best.r:'Goeie vraag! Ik kan je het beste helpen met vragen over behandelingen, prijzen, openingstijden of boeken. 😊'; }
+  function answer(t){ t=t.toLowerCase(); var best=null,bs=0; for(var i=0;i<KB.length;i++){var s=0;for(var j=0;j<KB[i].k.length;j++){if(t.indexOf(KB[i].k[j])>=0)s+=KB[i].k[j].length;}if(s>bs){bs=s;best=KB[i];}} return best?best.r:'Goeie vraag! Ik help je het beste met vragen over wenkbrauwen, prijzen, openingstijden of boeken. Voor iets anders kun je Selina een DM sturen op Instagram.'; }
   function add(t,w){ var d=document.createElement('div'); d.className='sele-msg '+w; d.innerHTML=t; body.appendChild(d); body.scrollTop=body.scrollHeight; }
   function typing(cb){ var d=document.createElement('div'); d.className='sele-typing'; d.innerHTML='<span></span><span></span><span></span>'; body.appendChild(d); body.scrollTop=body.scrollHeight; setTimeout(function(){d.remove();cb();},650); }
-  function send(t){ if(!t||!t.trim())return; add(t,'user'); input.value=''; typing(function(){add(answer(t),'bot');}); }
+  function send(t){ if(!t||!t.trim())return; add(t,'user'); input.value=''; var q=QMAP[t]||t; typing(function(){ if(q==='blowout keratine'){ add(answer('blowout'),'bot'); add(answer('keratine'),'bot'); } else add(answer(q),'bot'); }); }
 
   document.getElementById('seleChatBubble').onclick = function(){ document.getElementById('seleChatWindow').classList.toggle('open'); };
   document.getElementById('seleChatClose').onclick = function(){ document.getElementById('seleChatWindow').classList.remove('open'); };
@@ -78,5 +88,5 @@
   input.addEventListener('keydown', function(e){ if(e.key==='Enter')send(input.value); });
 
   var q = document.getElementById('seleQuick'); QUICK.forEach(function(x){ var b=document.createElement('button'); b.textContent=x; b.onclick=function(){send(x);}; q.appendChild(b); });
-  typing(function(){ add('Hoi! 👋 Welkom bij Selé Beauty Studio. Stel gerust je vraag over behandelingen, prijzen of openingstijden!','bot'); });
+  typing(function(){ add('Hoi! Ik help je graag met je brows: welke behandeling past, hoe lang het blijft en hoe je je voorbereidt. Ook voor blowouts en keratine kun je hier terecht.','bot'); });
 })();

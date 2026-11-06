@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC"></script>
+<!-- Google Analytics laadt alleen na cookie-toestemming (AVG) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H3ML3FDPHC');
+  (function(){ try{ if(localStorage.getItem('cookie-consent')!=='accepted') return; }catch(e){ return; }
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-H3ML3FDPHC'; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag; gtag('js', new Date()); gtag('config','G-H3ML3FDPHC'); })();
 </script>
 
 <meta charset="UTF-8">
