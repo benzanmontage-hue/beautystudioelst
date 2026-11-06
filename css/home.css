@@ -354,3 +354,6 @@ footer .small{font-size:12.5px;margin-top:18px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 /* secties buiten beeld pas renderen als ze in de buurt komen */
 main > section:not(.hero):not(#resultaten):not(#prijzen), footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+footer .wrap{grid-template-columns:1.4fr 1fr 1fr 1fr}
+@media (max-width:980px){footer .wrap{grid-template-columns:1fr 1fr}footer .wrap > div:first-child{grid-column:1/-1}}
+@media (max-width:560px){footer .wrap{grid-template-columns:1fr}}

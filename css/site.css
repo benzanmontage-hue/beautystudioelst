@@ -444,3 +444,13 @@ footer ul a:hover,footer ul button:hover{color:#fff}
   .compare tbody th,.compare tfoot th{position:sticky;left:0;z-index:1;background:var(--card);min-width:132px;box-shadow:6px 0 10px -8px rgba(58,44,36,.25)}
   .compare tbody tr:nth-child(odd) th{background:var(--bg)}
 }
+.hero .crumbs{margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips a{display:inline-block;border:1.5px solid var(--bg-deep);background:var(--card);border-radius:999px;padding:10px 18px;font-size:.95rem;font-weight:500;text-decoration:none;transition:border-color .2s,color .2s}
+.chips a:hover{border-color:var(--accent);color:var(--accent-ink)}
+.ticks{list-style:none;display:grid;gap:8px;margin:6px 0 4px}
+.ticks li{display:flex;gap:10px;color:var(--muted)}
+.ticks li::before{content:"✦";color:var(--accent);font-size:.8rem;line-height:1.9}
+.explain > div:last-child .ticks li{color:var(--night-muted)}
+.explain > div:last-child .ticks li::before{color:var(--rose)}
+.block{padding:var(--sec) 0}
