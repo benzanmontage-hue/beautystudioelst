@@ -5,47 +5,48 @@
   const BOOK_URL = 'https://beautystudioelst.setmore.com/';
 
   var css = `
-#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#3a2c24;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(58,44,36,.28);transition:transform .25s;z-index:90}
+#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#2B221D;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(58,44,36,.28);transition:transform .25s;z-index:90}
 #seleChatBubble:hover{transform:scale(1.08)}
-#seleChatWindow{position:fixed;bottom:96px;right:24px;width:min(380px,calc(100vw - 40px));height:560px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(58,44,36,.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transform-origin:bottom right;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .28s;opacity:0;transform:scale(.9) translateY(20px);pointer-events:none;font-family:'Inter',sans-serif}
+#seleChatWindow{position:fixed;bottom:96px;right:24px;width:min(380px,calc(100vw - 40px));height:560px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(58,44,36,.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transform-origin:bottom right;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .28s;opacity:0;transform:scale(.9) translateY(20px);pointer-events:none;font-family:'Montserrat',system-ui,sans-serif}
 #seleChatWindow.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}
-.sele-head{background:#3a2c24;color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
-.sele-head .avatar{width:42px;height:42px;border-radius:50%;background:#b57f69;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;flex-shrink:0}
+.sele-head{background:#2B221D;color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.sele-head .avatar{width:42px;height:42px;border-radius:50%;background:#7F6352;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;flex-shrink:0}
 .sele-head .meta{flex:1}.sele-head .meta b{font-family:'Playfair Display',serif;font-size:1rem;display:block}
 .sele-head .meta span{font-size:.74rem;opacity:.7;display:flex;align-items:center;gap:5px}
 .sele-head .meta .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block}
 .sele-head .close{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;opacity:.7;line-height:1}
-.sele-body{flex:1;overflow-y:auto;padding:18px;background:#faf5ee;display:flex;flex-direction:column;gap:12px}
-.sele-msg{max-width:82%;padding:11px 15px;border-radius:16px;font-size:.9rem;line-height:1.5;color:#3a2c24;animation:seleFade .3s ease}
+.sele-body{flex:1;overflow-y:auto;padding:18px;background:#FAF6F0;display:flex;flex-direction:column;gap:12px}
+.sele-msg{max-width:82%;padding:11px 15px;border-radius:16px;font-size:.9rem;line-height:1.5;color:#2B221D;animation:seleFade .3s ease}
 .sele-msg.bot{background:#fff;border:1px solid rgba(58,44,36,.1);align-self:flex-start;border-bottom-left-radius:4px}
-.sele-msg.user{background:#b57f69;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.sele-msg.user{background:#7F6352;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
 .sele-msg .pl{margin-top:8px;width:100%;border-collapse:collapse;font-size:.82rem}
 .sele-msg .pl td{padding:5px 0;border-bottom:1px solid rgba(58,44,36,.1)}
-.sele-msg .pl td:last-child{text-align:right;font-weight:600;color:#9a6751}
+.sele-msg .pl td:last-child{text-align:right;font-weight:600;color:#7A5E4D}
 .sele-msg .pl tr:last-child td{border-bottom:none}
 @keyframes seleFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .sele-typing{display:flex;gap:4px;padding:12px 15px;background:#fff;border:1px solid rgba(58,44,36,.1);border-radius:16px;align-self:flex-start;border-bottom-left-radius:4px}
-.sele-typing span{width:7px;height:7px;border-radius:50%;background:#8d7b6f;animation:seleBlink 1.2s infinite}
+.sele-typing span{width:7px;height:7px;border-radius:50%;background:#6E6259;animation:seleBlink 1.2s infinite}
 .sele-typing span:nth-child(2){animation-delay:.2s}.sele-typing span:nth-child(3){animation-delay:.4s}
 @keyframes seleBlink{0%,60%,100%{opacity:.3}30%{opacity:1}}
-.sele-quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;background:#faf5ee}
-.sele-quick button{background:#fff;border:1px solid #b57f69;color:#9a6751;font-size:.8rem;font-weight:500;padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
-.sele-quick button:hover{background:#b57f69;color:#fff}
+.sele-quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;background:#FAF6F0}
+.sele-quick button{background:#fff;border:1px solid #7F6352;color:#7A5E4D;font-size:.8rem;font-weight:500;padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:'Montserrat',system-ui,sans-serif}
+.sele-quick button:hover{background:#7F6352;color:#fff}
 .sele-foot{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid rgba(58,44,36,.1)}
-.sele-foot input{flex:1;border:1px solid rgba(58,44,36,.1);border-radius:100px;padding:11px 16px;font-size:.9rem;font-family:'Inter',sans-serif;outline:none;background:#faf5ee;color:#3a2c24}
-.sele-foot input:focus{border-color:#b57f69}
-.sele-foot button{background:#b57f69;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
-.sele-book{display:inline-block;background:#b57f69;color:#fff!important;font-size:.85rem;font-weight:600;padding:11px 22px;border-radius:100px;margin-top:8px;text-decoration:none;letter-spacing:.5px}
-#seleChatBubble:focus-visible{outline:3px solid #b57f69;outline-offset:3px}
+.sele-foot input{flex:1;border:1px solid rgba(58,44,36,.1);border-radius:100px;padding:11px 16px;font-size:.9rem;font-family:'Montserrat',system-ui,sans-serif;outline:none;background:#FAF6F0;color:#2B221D}
+.sele-foot input:focus{border-color:#7F6352}
+.sele-foot button{background:#7F6352;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sele-book{display:inline-block;background:#7F6352;color:#fff!important;font-size:.85rem;font-weight:600;padding:11px 22px;border-radius:100px;margin-top:8px;text-decoration:none;letter-spacing:.5px}
+#seleChatBubble:focus-visible{outline:3px solid #7F6352;outline-offset:3px}
+#cookieConsent:not([hidden]) ~ #seleChatBubble{opacity:0;pointer-events:none}
 @media(max-width:860px){#seleChatBubble{bottom:calc(86px + env(safe-area-inset-bottom));right:14px;width:50px;height:50px}#seleChatBubble svg{width:22px;height:22px}#seleChatWindow{bottom:calc(146px + env(safe-area-inset-bottom));right:14px}}
 `;
 
   var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
 
-  var html = '<button id="seleChatBubble" aria-label="Stel een vraag via de chat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/></svg></button>' +
-  '<div id="seleChatWindow"><div class="sele-head"><div class="avatar">S</div><div class="meta"><b>Selé Assistant</b><span><span class="dot"></span> Antwoordt direct op veelgestelde vragen</span></div><button class="close" id="seleChatClose" aria-label="Chat sluiten">×</button></div>' +
+  var html = '<button id="seleChatBubble" aria-label="Stel een vraag via de chat" aria-expanded="false" aria-controls="seleChatWindow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/></svg></button>' +
+  '<div id="seleChatWindow" role="dialog" aria-label="Chat met Selé Beauty Studio" inert><div class="sele-head"><div class="avatar">S</div><div class="meta"><b>Selé Assistant</b><span><span class="dot"></span> Antwoordt direct op veelgestelde vragen</span></div><button class="close" id="seleChatClose" aria-label="Chat sluiten">×</button></div>' +
   '<div class="sele-body" id="seleChatBody"></div><div class="sele-quick" id="seleQuick"></div>' +
-  '<div class="sele-foot"><input type="text" id="seleChatInput" placeholder="Stel je vraag…"><button id="seleChatSend" aria-label="Verstuur"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>';
+  '<div class="sele-foot"><input type="text" id="seleChatInput" placeholder="Stel je vraag…" aria-label="Typ je vraag"><button id="seleChatSend" aria-label="Verstuur"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>';
 
   document.body.insertAdjacentHTML('beforeend', html);
 
@@ -63,7 +64,7 @@
     {k:['keratine','smoothing','keratin glow','marrocare','permanent','steil','pluis'], r:'<b>Keratine & smoothing</b><br>• <b>Keratin Glow</b> (v.a. €90): zacht en pluisvrij, ± 3–4 maanden<br>• <b>Marrocare Smooth</b> (v.a. €150): tot ± 80% rechter, tot ± 6 maanden<br>• <b>Permanent Straight</b> (v.a. €220): blijvend steil'},
     {k:['blowout','fohn','föhn','volume','krullen','haar'], r:'<b>Blowouts</b><br>• <b>Classic</b> (€40, 45 min): volumineus, everyday glam<br>• <b>Sleek</b> (€45, 45–60 min): strak en gepolijst<br>• <b>Bombshell</b> (€55, 60 min): maximaal volume, "big hair"'},
     {k:['open','openingstijden','tijd','tijden','wanneer','uren','gesloten','vandaag'], r:'<b>Openingstijden</b><br>Ma, di, wo, vr en za: 10:00–17:00<br>Do: 12:00–21:00<br>Zo: 12:00–17:00'},
-    {k:['waar','adres','locatie','zitten','bereiken','parkeren','elst','route'], r:'Selé Beauty Studio zit aan de <b>Dorpsstraat 57, 6661 EG Elst</b> (Gelderland), tussen Arnhem en Nijmegen.<br><a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7" target="_blank" rel="noopener" class="sele-book">Route plannen</a>'},
+    {k:['waar','adres','locatie','zitten','bereiken','elst','route'], r:'Selé Beauty Studio zit aan de <b>Dorpsstraat 57, 6661 EG Elst</b> (Gelderland), tussen Arnhem en Nijmegen.<br><a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7" target="_blank" rel="noopener" class="sele-book">Route plannen</a>'},
     {k:['boek','boeken','afspraak','reserveren','plan','planning'], r:'Je boekt direct online.<br><a href="'+BOOK_URL+'" target="_blank" rel="noopener" class="sele-book">Boek een afspraak</a>'},
     {k:['betalen','pin','contant','tikkie','betaal'], r:'Je betaalt in de studio met pin, contant of een betaalverzoek (Tikkie).'},
     {k:['annuleren','verplaatsen','afzeggen'], r:'Verplaatsen of annuleren kan via de link in je bevestigingsmail, graag minimaal 24 uur van tevoren.'},
@@ -81,8 +82,11 @@
   function typing(cb){ var d=document.createElement('div'); d.className='sele-typing'; d.innerHTML='<span></span><span></span><span></span>'; body.appendChild(d); body.scrollTop=body.scrollHeight; setTimeout(function(){d.remove();cb();},650); }
   function send(t){ if(!t||!t.trim())return; add(t,'user'); input.value=''; var q=QMAP[t]||t; typing(function(){ if(q==='blowout keratine'){ add(answer('blowout'),'bot'); add(answer('keratine'),'bot'); } else add(answer(q),'bot'); }); }
 
-  document.getElementById('seleChatBubble').onclick = function(){ document.getElementById('seleChatWindow').classList.toggle('open'); };
-  document.getElementById('seleChatClose').onclick = function(){ document.getElementById('seleChatWindow').classList.remove('open'); };
+  var win=document.getElementById('seleChatWindow'), bub=document.getElementById('seleChatBubble');
+  function setChat(o){ win.classList.toggle('open',o); bub.setAttribute('aria-expanded',o); if(o){ win.removeAttribute('inert'); setTimeout(function(){ input.focus(); },50); } else { win.setAttribute('inert',''); } }
+  bub.onclick = function(){ setChat(!win.classList.contains('open')); };
+  document.getElementById('seleChatClose').onclick = function(){ setChat(false); bub.focus(); };
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && win.classList.contains('open')){ setChat(false); bub.focus(); } });
   document.getElementById('seleChatSend').onclick = function(){ send(input.value); };
   input.addEventListener('keydown', function(e){ if(e.key==='Enter')send(input.value); });
 

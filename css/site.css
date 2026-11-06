@@ -153,7 +153,7 @@ p{text-wrap:pretty}
 .compare tbody th{text-align:left;font-weight:500;color:var(--muted);padding-left:26px}
 .compare tbody tr:nth-child(odd){background:var(--bg)}
 .compare .yes{color:var(--accent-ink);font-weight:700}
-.compare .no{color:#b8a89c}
+.compare .no{color:#8f7f74}
 .compare tfoot td,.compare tfoot th{padding:16px 18px 22px}
 .compare tfoot th{text-align:left;padding-left:26px;font-weight:500;color:var(--muted)}
 
@@ -308,13 +308,13 @@ footer{background:var(--night);color:var(--night-muted);padding:72px 0 calc(32px
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:56px}
 footer .brand{color:var(--night-ink)}
 footer .brand span{color:var(--rose)}
-footer h4{font-family:var(--serif);color:var(--night-ink);font-size:1.15rem;font-weight:600;margin-bottom:14px}
+footer h4,footer .fh{font-family:var(--serif);color:var(--night-ink);font-size:1.15rem;font-weight:500;margin-bottom:14px;letter-spacing:0;line-height:1.2}
 footer ul{list-style:none;display:grid;gap:4px}
-footer ul a,footer ul button{text-decoration:none;display:inline-block;padding:5px 0;transition:color .2s;background:none;border:0;cursor:pointer;color:inherit;text-align:left}
+footer ul a,footer ul button{text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:0;transition:color .2s;background:none;border:0;cursor:pointer;color:inherit;text-align:left}
 footer ul a:hover,footer ul button:hover{color:#fff}
 .foot-tag{margin-top:16px;max-width:24em}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.85rem;padding-top:26px;border-top:1px solid rgba(255,255,255,.1)}
-.foot-bottom a{text-decoration:none}
+.foot-bottom a{text-decoration:none;display:inline-block;padding:12px 0}
 .foot-bottom a:hover{color:#fff}
 
 /* mobiele balk */

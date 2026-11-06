@@ -71,6 +71,7 @@
   $$('[data-year]').forEach(function(y){ y.textContent=new Date().getFullYear(); });
 
   // cookies
+  function clearGA(){window['ga-disable-G-H3ML3FDPHC']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(n.indexOf('_ga')===0){var h=location.hostname;['',h,'.'+h,'.'+h.replace(/^www\./,'')].forEach(function(d){document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:'');});}});}
   var cc=$('#cookieConsent');
   if(cc){
     var showCookie=function(){ cc.hidden=false; };
@@ -80,10 +81,10 @@
         var v=b.getAttribute('data-consent');
         try{ localStorage.setItem('cookie-consent',v); }catch(e){}
         cc.hidden=true;
-        if(v==='accepted' && window.loadGA) window.loadGA();
+        if(v==='accepted' && window.loadGA) window.loadGA(); else clearGA();
       });
     });
     var cr=$('#cookieReset');
-    if(cr) cr.addEventListener('click',function(){ try{ localStorage.removeItem('cookie-consent'); }catch(e){} showCookie(); });
+    if(cr) cr.addEventListener('click',function(){ try{ localStorage.removeItem('cookie-consent'); }catch(e){} clearGA(); showCookie(); });
   }
 })();
