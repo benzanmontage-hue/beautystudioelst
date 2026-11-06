@@ -454,3 +454,7 @@ footer ul a:hover,footer ul button:hover{color:#fff}
 .explain > div:last-child .ticks li{color:var(--night-muted)}
 .explain > div:last-child .ticks li::before{color:var(--rose)}
 .block{padding:var(--sec) 0}
+.hair-pairs{display:grid;gap:22px;margin:10px 0 6px}
+.hair-pairs figure{margin:0;border-radius:22px;overflow:hidden;background:var(--card)}
+.hair-pairs img{width:100%;aspect-ratio:1450/960;object-fit:cover}
+.hair-pairs figcaption{padding:12px 16px;font-size:.92rem;color:var(--muted)}
