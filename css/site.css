@@ -1,10 +1,11 @@
+@font-face{font-family:"Montserrat";src:url(../fonts/montserrat.woff) format("woff");font-weight:400 700;font-style:normal;font-display:swap}
 /* Selé Beauty Studio — gedeelde stijl (homepage, wenkbrauwen, blogs) */
 :root{
-  --bg:#faf5ee; --bg-soft:#f3eae0; --bg-deep:#ead9c9; --card:#fffdfa;
-  --ink:#3a2c24; --muted:#6f5f54;
-  --accent:#9a6751; --accent-ink:#8a5a45; --accent-dark:#7d503d;
-  --night:#2f241e; --night-ink:#efe4d9; --night-muted:#c9b3a3; --rose:#d4a48e;
-  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+  --bg:#FAF6F0; --bg-soft:#F3ECE3; --bg-deep:#EADFD3; --card:#FFFFFF;
+  --ink:#2B221D; --muted:#6E6259;
+  --accent:#7F6352; --accent-ink:#7A5E4D; --accent-dark:#6A5144;
+  --night:#2B221D; --night-ink:#F6EFE8; --night-muted:#CDBDB0; --rose:#D9BFAE;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
   --gutter:clamp(18px,4vw,40px); --max:1200px;
   --sec:clamp(84px,11vw,150px);
   --ease:cubic-bezier(.22,1,.36,1);
@@ -22,7 +23,7 @@ button{font:inherit;color:inherit}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 .skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:200}
 .skip:focus{left:12px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
 h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}
 p{text-wrap:pretty}
 .lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);max-width:34em}
@@ -47,6 +48,7 @@ p{text-wrap:pretty}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
 .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;outline:2px solid var(--bg-deep)}
+.brand.logo img{width:auto;height:40px;border-radius:0;outline:0}
 .brand span{color:var(--accent-ink);font-weight:500}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a:not(.btn){font-size:.98rem;font-weight:500;text-decoration:none;color:var(--ink);opacity:.82;transition:opacity .2s,color .2s}
