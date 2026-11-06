@@ -150,6 +150,7 @@ section.panel-soft{background:var(--soft)}
 .also{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .alsocard{background:var(--soft);border:1px solid var(--gold);border-radius:var(--r);padding:24px 26px;display:grid;gap:10px;align-content:start}
 .alsocard h3{font-size:26px}
+.alsocard .desc{color:var(--muted);font-size:14.5px;margin:0}
 .alsocard ul{list-style:none;padding:0;margin:4px 0 6px;display:grid}
 .alsocard li a{display:flex;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none}
 .alsocard li:last-child a{border-bottom:0}
