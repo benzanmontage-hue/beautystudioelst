@@ -459,7 +459,7 @@ footer ul a:hover,footer ul button:hover{color:#fff}
 .hair-pairs img{width:100%;aspect-ratio:1450/960;object-fit:cover}
 .hair-pairs figcaption{padding:12px 16px;font-size:.92rem;color:var(--muted)}
 
-/* prijslijst per behandeling (blowouts, keratine) */
+/* prijslijst per behandeling (blowouts, lash lift) */
 .prose .svc{list-style:none;padding:0;margin:18px 0 34px;display:grid;gap:12px}
 .prose .svc li{margin:0;color:var(--ink,#2B221D);font-size:1rem}
 .prose .svc h3{color:var(--ink,#2B221D)}
@@ -481,3 +481,11 @@ footer ul a:hover,footer ul button:hover{color:#fff}
 /* chat zit in de onderbalk op mobiel */
 .mbar .chat{flex:0 0 50px;background:rgba(255,255,255,.1);color:#fff;border:0;border-radius:100px;display:flex;align-items:center;justify-content:center;cursor:pointer}
 @media (max-width:860px){#seleChatBubble{display:none!important}}
+
+/* lash lift-pagina */
+.lash-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:36px;display:block}
+.prose .svc .svc-fav{background:var(--night);border-color:var(--night)}
+.prose .svc .svc-fav h3,.prose .svc .svc-fav .svc-p{color:var(--night-ink)}
+.prose .svc .svc-fav p,.prose .svc .svc-fav .svc-m{color:var(--night-muted)}
+.prose .svc .svc-fav .svc-b{background:var(--night-ink);color:var(--night)}
+.lash-prose{max-width:820px}
