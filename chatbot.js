@@ -5,7 +5,7 @@
   const BOOK_URL = 'https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5';
 
   var css = `
-#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#2B221D;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(58,44,36,.28);transition:transform .25s;z-index:90}
+#seleChatBubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#2B221D;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #FAF6F0,0 8px 24px rgba(58,44,36,.28);transition:transform .25s;z-index:90}
 #seleChatBubble:hover{transform:scale(1.08)}
 #seleChatWindow{position:fixed;bottom:96px;right:24px;width:min(380px,calc(100vw - 40px));height:560px;max-height:calc(100vh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(58,44,36,.25);display:flex;flex-direction:column;overflow:hidden;z-index:1000;transform-origin:bottom right;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .28s;opacity:0;transform:scale(.9) translateY(20px);pointer-events:none;font-family:'Montserrat',system-ui,sans-serif}
 #seleChatWindow.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}
@@ -14,7 +14,7 @@
 .sele-head .meta{flex:1}.sele-head .meta b{font-family:'Playfair Display',serif;font-size:1rem;display:block}
 .sele-head .meta span{font-size:.74rem;opacity:.7;display:flex;align-items:center;gap:5px}
 .sele-head .meta .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block}
-.sele-head .close{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;opacity:.7;line-height:1}
+.sele-head .close{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;opacity:.85;line-height:1;width:44px;height:44px;display:grid;place-items:center}
 .sele-body{flex:1;overflow-y:auto;padding:18px;background:#FAF6F0;display:flex;flex-direction:column;gap:12px}
 .sele-msg{max-width:82%;padding:11px 15px;border-radius:16px;font-size:.9rem;line-height:1.5;color:#2B221D;animation:seleFade .3s ease}
 .sele-msg.bot{background:#fff;border:1px solid rgba(58,44,36,.1);align-self:flex-start;border-bottom-left-radius:4px}
@@ -29,10 +29,10 @@
 .sele-typing span:nth-child(2){animation-delay:.2s}.sele-typing span:nth-child(3){animation-delay:.4s}
 @keyframes seleBlink{0%,60%,100%{opacity:.3}30%{opacity:1}}
 .sele-quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;background:#FAF6F0}
-.sele-quick button{background:#fff;border:1px solid #7F6352;color:#7A5E4D;font-size:.8rem;font-weight:500;padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:'Montserrat',system-ui,sans-serif}
+.sele-quick button{min-height:44px;background:#fff;border:1px solid #7F6352;color:#7A5E4D;font-size:.8rem;font-weight:500;padding:8px 14px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:'Montserrat',system-ui,sans-serif}
 .sele-quick button:hover{background:#7F6352;color:#fff}
 .sele-foot{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid rgba(58,44,36,.1)}
-.sele-foot input{flex:1;border:1px solid rgba(58,44,36,.1);border-radius:100px;padding:11px 16px;font-size:.9rem;font-family:'Montserrat',system-ui,sans-serif;outline:none;background:#FAF6F0;color:#2B221D}
+.sele-foot input{flex:1;border:1px solid rgba(58,44,36,.1);border-radius:100px;padding:11px 16px;font-size:16px;font-family:'Montserrat',system-ui,sans-serif;outline:none;background:#FAF6F0;color:#2B221D}
 .sele-foot input:focus{border-color:#7F6352}
 .sele-foot button{background:#7F6352;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px}
 .sele-book{display:inline-block;background:#7F6352;color:#fff!important;font-size:.85rem;font-weight:600;padding:11px 22px;border-radius:100px;margin-top:8px;text-decoration:none;letter-spacing:.5px}
@@ -52,17 +52,18 @@
 
   var BROWS = '/wenkbrauwen.html';
   var KB = [
-    {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! Welkom bij Selé Beauty Studio. Ik help je graag met je brows: welke behandeling past, hoe lang het blijft en hoe je je voorbereidt. Ook voor blowouts en keratine kun je hier terecht.'},
+    {k:['hoi','hallo','hey','goedendag','hi'], r:'Hoi! Welkom bij Selé Beauty Studio. Ik help je graag met je brows en lash lift: welke behandeling past, wat het kost en hoe je je voorbereidt. Ook voor blowouts kun je hier terecht.'},
     {k:['welke brow','welke past','past bij mij','kiezen','twijfel','advies'], r:'<b>Welke brows passen bij jou?</b><br>• Vooral een nette basis: <b>Brow Shape</b> (€20)<br>• Meer kleur en definitie: <b>Brow Signature</b> (€40)<br>• Gelift, fluffy en voller: <b>Brow Luxe</b> (€57)<br>Twijfel je nog? Stuur een DM op Instagram, Selina denkt met je mee.<br><a href="'+BROWS+'#kies" class="sele-book">Vergelijk de behandelingen</a>'},
     {k:['wenkbrauw','wenkbrauwen','brow','brows','epileren','shape','shapen'], r:'<b>Wenkbrauwen</b><br>• <b>Brow Shape</b> (€20, ± 25 min): epileren en/of trimmen<br>• <b>Brow Signature</b> (€40, ± 40 min): shaping + henna of hybrid tint<br>• <b>Brow Luxe</b> (€57, ± 60 min): lamination + hybrid tint of henna + shaping<br><a href="'+BROWS+'" class="sele-book">Alles over wenkbrauwen</a>'},
     {k:['henna','hybrid','tint','verven','kleur','verschil'], r:'<b>Henna of hybrid tint</b> geven je wenkbrauwen allebei kleur en definitie. Je kiest zelf welke je wilt; twijfel je, dan denkt Selina met je mee. De kleur blijft ± 2–4 weken mooi. Je krijgt het in de <b>Brow Signature</b> (€40) en de <b>Brow Luxe</b> (€57).'},
     {k:['lamination','lift','fluffy','laminatie'], r:'Bij een <b>brow lamination</b> worden je wenkbrauwharen gelift en in model gestyled, voor gelifte, fluffy en vollere brows. Houdt ± 6–8 weken. Zit in de <b>Brow Luxe</b> (€57, ± 60 min), samen met kleur en shaping.'},
-    {k:['pijn','pijnlijk','doet het pijn'], r:'Een lamination doet geen pijn: je ligt even lekker terwijl je brows gelift en in vorm gebracht worden.'},
+    {k:['pijn','pijnlijk','doet het pijn'], r:'Lamination is voor de meeste klanten goed te doen: je ligt rustig terwijl je brows gelift en in vorm gebracht worden. Epileren kan even prikken. Heb je een gevoelige huid? Meld het vooraf, dan houdt Selina er rekening mee.'},
     {k:['voorbereiden','voorbereiding','make-up','makeup','nazorg','verzorgen'], r:'<b>Voor je afspraak:</b> kom bij voorkeur zonder make-up op je wenkbrauwen.<br><b>Daarna:</b> kleur blijft ± 2–4 weken mooi, een lamination ± 6–8 weken. Vraag Selina gerust hoe je je brows het beste verzorgt.'},
-    {k:['hoelang','houdbaar','blijven','hoe lang','weken','maanden'], r:'<b>Hoe lang blijft het mooi?</b><br>• Henna of hybrid tint: ± 2–4 weken<br>• Brow lamination: ± 6–8 weken<br>• Botox Glow: ± 3–4 maanden · Marrocare: tot ± 6 maanden · Permanent Straight: blijvend<br>• Blowout: tot je je haar weer wast'},
-    {k:['prijs','prijzen','kosten','tarief','tarieven','hoe duur','euro','€'], r:'<b>Wenkbrauwen</b><table class="pl"><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr></table><br><b>Ook in de studio</b><table class="pl"><tr><td>Classic Blowout</td><td>€40</td></tr><tr><td>Sleek Blowout</td><td>€45</td></tr><tr><td>Bombshell Blowout</td><td>€55</td></tr><tr><td>Botox Glow</td><td>v.a. €90</td></tr><tr><td>Marrocare Smooth</td><td>v.a. €150</td></tr><tr><td>Permanent Straight</td><td>v.a. €220</td></tr></table>'},
-    {k:['keratine','smoothing','keratin glow','botox glow','botox','marrocare','permanent','steil','pluis'], r:'<b>Keratine & smoothing</b><br>• <b>Botox Glow</b> (v.a. €90): zacht en pluisvrij, ± 3–4 maanden<br>• <b>Marrocare Smooth</b> (v.a. €150): tot ± 80% rechter, tot ± 6 maanden<br>• <b>Permanent Straight</b> (v.a. €220): blijvend steil'},
-    {k:['blowout','fohn','föhn','volume','krullen','haar'], r:'<b>Blowouts</b><br>• <b>Classic</b> (€40, 45 min): volumineus, everyday glam<br>• <b>Sleek</b> (€45, 45 min): strak en gepolijst<br>• <b>Bombshell</b> (€55, 60 min): maximaal volume, "big hair"'},
+    {k:['hoelang','houdbaar','blijven','hoe lang','weken','maanden'], r:'<b>Hoe lang blijft het mooi?</b><br>• Henna of hybrid tint: ± 2–4 weken<br>• Brow lamination: ± 6–8 weken<br>• Lash lift: meestal ± 6–8 weken<br>• Blowout: tot je je haar weer wast'},
+    {k:['duurt','hoe lang duurt','duur','behandeltijd','tijd kwijt'], r:'<b>Hoe lang duurt de afspraak?</b><table class="pl"><tr><td>Brow Shape</td><td>± 25 min</td></tr><tr><td>Brow Signature</td><td>± 40 min</td></tr><tr><td>Brow Luxe</td><td>± 1 uur</td></tr><tr><td>The Classic Blowout</td><td>45 min</td></tr><tr><td>The Sleek Blowout</td><td>45 min</td></tr><tr><td>The Bombshell Blowout</td><td>1 uur</td></tr></table>Voor een lash lift: stuur even een DM, dan hoor je hoe lang je afspraak duurt.'},
+    {k:['prijs','prijzen','kosten','kost','tarief','tarieven','hoe duur','euro','€'], r:'<b>Wenkbrauwen</b><table class="pl"><tr><td>Brow Shape</td><td>€20</td></tr><tr><td>Brow Signature</td><td>€40</td></tr><tr><td>Brow Luxe</td><td>€57</td></tr></table><br><b>Wimpers</b><table class="pl"><tr><td>Lash lift</td><td>€50</td></tr><tr><td>Wimpers verven</td><td>€20</td></tr><tr><td>Brow Luxe + lash lift</td><td>€95</td></tr></table><br><b>Blowouts</b><table class="pl"><tr><td>The Classic Blowout</td><td>€40</td></tr><tr><td>The Sleek Blowout</td><td>€45</td></tr><tr><td>The Bombshell Blowout</td><td>€55</td></tr></table>'},
+    {k:['lash','lashlift','lash lift','wimper','wimpers','krul','verven','combi','combinatie'], r:'<b>Lash lift & wimpers</b><br>• <b>Lash lift</b> (€50): je eigen wimpers gelift en gekruld, meestal ± 6–8 weken mooi<br>• <b>Wimpers verven</b> (€20)<br>• <b>Combi Brow Luxe + lash lift</b> (€95, los €107)<br><br>Houd je wimpers de eerste 24 uur droog. <a href="/lash-lift/">Alles over lash lift</a>'},
+    {k:['blowout','fohn','föhn','volume','haar'], r:'<b>Blowouts</b><br>• <b>Classic</b> (€40, 45 min): volumineus, everyday glam<br>• <b>Sleek</b> (€45, 45 min): strak en gepolijst<br>• <b>Bombshell</b> (€55, 60 min): maximaal volume, "big hair"'},
     {k:['open','openingstijden','tijd','tijden','wanneer','uren','gesloten','vandaag'], r:'<b>Openingstijden</b><br>Ma, di, wo, vr en za: 10:00–17:00<br>Do: 12:00–21:00<br>Zo: 12:00–17:00'},
     {k:['waar','adres','locatie','zitten','bereiken','elst','route'], r:'Selé Beauty Studio zit aan de <b>Dorpsstraat 57, 6661 EG Elst</b> (Gelderland), tussen Arnhem en Nijmegen.<br><a href="https://maps.app.goo.gl/BmvqbKFkTvpZPRbR7" target="_blank" rel="noopener" class="sele-book">Route plannen</a>'},
     {k:['boek','boeken','afspraak','reserveren','plan','planning'], r:'Je boekt direct online.<br><a href="'+BOOK_URL+'" target="_blank" rel="noopener" class="sele-book">Boek een afspraak</a>'},
@@ -71,16 +72,16 @@
     {k:['contact','telefoon','email','mail','instagram','dm'], r:'E-mail: info@beautystudioelst.nl<br>Instagram: <a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">@sele.beautystudio</a>'},
     {k:['dank','bedankt','top','super','perfect','oke','goed'], r:'Graag gedaan! Nog iets anders?'}
   ];
-  var QUICK = ['Welke brow past bij mij?', 'Henna of hybrid tint?', 'Hoe lang blijft het mooi?', 'Voorbereiden', 'Prijzen', 'Afspraak boeken', 'Blowout & keratine'];
-  var QMAP = {'Blowout & keratine':'blowout keratine','Voorbereiden':'voorbereiden'};
+  var QUICK = ['Welke brow past bij mij?', 'Henna of hybrid tint?', 'Hoe lang blijft het mooi?', 'Voorbereiden', 'Prijzen', 'Afspraak boeken', 'Lash lift'];
+  var QMAP = {'Lash lift':'lash lift','Voorbereiden':'voorbereiden'};
 
   var body = document.getElementById('seleChatBody');
   var input = document.getElementById('seleChatInput');
 
-  function answer(t){ t=t.toLowerCase(); var best=null,bs=0; for(var i=0;i<KB.length;i++){var s=0;for(var j=0;j<KB[i].k.length;j++){if(t.indexOf(KB[i].k[j])>=0)s+=KB[i].k[j].length;}if(s>bs){bs=s;best=KB[i];}} return best?best.r:'Goeie vraag! Ik help je het beste met vragen over wenkbrauwen, prijzen, openingstijden of boeken. Voor iets anders kun je Selina een DM sturen op Instagram.'; }
-  function add(t,w){ var d=document.createElement('div'); d.className='sele-msg '+w; d.innerHTML=t; body.appendChild(d); body.scrollTop=body.scrollHeight; }
+  function answer(t){ t=t.toLowerCase(); var best=null,bs=0; for(var i=0;i<KB.length;i++){var s=0;for(var j=0;j<KB[i].k.length;j++){var kw=KB[i].k[j];if(kw.length<=3&&/^[a-z]+$/.test(kw)?new RegExp('(^|[^a-zà-ÿ])'+kw+'([^a-zà-ÿ]|$)').test(t):t.indexOf(kw)>=0)s+=kw.length;}if(s>bs){bs=s;best=KB[i];}} return best?best.r:'Goeie vraag! Ik help je het beste met vragen over wenkbrauwen, prijzen, openingstijden of boeken. Voor iets anders kun je Selina een DM sturen op Instagram.'; }
+  function add(t,w){ var d=document.createElement('div'); d.className='sele-msg '+w; if(w==='user'){d.textContent=t;}else{d.innerHTML=t;} body.appendChild(d); body.scrollTop=body.scrollHeight; }
   function typing(cb){ var d=document.createElement('div'); d.className='sele-typing'; d.innerHTML='<span></span><span></span><span></span>'; body.appendChild(d); body.scrollTop=body.scrollHeight; setTimeout(function(){d.remove();cb();},650); }
-  function send(t){ if(!t||!t.trim())return; add(t,'user'); input.value=''; var q=QMAP[t]||t; typing(function(){ if(q==='blowout keratine'){ add(answer('blowout'),'bot'); add(answer('keratine'),'bot'); } else add(answer(q),'bot'); }); }
+  function send(t){ if(!t||!t.trim())return; add(t,'user'); var qk=document.getElementById('seleQuick'); if(qk&&qk.children.length>4){ for(var j=4;j<qk.children.length;j++)qk.children[j].hidden=true; } input.value=''; var q=QMAP[t]||t; typing(function(){ add(answer(q),'bot'); }); }
 
   var win=document.getElementById('seleChatWindow'), bub=document.getElementById('seleChatBubble');
   function setChat(o){ win.classList.toggle('open',o); bub.setAttribute('aria-expanded',o); if(o){ win.removeAttribute('inert'); setTimeout(function(){ input.focus(); },50); } else { win.setAttribute('inert',''); } }
@@ -91,5 +92,5 @@
   input.addEventListener('keydown', function(e){ if(e.key==='Enter')send(input.value); });
 
   var q = document.getElementById('seleQuick'); QUICK.forEach(function(x){ var b=document.createElement('button'); b.textContent=x; b.onclick=function(){send(x);}; q.appendChild(b); });
-  typing(function(){ add('Hoi! Ik help je graag met je brows: welke behandeling past, hoe lang het blijft en hoe je je voorbereidt. Ook voor blowouts en keratine kun je hier terecht.','bot'); });
+  typing(function(){ add('Hoi! Ik help je graag met je brows en lash lift: welke behandeling past, wat het kost en hoe je je voorbereidt. Ook voor blowouts kun je hier terecht.','bot'); });
 })();
