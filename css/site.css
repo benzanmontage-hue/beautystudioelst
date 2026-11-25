@@ -489,3 +489,10 @@ footer ul a:hover,footer ul button:hover{color:#fff}
 .prose .svc .svc-fav p,.prose .svc .svc-fav .svc-m{color:var(--night-muted)}
 .prose .svc .svc-fav .svc-b{background:var(--night-ink);color:var(--night)}
 .lash-prose{max-width:820px}
+/* reviews (over Selina) */
+.revs{display:grid;grid-template-columns:1fr;gap:14px;margin:16px 0 8px}
+.rev{margin:0;background:var(--card);border:1px solid rgba(43,34,29,.1);border-radius:20px;padding:20px 22px;display:grid;gap:10px}
+.rev-stars{color:#C9A227;letter-spacing:2px;font-size:15px}
+.rev blockquote{margin:0;font-family:var(--serif);font-size:1.15rem;line-height:1.45;color:var(--ink)}
+.rev figcaption{font-size:.9rem;color:var(--muted)}
+@media (min-width:860px){.revs{grid-template-columns:1fr 1fr 1fr}.lash-prose .revs{grid-template-columns:1fr}}
