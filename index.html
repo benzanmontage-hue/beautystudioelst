@@ -216,6 +216,35 @@
      }
     ]
    }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Welke behandeling past bij mij?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Wil je een nette basis, kies dan Brow Shape (€20). Voor meer kleur en definitie past Brow Signature (€40). Voor gelifte, fluffy en vollere brows kies je Brow Luxe (€57). Twijfel je? Doe de brow check of stuur een DM."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe lang blijft het mooi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Henna of hybrid tint blijft ± 2–4 weken mooi. Een brow lamination en een lash lift houden meestal ± 6–8 weken."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hoe maak ik een afspraak?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Online via de knop \"Afspraak maken\", of via Instagram. Verplaatsen of annuleren kan tot 24 uur vooraf via je bevestigingsmail."
+     }
+    }
+   ]
   }
  ]
 }
@@ -235,14 +264,10 @@
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Selé Beauty Studio, naar boven"><img src="images/mark-light.webp" alt="Selé Beauty Studio" width="240" height="140"></a>
     <nav class="main" id="nav" aria-label="Hoofdmenu">
-      <a href="#prijzen">Prijzen</a>
       <a href="wenkbrauwen.html">Wenkbrauwen</a>
       <a href="lash-lift/">Lash lift</a>
-      <a href="blog/blowouts.html">Blowouts</a>
-      <a href="#resultaten">Resultaten</a>
-      <a href="#selina">Over Selina</a>
+      <a href="prijzen/">Prijzen</a>
       <a href="faq.html">Vragen</a>
-      <a href="#contact">Contact</a>
       <a class="btn btn-gold nav-book" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_menu">Afspraak maken</a>
     </nav>
     <a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_nav">Afspraak maken</a>
@@ -257,33 +282,73 @@
     <div class="wrap">
       <div class="hero-copy">
         <div class="hero-logo"><img src="images/logo-light.webp" alt="Selé Beauty Studio" width="420" height="332"></div>
-        <p class="badge"><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Brows &amp; lashes in Elst</p>
+        <p class="badge"><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Wenkbrauwstudio in Elst</p>
         <h1>Wenkbrauwen op maat in Elst</h1>
         <p class="tagline">Brows · Lash lift · Blowout</p>
-        <p class="lede">Selina kijkt eerst naar jouw gezicht en natuurlijke vorm, en maakt dan brows die echt bij je passen. Ook voor een lash lift. Persoonlijk, 1 op 1, tussen Arnhem en Nijmegen.</p>
-        <div class="cta-row" id="heroCta">
-          <a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_hero">Afspraak maken</a>
-          <a class="btn btn-ghost" href="#brow-check">Doe de brow check</a>
-        </div>
-        <a class="hero-price" href="#prijzen" aria-label="Brow Signature, €40. Bekijk alle prijzen" data-track="hero_prijzen">
-          <svg class="hp-spark" viewBox="0 0 32 32" aria-hidden="true"><use href="#spark" width="20" height="20" x="10" y="2"/><use href="#spark" width="12" height="12" x="2" y="16"/></svg>
-          <span class="hp-text"><span class="hp-label">Brow Signature · henna of hybrid tint</span><span class="hp-price">€40 <small>± 40 min</small></span><span class="hp-list">Ook: Brow Shape €20 · Lash lift €50</span></span>
-          <span class="hp-more"><span class="hp-more-t">Alle prijzen</span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></span>
-        </a>
-        <div class="trust">
-          <a class="g-rate" href="#reviews"><span class="g-stars" aria-hidden="true">★★★★★</span> 5,0 op Google · 13 reviews</a>
-          <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Altijd 1 op 1 met Selina</span>
-          <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Pin, contant of Tikkie</span>
-          <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Verplaatsen tot 24 uur vooraf</span>
+        <p class="lede">Selina kijkt eerst naar jouw gezicht en natuurlijke vorm, en maakt dan brows die echt bij je passen.</p>
+        <div class="choices" id="heroCta">
+          <a class="btn btn-gold" href="#brow-check" data-track="hero_check">Doe de brow check</a>
+          <a class="btn btn-ghost" href="prijzen/" data-track="hero_prijzen">Bekijk pakketten en prijzen</a>
+          <a class="btn deal" href="lash-lift/#prijzen-lash" data-track="hero_combi">Combi: Brow Luxe + lash lift €95</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="proof" aria-label="Waarom Selé">
+    <div class="wrap">
+      <a href="#reviews"><span class="g-stars" aria-hidden="true">★★★★★</span> <b>5,0</b> op Google · 13 reviews</a>
+      <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Altijd 1 op 1 met Selina</span>
+      <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>8 jaar ervaring</span>
+      <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>Dorpsstraat 57, Elst</span>
+    </div>
+  </div>
+
+  <section id="stappen">
+    <div class="wrap">
+      <div class="head center"><p class="eyebrow">Zo werkt het</p><h2>In 3 stappen nieuwe brows</h2></div>
+      <div class="steps">
+        <div class="step reveal"><span class="n">i.</span><h3>Kies je moment</h3><p>Boek online of stuur een DM op Instagram.</p></div>
+        <div class="step reveal"><span class="n">ii.</span><h3>Samen kijken</h3><p>Selina kijkt naar je gezicht en natuurlijke vorm, en zegt eerlijk wat bij je past.</p></div>
+        <div class="step reveal"><span class="n">iii.</span><h3>Je nieuwe brows</h3><p>Shapen, kleur of lift. Je betaalt in de studio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultaten" style="padding-top:0">
+    <div class="wrap">
+      <div class="ba-lead">
+        <div>
+          <div class="ba" id="ba">
+            <img src="img/brows-c-voor-554.webp" srcset="img/brows-c-voor-480.webp 480w, img/brows-c-voor-554.webp 554w" sizes="(max-width: 880px) 92vw, 620px" width="554" height="369" alt="Voor: natuurlijke, ongevormde wenkbrauwen" draggable="false" loading="lazy" decoding="async">
+            <img class="after" src="img/brows-c-na-554.webp" srcset="img/brows-c-na-480.webp 480w, img/brows-c-na-554.webp 554w" sizes="(max-width: 880px) 92vw, 620px" width="554" height="369" alt="Na: strak gevormde, gelifte en ingekleurde wenkbrauwen bij Selé" draggable="false" loading="lazy" decoding="async">
+            <span class="line"></span>
+            <span class="lbl l-na">Na</span><span class="lbl l-voor">Voor</span>
+            <input type="range" id="baRange" min="0" max="100" value="65" aria-label="Schuif om voor en na te vergelijken">
+            <span class="knob" aria-hidden="true">⟷</span>
+          </div>
+          <p class="hint-drag">Sleep de knop, zie het verschil <i></i></p>
+        </div>
+        <div class="head" style="margin:0">
+          <p class="eyebrow">Resultaten</p>
+          <h2>Zie zelf het verschil</h2>
+          <p class="lede">Sleep de knop of scroll verder. Dit is een echte klant van Selé, voor en na haar brow-behandeling.</p>
+        </div>
+      </div>
+      <div class="head" style="margin:clamp(48px,6vw,72px) 0 24px"><h3 style="font-size:clamp(26px,3vw,34px)">Wenkbrauwen</h3><p class="lede">Echte klanten van Selé, net na hun brow-behandeling.</p></div>
+      <div class="results">
+        <figure class="reveal st"><div class="ph"><img src="img/brows-d-voor-na-720.webp" srcset="img/brows-d-voor-na-720.webp 720w, img/brows-d-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: dunne, ongelijke brows worden vol, strak en gedefinieerd" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
+        <figure class="reveal st"><div class="ph"><img src="img/brows-e-voor-na-720.webp" srcset="img/brows-e-voor-na-720.webp 720w, img/brows-e-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: lichte brows krijgen meer kleur, vorm en lift" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
+        <figure class="reveal sb"><div class="ph"><img src="img/brows-f-voor-na-720.webp" srcset="img/brows-f-voor-na-720.webp 720w, img/brows-f-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: van ongevormd naar strak gevormde, volle brows" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
+      </div>
+      <p class="fine">Echte klanten van Selé, gedeeld met hun toestemming. Resultaten verschillen per persoon.</p>
     </div>
   </section>
 
   <section id="prijzen">
     <div class="wrap">
       <div class="head center">
-        <p class="eyebrow">Prijzen</p>
+        <p class="eyebrow">Pakketten</p>
         <h2>Wat kost het?</h2>
         <p class="lede">Drie brow-behandelingen, van een nette basis tot een complete brow make-over. Daarnaast lash lift en blowouts.</p>
       </div>
@@ -311,10 +376,6 @@
           <div class="buy"><p class="price">€57</p><a class="btn btn-ghost" href="https://beauty-studio-elst.rocketplanner.nl/boeken/professional?items=3b52dab7-bf95-4cf4-8080-e794def9dfca%3A&amp;vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_luxe">Boek Brow Luxe</a></div>
         </article>
       </div>
-      <div class="welkom reveal">
-        <p>Twijfel je welke behandeling bij je past? <b>Doe de brow check</b> en zie meteen je advies.</p>
-        <a class="btn btn-ghost" href="#brow-check" data-track="prijzen_check">Doe de brow check</a>
-      </div>
       <div class="also" id="ook">
         <div class="alsocard lashcard reveal">
           <p class="tier">Nieuw bij Selé</p>
@@ -330,6 +391,7 @@
           <a class="more" href="blog/blowouts.html">Welke blowout past bij jou?</a>
         </div>
       </div>
+      <p class="allprices"><a class="btn btn-ghost" href="prijzen/" data-track="prijzen_all">Alle behandelingen en prijzen</a></p>
       <div class="included">
         <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg><b>Altijd inbegrepen:</b></span>
         <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>persoonlijk advies</span>
@@ -337,37 +399,6 @@
         <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>betalen in de studio</span>
         <span><svg class="star" aria-hidden="true"><use href="#spark"/></svg>verplaatsen tot 24 uur vooraf</span>
       </div>
-    </div>
-  </section>
-
-  <section id="resultaten" style="padding-top:0">
-    <div class="wrap">
-      <div class="ba-lead">
-        <div>
-          <div class="ba" id="ba">
-            <img src="img/brows-c-voor-554.webp" srcset="img/brows-c-voor-480.webp 480w, img/brows-c-voor-554.webp 554w" sizes="(max-width: 880px) 92vw, 620px" width="554" height="369" alt="Voor: natuurlijke, ongevormde wenkbrauwen" draggable="false" loading="lazy" decoding="async">
-            <img class="after" src="img/brows-c-na-554.webp" srcset="img/brows-c-na-480.webp 480w, img/brows-c-na-554.webp 554w" sizes="(max-width: 880px) 92vw, 620px" width="554" height="369" alt="Na: strak gevormde, gelifte en ingekleurde wenkbrauwen bij Selé" draggable="false" loading="lazy" decoding="async">
-            <span class="line"></span>
-            <span class="lbl l-na">Na</span><span class="lbl l-voor">Voor</span>
-            <input type="range" id="baRange" min="0" max="100" value="65" aria-label="Schuif om voor en na te vergelijken">
-            <span class="knob" aria-hidden="true">⟷</span>
-          </div>
-          <p class="hint-drag">Sleep de knop, zie het verschil <i></i></p>
-        </div>
-        <div class="head" style="margin:0">
-          <p class="eyebrow">Resultaten</p>
-          <h2>Zie zelf het verschil</h2>
-          <p class="lede">Sleep de knop of scroll verder. Dit is een echte klant van Selé, voor en na haar brow-behandeling.</p>
-          <div class="cta-row" style="margin-top:8px"><a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_results">Dit wil ik ook</a></div>
-        </div>
-      </div>
-      <div class="head" style="margin:clamp(48px,6vw,72px) 0 24px"><h3 style="font-size:clamp(26px,3vw,34px)">Wenkbrauwen</h3><p class="lede">Echte klanten van Selé, net na hun brow-behandeling.</p></div>
-      <div class="results">
-        <figure class="reveal st"><div class="ph"><img src="img/brows-d-voor-na-720.webp" srcset="img/brows-d-voor-na-720.webp 720w, img/brows-d-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: dunne, ongelijke brows worden vol, strak en gedefinieerd" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
-        <figure class="reveal st"><div class="ph"><img src="img/brows-e-voor-na-720.webp" srcset="img/brows-e-voor-na-720.webp 720w, img/brows-e-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: lichte brows krijgen meer kleur, vorm en lift" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
-        <figure class="reveal sb"><div class="ph"><img src="img/brows-f-voor-na-720.webp" srcset="img/brows-f-voor-na-720.webp 720w, img/brows-f-voor-na-1200.webp 1200w" sizes="(max-width: 780px) 84vw, 380px" width="720" height="720" alt="Wenkbrauwen voor en na: van ongevormd naar strak gevormde, volle brows" loading="lazy" decoding="async"><span class="pv">Voor</span><span class="pn">Na</span></div><figcaption>Voor &amp; na</figcaption></figure>
-      </div>
-      <p class="fine">Echte klanten van Selé, gedeeld met hun toestemming. Resultaten verschillen per persoon.</p>
     </div>
   </section>
 
@@ -414,6 +445,20 @@
     </div>
   </section>
 
+  <section id="reviews">
+    <div class="wrap">
+      <div class="head center"><h2>Wat klanten zeggen</h2><p class="lede"><span class="g-stars" aria-hidden="true">★★★★★</span> <b>5,0</b> op Google, uit 13 reviews.</p></div>
+      <div class="revs">
+        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Je voelt je meteen op je gemak bij haar en ze neemt echt de tijd voor je. Ze werkt heel netjes en professioneel en het resultaat is prachtig!”</blockquote><figcaption><b>Kaylee D.</b> · Google-review</figcaption></figure>
+        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Ik heb bij Selé mijn wenkbrauwen laten epileren, brow lamination gedaan en mijn haar laten föhnen. Ik ben heel blij met het resultaat.”</blockquote><figcaption><b>Dilana T.</b> · Google-review</figcaption></figure>
+        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Altijd fijn om door Selina behandeld te worden! Ze werkt hygiënisch, zorgvuldig en professioneel, met iedere keer weer een prachtig resultaat.”</blockquote><figcaption><b>Vaste klant</b> · Google-review</figcaption></figure>
+      </div>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8" target="_blank" rel="noopener" data-track="reviews_read">Lees alle reviews op Google</a>
+      </div>
+    </div>
+  </section>
+
   <section id="selina">
     <div class="wrap studio">
       <div>
@@ -427,23 +472,21 @@
           <li><svg class="star" aria-hidden="true"><use href="#spark"/></svg><span><b>Op maat.</b> Geen standaardvorm, maar brows die bij jouw gezicht passen.</span></li>
           <li><svg class="star" aria-hidden="true"><use href="#spark"/></svg><span><b>Oog voor detail.</b> Het moment dat je in de spiegel kijkt en écht blij bent, daar doe ik het voor.</span></li>
         </ul>
-        <div class="cta-row"><a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_selina">Boek een afspraak bij Selina</a></div>
+        <div class="cta-row"><a class="btn btn-ghost" href="over-selina/" data-track="selina_more">Meer over Selina</a></div>
       </div>
       <div class="portrait"><img src="img/selina-studio-960.webp" srcset="img/selina-studio-480.webp 480w, img/selina-studio-960.webp 960w" sizes="(max-width: 880px) 92vw, 440px" width="960" height="1273" alt="Selina, eigenaresse van Selé Beauty Studio, in haar studio in Elst" loading="lazy" decoding="async"></div>
     </div>
   </section>
 
-  <section id="reviews">
-    <div class="wrap">
-      <div class="head center"><h2>Wat klanten zeggen</h2><p class="lede"><span class="g-stars" aria-hidden="true">★★★★★</span> <b>5,0</b> op Google, uit 13 reviews.</p></div>
-      <div class="revs">
-        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Je voelt je meteen op je gemak bij haar en ze neemt echt de tijd voor je. Ze werkt heel netjes en professioneel en het resultaat is prachtig!”</blockquote><figcaption><b>Kaylee D.</b> · Google-review</figcaption></figure>
-        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Ik heb bij Selé mijn wenkbrauwen laten epileren, brow lamination gedaan en mijn haar laten föhnen. Ik ben heel blij met het resultaat.”</blockquote><figcaption><b>Dilana T.</b> · Google-review</figcaption></figure>
-        <figure class="rev reveal"><div class="rev-stars" aria-label="5 van 5 sterren">★★★★★</div><blockquote>“Altijd fijn om door Selina behandeld te worden! Ze werkt hygiënisch, zorgvuldig en professioneel, met iedere keer weer een prachtig resultaat.”</blockquote><figcaption><b>Vaste klant</b> · Google-review</figcaption></figure>
+  <section id="vragen" style="padding-top:0">
+    <div class="wrap faq">
+      <div class="head">
+        <p class="eyebrow">Vragen</p>
+        <h2>Goed om te weten</h2>
+        <p class="lede">De drie vragen die we het vaakst krijgen. Alle antwoorden staan op de vragenpagina.</p>
+        <div class="cta-row"><a class="btn btn-ghost" href="faq.html" data-track="faq_all">Alle vragen</a></div>
       </div>
-      <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-ghost" href="https://maps.app.goo.gl/F7qwN65Jc9XQQHiu8" target="_blank" rel="noopener" data-track="reviews_read">Lees alle reviews op Google</a>
-        <a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_reviews">Afspraak maken</a>
+      <div><details><summary>Welke behandeling past bij mij?</summary><p>Wil je een nette basis, kies dan Brow Shape (€20). Voor meer kleur en definitie past Brow Signature (€40). Voor gelifte, fluffy en vollere brows kies je Brow Luxe (€57). Twijfel je? Doe de brow check of stuur een DM.</p></details><details><summary>Hoe lang blijft het mooi?</summary><p>Henna of hybrid tint blijft ± 2–4 weken mooi. Een brow lamination en een lash lift houden meestal ± 6–8 weken.</p></details><details><summary>Hoe maak ik een afspraak?</summary><p>Online via de knop "Afspraak maken", of via Instagram. Verplaatsen of annuleren kan tot 24 uur vooraf via je bevestigingsmail.</p></details>
       </div>
     </div>
   </section>
@@ -488,13 +531,6 @@
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="wrap">
-      <h2>Klaar voor je nieuwe brows of lashes?</h2>
-      <p class="lede" style="margin:14px auto 0">Boek online en kies een moment dat jou past.</p>
-      <div class="cta-row"><a class="btn btn-gold" href="https://beauty-studio-elst.rocketplanner.nl/boeken/services?vestiging=b6883ba7-9c05-437d-85f0-2fd46ba888a5" target="_blank" rel="noopener" data-track="book_ctaband">Afspraak maken</a><a class="btn btn-ghost" href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Stuur een DM</a></div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -507,11 +543,11 @@
     </div>
     <div>
       <h2 class="fh">Studio</h2>
-      <a href="#prijzen">Prijzen</a><a href="wenkbrauwen.html">Wenkbrauwen</a><a href="brow-lamination/">Brow lamination</a><a href="henna-brows/">Henna brows</a><a href="wenkbrauwen-epileren/">Wenkbrauwen epileren</a><a href="lash-lift/">Lash lift</a><a href="blog/blowouts.html">Blowouts</a><a href="blog/wenkbrauwen.html">Henna, tint of lamination?</a><a href="faq.html">Veelgestelde vragen</a><a href="faq.html#nazorg">Nazorg</a><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener">Facebook</a>
+      <a href="prijzen/">Behandelingen &amp; prijzen</a><a href="wenkbrauwen.html">Wenkbrauwen</a><a href="brow-lamination/">Brow lamination</a><a href="henna-brows/">Henna brows</a><a href="wenkbrauwen-epileren/">Wenkbrauwen epileren</a><a href="lash-lift/">Lash lift</a><a href="blog/blowouts.html">Blowouts</a><a href="blog/wenkbrauwen.html">Henna, tint of lamination?</a><a href="over-selina/">Over Selina</a><a href="faq.html">Veelgestelde vragen</a><a href="faq.html#nazorg">Nazorg</a><a href="https://www.instagram.com/sele.beautystudio" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61592986087496" target="_blank" rel="noopener">Facebook</a>
     </div>
     <div>
       <h2 class="fh">In de regio</h2>
-      <div class="fcols"><a href="wenkbrauwen-arnhem/">Arnhem</a><a href="wenkbrauwen-nijmegen/">Nijmegen</a><a href="wenkbrauwen-bemmel/">Bemmel</a><a href="wenkbrauwen-huissen/">Huissen</a><a href="wenkbrauwen-driel/">Driel</a><a href="wenkbrauwen-zetten/">Zetten</a><a href="wenkbrauwen-lent/">Lent</a><a href="wenkbrauwen-wageningen/">Wageningen</a><a href="wenkbrauwen-heteren/">Heteren</a><a href="wenkbrauwen-oosterbeek/">Oosterbeek</a><a href="wenkbrauwen-renkum/">Renkum</a><a href="wenkbrauwen-gendt/">Gendt</a><a href="wenkbrauwen-westervoort/">Westervoort</a><a href="wenkbrauwen-beuningen/">Beuningen</a></div>
+      <a href="wenkbrauwen-arnhem/">Arnhem</a><a href="wenkbrauwen-nijmegen/">Nijmegen</a><a href="wenkbrauwen-regio/">Overige plaatsen</a>
     </div>
     <div>
       <h2 class="fh">Informatie</h2>
